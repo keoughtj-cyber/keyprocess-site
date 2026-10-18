@@ -87,6 +87,7 @@ section { padding: 72px 0; }
 .steps p { color: var(--ink-soft); }
 
 .results { background: var(--bg); }
+.case-title { margin-top: 64px; }
 .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 8px 0 32px; }
 .stat { background: var(--ink); color: #fff; border-radius: var(--radius); padding: 24px; }
 .stat-num { display: block; font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-weight: 800; color: var(--accent); line-height: 1.1; margin-bottom: 6px; }
