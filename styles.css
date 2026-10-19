@@ -161,6 +161,18 @@ section { padding: 88px 0; }
 .bar.after span { color: var(--green); text-shadow: none; padding-left: calc(var(--w) + 14px); }
 @keyframes grow { from { width: 0; } }
 
+.ba-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; display: flex; flex-direction: column; }
+.ba-card h3 { margin-bottom: 18px; }
+.ba-before, .ba-after { display: flex; flex-direction: column; border-radius: 12px; padding: 14px 16px; }
+.ba-before { background: #fdecec; }
+.ba-after { background: #e3f6ee; margin-top: 10px; }
+.ba-before span, .ba-after span { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+.ba-before span { color: #c24141; }
+.ba-after span { color: var(--green); }
+.ba-before s { color: #8a3b3b; font-size: 1.1rem; font-weight: 600; text-decoration-thickness: 2px; }
+.ba-after b { color: var(--green); font-size: 2.2rem; line-height: 1.1; }
+.ba-note { color: var(--ink-soft); margin: 16px 0 0; font-size: 0.95rem; }
+
 /* Results page header stats */
 .hero-stats { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
 .hero-stats div { background: var(--ink); color: #fff; border-radius: 12px; padding: 14px 20px; min-width: 200px; }
