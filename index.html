@@ -240,11 +240,11 @@
           <p class="section-lead">Move the sliders to match your team. Most offices are surprised by the number.</p>
           <div class="calc-inputs">
             <label for="c-hours">Staff hours per week on repetitive tasks <output id="o-hours">15</output></label>
-            <input type="range" id="c-hours" min="5" max="80" step="1" value="15">
+            <input type="range" id="c-hours" min="2" max="80" step="1" value="15">
             <label for="c-rate">Average hourly staff cost <output id="o-rate">$25</output></label>
-            <input type="range" id="c-rate" min="18" max="60" step="1" value="25">
+            <input type="range" id="c-rate" min="15" max="60" step="1" value="25">
             <label for="c-share">Share of that work automated <output id="o-share">60%</output></label>
-            <input type="range" id="c-share" min="40" max="90" step="5" value="60">
+            <input type="range" id="c-share" min="20" max="90" step="5" value="60">
           </div>
         </div>
         <div class="calc-result" aria-live="polite">
@@ -358,8 +358,7 @@
         $('r-save').textContent = money(save);
         $('r-hours').textContent = Math.round(h * 52 * sh).toLocaleString('en-US');
         var weeks = weekly > 0 ? Math.ceil(1000 / weekly) : 0;
-        var months = Math.round(weeks / 4.33);
-        $('r-pay').textContent = weeks <= 12 ? weeks + (weeks === 1 ? ' week' : ' weeks') : 'about ' + months + ' months';
+        $('r-pay').textContent = weeks + (weeks === 1 ? ' week' : ' weeks');
       }
       ['c-hours', 'c-rate', 'c-share'].forEach(function (id) { $(id).addEventListener('input', update); });
       update();
