@@ -1,4 +1,5 @@
-// Renders a 1200x630 featured image for a blog post into blog/images/<slug>.jpg.
+// Renders a 1200x630 featured image for a blog post into blog/images/<slug>.jpg
+// (for social posts and the RSS feed) and a lighter <slug>.webp (for the site).
 // Usage: NODE_PATH=$(npm root -g) node docs/blog-image.js <slug> "<title>" "<category>"
 const path = require("path");
 const fs = require("fs");
@@ -41,6 +42,20 @@ const html = `<!doctype html><html><head><meta charset="utf-8"><style>
   const page = await browser.newPage({ viewport: { width: 1200, height: 630 } });
   await page.setContent(html);
   await page.screenshot({ path: out, type: "jpeg", quality: 88 });
+  const png = (await page.screenshot({ type: "png" })).toString("base64");
+  const webp = await page.evaluate(async (src) => {
+    const img = new Image();
+    img.src = src;
+    await img.decode();
+    const canvas = document.createElement("canvas");
+    canvas.width = img.width;
+    canvas.height = img.height;
+    canvas.getContext("2d").drawImage(img, 0, 0);
+    return canvas.toDataURL("image/webp", 0.82).split(",")[1];
+  }, "data:image/png;base64," + png);
+  const webpOut = out.replace(/\.jpg$/, ".webp");
+  fs.writeFileSync(webpOut, Buffer.from(webp, "base64"));
   await browser.close();
   console.log(out, fs.statSync(out).size, "bytes");
+  console.log(webpOut, fs.statSync(webpOut).size, "bytes");
 })();
