@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Free Automation Audit | KeyProcess Automation Services</title>
+  <meta name="description" content="Request a free automation audit for your property management company. Tell us how your team works, and we'll show you what to automate first and what it could save.">
+  <link rel="canonical" href="https://www.keyprocessautomation.com/audit">
+  <meta property="og:title" content="Free Automation Audit | KeyProcess Automation Services">
+  <meta property="og:description" content="Request a free automation audit for your property management company. Tell us how your team works, and we'll show you what to automate first and what it could save.">
+  <meta property="og:url" content="https://www.keyprocessautomation.com/audit">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="KeyProcess Automation Services">
+  <meta property="og:image" content="https://www.keyprocessautomation.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#14213d">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="logo" href="/"><img class="logo-img" src="logo.svg" alt="KeyProcess Automation Services logo" width="46" height="46"> KeyProcess Automation Services</a>
+      <nav class="nav" aria-label="Main">
+        <a href="/results">Results</a>
+        <a href="/#services">Services</a>
+        <a href="/#calculator">Savings</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#faq">FAQ</a>
+        <a class="btn btn-small" href="/audit">Free audit</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow">Free automation audit</p>
+        <h1>Find out what your team could stop doing by hand</h1>
+        <p class="section-lead">Tell us how your property management team works today, and we'll come back with a short audit: the tasks worth automating first, the time you could get back, and what it would take. It takes about 5 minutes, and there's no obligation.</p>
+      </div>
+    </section>
+
+    <section class="form-section">
+      <div class="wrap">
+    <form class="audit-form" method="post" action="/api/audit" novalidate>
+      <p class="form-note">Fields marked <em>*</em> are required.</p>
+      <div class="form-step">
+        <h2><span class="step-num">1</span> About you</h2>
+        <div class="field-row">
+        <label class="field"><span class="q">First name <em>*</em></span><input type="text" name="First name" required autocomplete="given-name"></label>
+        <label class="field"><span class="q">Last name <em>*</em></span><input type="text" name="Last name" required autocomplete="family-name"></label>
+        </div>
+        <div class="field-row">
+        <label class="field"><span class="q">Work email <em>*</em></span><input type="email" name="Work email" required autocomplete="email"></label>
+        <label class="field"><span class="q">Phone</span><input type="tel" name="Phone" autocomplete="tel"></label>
+        </div>
+        <div class="field-row">
+        <label class="field"><span class="q">Company name <em>*</em></span><input type="text" name="Company name" required autocomplete="organization"></label>
+        <label class="field"><span class="q">Company website</span><input type="text" name="Company website" autocomplete="url"></label>
+        </div>
+        <fieldset class="field"><legend class="q">Your role <em>*</em></legend>
+          <div class="options">
+            <label><input type="radio" name="Your role" value="Owner or principal" required> Owner or principal</label>
+            <label><input type="radio" name="Your role" value="Operations or general manager"> Operations or general manager</label>
+            <label><input type="radio" name="Your role" value="Property manager"> Property manager</label>
+            <label><input type="radio" name="Your role" value="Leasing"> Leasing</label>
+            <label><input type="radio" name="Your role" value="Maintenance coordinator"> Maintenance coordinator</label>
+            <label><input type="radio" name="Your role" value="Accounting or bookkeeping"> Accounting or bookkeeping</label>
+            <label class="other"><input type="radio" name="Your role" value="Other"> Other: <input type="text" name="Your role (other)" aria-label="Other, please specify"></label>
+          </div>
+        </fieldset>
+      </div>
+      <div class="form-step">
+        <h2><span class="step-num">2</span> Your portfolio</h2>
+        <fieldset class="field"><legend class="q">How many units do you manage? <em>*</em></legend>
+          <div class="options">
+            <label><input type="radio" name="How many units do you manage?" value="Under 100" required> Under 100</label>
+            <label><input type="radio" name="How many units do you manage?" value="100 to 499"> 100 to 499</label>
+            <label><input type="radio" name="How many units do you manage?" value="500 to 1,999"> 500 to 1,999</label>
+            <label><input type="radio" name="How many units do you manage?" value="2,000 to 4,999"> 2,000 to 4,999</label>
+            <label><input type="radio" name="How many units do you manage?" value="5,000 or more"> 5,000 or more</label>
+          </div>
+        </fieldset>
+        <fieldset class="field" data-required><legend class="q">What types of properties? <em>*</em></legend>
+          <div class="options">
+            <label><input type="checkbox" name="What types of properties?" value="Single-family homes"> Single-family homes</label>
+            <label><input type="checkbox" name="What types of properties?" value="Small multifamily (2 to 20 units)"> Small multifamily (2 to 20 units)</label>
+            <label><input type="checkbox" name="What types of properties?" value="Large multifamily"> Large multifamily</label>
+            <label><input type="checkbox" name="What types of properties?" value="HOA or condo associations"> HOA or condo associations</label>
+            <label><input type="checkbox" name="What types of properties?" value="Commercial"> Commercial</label>
+            <label><input type="checkbox" name="What types of properties?" value="Student or short-term rentals"> Student or short-term rentals</label>
+            <label class="other"><input type="checkbox" name="What types of properties?" value="Other"> Other: <input type="text" name="What types of properties? (other)" aria-label="Other, please specify"></label>
+          </div>
+          <span class="field-error" hidden>Please choose at least one.</span>
+        </fieldset>
+        <fieldset class="field"><legend class="q">How many people are on your team? <em>*</em></legend>
+          <div class="options">
+            <label><input type="radio" name="How many people are on your team?" value="Just me" required> Just me</label>
+            <label><input type="radio" name="How many people are on your team?" value="2 to 5"> 2 to 5</label>
+            <label><input type="radio" name="How many people are on your team?" value="6 to 15"> 6 to 15</label>
+            <label><input type="radio" name="How many people are on your team?" value="16 to 50"> 16 to 50</label>
+            <label><input type="radio" name="How many people are on your team?" value="More than 50"> More than 50</label>
+          </div>
+        </fieldset>
+      </div>
+      <div class="form-step">
+        <h2><span class="step-num">3</span> Where your time goes</h2>
+        <fieldset class="field" data-required><legend class="q">Which areas take the most manual work? <em>*</em></legend>
+          <div class="options options-2">
+            <label><input type="checkbox" name="Which areas take the most manual work?" value="Leasing inquiries and lead follow-up"> Leasing inquiries and lead follow-up</label>
+            <label><input type="checkbox" name="Which areas take the most manual work?" value="Scheduling showings"> Scheduling showings</label>
+            <label><input type="checkbox" name="Which areas take the most manual work?" value="Applications and screening"> Applications and screening</label>
+            <label><input type="checkbox" name="Which areas take the most manual work?" value="Move-ins and move-outs"> Move-ins and move-outs</label>
+            <label><input type="checkbox" name="Which areas take the most manual work?" value="Maintenance requests and work orders"> Maintenance requests and work orders</label>
+            <label><input type="checkbox" name="Which areas take the most manual work?" value="Vendor coordination and invoices"> Vendor coordination and invoices</label>
+            <label><input type="checkbox" name="Which areas take the most manual work?" value="Rent collection and delinquency follow-up"> Rent collection and delinquency follow-up</label>
+            <label><input type="checkbox" name="Which areas take the most manual work?" value="Lease renewals"> Lease renewals</label>
+            <label><input type="checkbox" name="Which areas take the most manual work?" value="Inspections"> Inspections</label>
+            <label><input type="checkbox" name="Which areas take the most manual work?" value="Owner reporting"> Owner reporting</label>
+            <label><input type="checkbox" name="Which areas take the most manual work?" value="Bookkeeping and reconciliation"> Bookkeeping and reconciliation</label>
+            <label><input type="checkbox" name="Which areas take the most manual work?" value="Compliance, licensing, and certificates"> Compliance, licensing, and certificates</label>
+            <label><input type="checkbox" name="Which areas take the most manual work?" value="Listing and marketing vacancies"> Listing and marketing vacancies</label>
+            <label><input type="checkbox" name="Which areas take the most manual work?" value="Tenant communication"> Tenant communication</label>
+            <label class="other"><input type="checkbox" name="Which areas take the most manual work?" value="Other"> Other: <input type="text" name="Which areas take the most manual work? (other)" aria-label="Other, please specify"></label>
+          </div>
+          <span class="field-error" hidden>Please choose at least one.</span>
+        </fieldset>
+        <label class="field"><span class="q">If you could hand off one task tomorrow, what would it be? <em>*</em></span><span class="help">Walk us through how it&#x27;s done today, step by step. The more detail, the better the audit.</span><textarea name="If you could hand off one task tomorrow, what would it be?" rows="4" required></textarea></label>
+        <fieldset class="field"><legend class="q">About how many hours a week does your team spend on repetitive admin work? <em>*</em></legend>
+          <div class="options">
+            <label><input type="radio" name="About how many hours a week does your team spend on repetitive admin work?" value="Less than 5" required> Less than 5</label>
+            <label><input type="radio" name="About how many hours a week does your team spend on repetitive admin work?" value="5 to 10"> 5 to 10</label>
+            <label><input type="radio" name="About how many hours a week does your team spend on repetitive admin work?" value="10 to 20"> 10 to 20</label>
+            <label><input type="radio" name="About how many hours a week does your team spend on repetitive admin work?" value="20 to 40"> 20 to 40</label>
+            <label><input type="radio" name="About how many hours a week does your team spend on repetitive admin work?" value="More than 40"> More than 40</label>
+          </div>
+        </fieldset>
+        <fieldset class="field"><legend class="q">What is that work costing you?</legend>
+          <div class="options options-2">
+            <label><input type="checkbox" name="What is that work costing you?" value="Leads that go cold"> Leads that go cold</label>
+            <label><input type="checkbox" name="What is that work costing you?" value="Slow responses to tenants or owners"> Slow responses to tenants or owners</label>
+            <label><input type="checkbox" name="What is that work costing you?" value="Data entry errors"> Data entry errors</label>
+            <label><input type="checkbox" name="What is that work costing you?" value="Missed deadlines or renewals"> Missed deadlines or renewals</label>
+            <label><input type="checkbox" name="What is that work costing you?" value="Overtime or extra hires"> Overtime or extra hires</label>
+            <label><input type="checkbox" name="What is that work costing you?" value="Staff burnout"> Staff burnout</label>
+            <label><input type="checkbox" name="What is that work costing you?" value="Growth we can&#x27;t take on"> Growth we can&#x27;t take on</label>
+            <label class="other"><input type="checkbox" name="What is that work costing you?" value="Other"> Other: <input type="text" name="What is that work costing you? (other)" aria-label="Other, please specify"></label>
+          </div>
+        </fieldset>
+      </div>
+      <div class="form-step">
+        <h2><span class="step-num">4</span> Your tools</h2><p class="step-lead">This helps us scope your audit. We work with whatever you already use, so there&#x27;s no need to switch anything.</p>
+        <fieldset class="field"><legend class="q">Which property management software do you use? <em>*</em></legend>
+          <div class="options options-2">
+            <label><input type="radio" name="Which property management software do you use?" value="AppFolio" required> AppFolio</label>
+            <label><input type="radio" name="Which property management software do you use?" value="Buildium"> Buildium</label>
+            <label><input type="radio" name="Which property management software do you use?" value="Yardi"> Yardi</label>
+            <label><input type="radio" name="Which property management software do you use?" value="Rent Manager"> Rent Manager</label>
+            <label><input type="radio" name="Which property management software do you use?" value="Propertyware"> Propertyware</label>
+            <label><input type="radio" name="Which property management software do you use?" value="Entrata"> Entrata</label>
+            <label><input type="radio" name="Which property management software do you use?" value="RealPage"> RealPage</label>
+            <label><input type="radio" name="Which property management software do you use?" value="DoorLoop"> DoorLoop</label>
+            <label><input type="radio" name="Which property management software do you use?" value="Rentvine"> Rentvine</label>
+            <label><input type="radio" name="Which property management software do you use?" value="None, we use spreadsheets"> None, we use spreadsheets</label>
+            <label class="other"><input type="radio" name="Which property management software do you use?" value="Other"> Other: <input type="text" name="Which property management software do you use? (other)" aria-label="Other, please specify"></label>
+          </div>
+        </fieldset>
+        <fieldset class="field"><legend class="q">Which email and calendar do you use? <em>*</em></legend>
+          <div class="options">
+            <label><input type="radio" name="Which email and calendar do you use?" value="Google (Gmail and Google Calendar)" required> Google (Gmail and Google Calendar)</label>
+            <label><input type="radio" name="Which email and calendar do you use?" value="Microsoft (Outlook and Microsoft 365)"> Microsoft (Outlook and Microsoft 365)</label>
+            <label class="other"><input type="radio" name="Which email and calendar do you use?" value="Other"> Other: <input type="text" name="Which email and calendar do you use? (other)" aria-label="Other, please specify"></label>
+          </div>
+        </fieldset>
+        <fieldset class="field"><legend class="q">What else does your team use day to day?</legend>
+          <div class="options options-2">
+            <label><input type="checkbox" name="What else does your team use day to day?" value="Spreadsheets (Excel or Google Sheets)"> Spreadsheets (Excel or Google Sheets)</label>
+            <label><input type="checkbox" name="What else does your team use day to day?" value="Accounting software (QuickBooks or similar)"> Accounting software (QuickBooks or similar)</label>
+            <label><input type="checkbox" name="What else does your team use day to day?" value="A separate maintenance or work order app"> A separate maintenance or work order app</label>
+            <label><input type="checkbox" name="What else does your team use day to day?" value="E-signature"> E-signature</label>
+            <label><input type="checkbox" name="What else does your team use day to day?" value="Texting or a phone system"> Texting or a phone system</label>
+            <label><input type="checkbox" name="What else does your team use day to day?" value="A CRM or leasing tool"> A CRM or leasing tool</label>
+            <label><input type="checkbox" name="What else does your team use day to day?" value="Online forms"> Online forms</label>
+            <label class="other"><input type="checkbox" name="What else does your team use day to day?" value="Other"> Other: <input type="text" name="What else does your team use day to day? (other)" aria-label="Other, please specify"></label>
+          </div>
+        </fieldset>
+        <label class="field"><span class="q">Which reports do you pull or send on a regular basis?</span><span class="help">For example, a weekly delinquency report, monthly owner statements, or a daily work order list.</span><textarea name="Which reports do you pull or send on a regular basis?" rows="4"></textarea></label>
+        <fieldset class="field"><legend class="q">Do you have admin access to your software?</legend>
+          <div class="options">
+            <label><input type="radio" name="Do you have admin access to your software?" value="Yes"> Yes</label>
+            <label><input type="radio" name="Do you have admin access to your software?" value="No, but someone on our team does"> No, but someone on our team does</label>
+            <label><input type="radio" name="Do you have admin access to your software?" value="Not sure"> Not sure</label>
+          </div>
+        </fieldset>
+      </div>
+      <div class="form-step">
+        <h2><span class="step-num">5</span> Next steps</h2>
+        <label class="field"><span class="q">What would a win look like 90 days from now?</span><textarea name="What would a win look like 90 days from now?" rows="4"></textarea></label>
+        <fieldset class="field"><legend class="q">When are you hoping to get started? <em>*</em></legend>
+          <div class="options">
+            <label><input type="radio" name="When are you hoping to get started?" value="As soon as possible" required> As soon as possible</label>
+            <label><input type="radio" name="When are you hoping to get started?" value="Within 30 days"> Within 30 days</label>
+            <label><input type="radio" name="When are you hoping to get started?" value="In 1 to 3 months"> In 1 to 3 months</label>
+            <label><input type="radio" name="When are you hoping to get started?" value="Just exploring for now"> Just exploring for now</label>
+          </div>
+        </fieldset>
+        <fieldset class="field"><legend class="q">Do you have a budget in mind?</legend>
+          <div class="options">
+            <label><input type="radio" name="Do you have a budget in mind?" value="Not yet, I&#x27;d like to see the audit first"> Not yet, I&#x27;d like to see the audit first</label>
+            <label><input type="radio" name="Do you have a budget in mind?" value="Under $1,000"> Under $1,000</label>
+            <label><input type="radio" name="Do you have a budget in mind?" value="$1,000 to $3,000"> $1,000 to $3,000</label>
+            <label><input type="radio" name="Do you have a budget in mind?" value="$3,000 to $6,000"> $3,000 to $6,000</label>
+            <label><input type="radio" name="Do you have a budget in mind?" value="More than $6,000"> More than $6,000</label>
+          </div>
+        </fieldset>
+        <fieldset class="field"><legend class="q">Have you tried automation before?</legend>
+          <div class="options">
+            <label><input type="radio" name="Have you tried automation before?" value="No, this would be our first time"> No, this would be our first time</label>
+            <label><input type="radio" name="Have you tried automation before?" value="Yes, and it worked well"> Yes, and it worked well</label>
+            <label><input type="radio" name="Have you tried automation before?" value="Yes, but it didn&#x27;t stick"> Yes, but it didn&#x27;t stick</label>
+          </div>
+        </fieldset>
+        <fieldset class="field"><legend class="q">How did you hear about us?</legend>
+          <div class="options">
+            <label><input type="radio" name="How did you hear about us?" value="Google search"> Google search</label>
+            <label><input type="radio" name="How did you hear about us?" value="LinkedIn"> LinkedIn</label>
+            <label><input type="radio" name="How did you hear about us?" value="Referral"> Referral</label>
+            <label class="other"><input type="radio" name="How did you hear about us?" value="Other"> Other: <input type="text" name="How did you hear about us? (other)" aria-label="Other, please specify"></label>
+          </div>
+        </fieldset>
+        <fieldset class="field"><legend class="q">Best way to reach you <em>*</em></legend>
+          <div class="options">
+            <label><input type="radio" name="Best way to reach you" value="Email" required> Email</label>
+            <label><input type="radio" name="Best way to reach you" value="Phone call"> Phone call</label>
+            <label><input type="radio" name="Best way to reach you" value="Text"> Text</label>
+          </div>
+        </fieldset>
+        <label class="field"><span class="q">Anything else we should know?</span><textarea name="Anything else we should know?" rows="4"></textarea></label>
+      </div>
+      <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="website_url" tabindex="-1" autocomplete="off"></label></div>
+      <input type="hidden" name="started" value="">
+      <div class="form-submit">
+        <button class="btn" type="submit">Request my free audit</button>
+        <p class="fineprint">We'll only use your answers to prepare your audit. Please don't include passwords.</p>
+      </div>
+    </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div><strong>KeyProcess Automation Services</strong><br>Property management automation across the U.S.</div>
+        <nav aria-label="Footer">
+          <a href="/results">Results</a>
+          <a href="/#services">Services</a>
+          <a href="/#calculator">Savings</a>
+          <a href="/#pricing">Pricing</a>
+          <a href="/#faq">FAQ</a>
+          <a href="mailto:tyler@keyprocessautomation.com">Contact</a>
+        </nav>
+      </div>
+      <p class="footer-services">Automation for <a href="/leasing-automation">leasing</a>, <a href="/maintenance-automation">maintenance</a>, <a href="/bookkeeping-automation">bookkeeping</a>, and <a href="/marketing-automation">marketing</a> &middot; <a href="/property-management-tasks-to-automate">Tasks you can automate</a></p>
+      <p class="copy">&copy; 2026 KeyProcess Automation Services</p>
+    </div>
+  </footer>
+  <script>
+    (function () {
+      var form = document.querySelector('.audit-form');
+      form.elements.started.value = Date.now();
+      form.addEventListener('submit', function (e) {
+        var first = null;
+        form.querySelectorAll('fieldset[data-required]').forEach(function (fs) {
+          var ok = fs.querySelector('input[type=checkbox]:checked');
+          fs.querySelector('.field-error').hidden = !!ok;
+          fs.classList.toggle('invalid', !ok);
+          if (!ok && !first) first = fs;
+        });
+        if (!form.checkValidity()) {
+          e.preventDefault();
+          form.reportValidity();
+          return;
+        }
+        if (first) {
+          e.preventDefault();
+          first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          return;
+        }
+        form.querySelector('button[type=submit]').disabled = true;
+        form.querySelector('button[type=submit]').textContent = 'Sending...';
+      });
+    })();
+  </script>
+</body>
+</html>
