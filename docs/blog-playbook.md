@@ -57,4 +57,4 @@ Posts live at `blog/<slug>.html`. The one exception is the older guide at `/prop
 
 ## Publishing
 
-Open a pull request against `main` titled `Blog: <post title>` for Tyler to review. Merging it publishes the post (pushes to `main` auto-deploy). Do not merge it yourself.
+Tyler chose auto-publish (2026-10-19). Open a pull request against `main` titled `Blog: <post title>`, wait for the Cloudflare preview build on it to succeed, then merge it yourself (merging publishes, since pushes to `main` auto-deploy). If the build fails or any check above fails and can't be fixed, leave the PR open and tell Tyler why instead of merging. After merging, tell Tyler the post is live with its link.
