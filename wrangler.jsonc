@@ -1,10 +1,17 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "keyprocess-site",
+  "main": "src/worker.js",
   "compatibility_date": "2026-10-01",
   "assets": {
-    "directory": "."
+    "directory": ".",
+    "binding": "ASSETS"
   },
+  // Emails audit form submissions. The destination must be a verified
+  // address in Cloudflare Email Routing.
+  "send_email": [
+    { "name": "AUDIT_EMAIL", "destination_address": "keyprocessautomation@gmail.com" }
+  ],
   // Lets Cloudflare build preview links for branches and pull requests.
   "previews": {}
 }

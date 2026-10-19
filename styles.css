@@ -329,3 +329,41 @@ a.card:hover { border-color: var(--brand); box-shadow: var(--shadow); transform:
 .task-list b { color: var(--ink); }
 .footer-services { margin: 20px 0 0; }
 .footer-services a { color: var(--ink-soft); }
+
+/* Audit form */
+.form-section { padding-top: 24px; }
+.audit-form { max-width: 760px; }
+.form-note { color: var(--ink-soft); margin: 0 0 24px; }
+.audit-form em { color: #c2410c; font-style: normal; }
+.form-step { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; margin-bottom: 24px; }
+.form-step h2 { font-size: 1.35rem; display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.step-num { display: inline-grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--brand-tint); color: var(--brand); font-size: 0.95rem; flex-shrink: 0; }
+.step-lead { color: var(--ink-soft); margin: -8px 0 20px; }
+.field { display: block; border: 0; padding: 0; margin: 0 0 22px; min-width: 0; }
+.field:last-child { margin-bottom: 0; }
+.field .q { display: block; font-weight: 600; margin-bottom: 8px; padding: 0; }
+.field .help { display: block; color: var(--ink-soft); font-size: 0.92rem; margin: -4px 0 8px; }
+.field input[type=text], .field input[type=email], .field input[type=tel], .field textarea, .options .other input[type=text] {
+  width: 100%; font: inherit; color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 11px 14px;
+}
+.field textarea { resize: vertical; }
+.field input:focus, .field textarea:focus { outline: 2px solid var(--brand); outline-offset: 1px; border-color: var(--brand); }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px; }
+.field-row .field:last-child { margin-bottom: 22px; }
+.options { display: grid; gap: 8px; }
+.options-2 { grid-template-columns: 1fr 1fr; gap: 8px 20px; }
+.options label { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+.options input[type=radio], .options input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--brand); flex-shrink: 0; margin: 0; }
+.options .other { grid-column: 1 / -1; flex-wrap: wrap; }
+.options .other input[type=text] { flex: 1; min-width: 160px; width: auto; padding: 7px 12px; }
+.field-error[hidden] { display: none; }
+.field-error { display: block; color: #c2410c; font-size: 0.92rem; margin-top: 8px; }
+.field.invalid .q { color: #c2410c; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form-submit { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+.form-submit .btn { border: 0; cursor: pointer; font: inherit; font-weight: 600; }
+.form-submit .btn:disabled { opacity: 0.7; cursor: default; transform: none; }
+@media (max-width: 640px) {
+  .form-step { padding: 22px 18px; }
+  .field-row, .options-2 { grid-template-columns: 1fr; }
+}
