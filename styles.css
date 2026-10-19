@@ -310,6 +310,7 @@ a.card:hover { border-color: var(--brand); box-shadow: var(--shadow); transform:
   section { padding: 60px 0; }
   .hero { padding: 48px 0 104px; }
   .float-badge { left: 4px; }
+  .panel-wrap { margin-bottom: 28px; }
   .proof { padding-bottom: 56px; }
   .case-stats { grid-template-columns: 1fr; }
 }
