@@ -1,0 +1,29 @@
+# KeyProcess Automation Services
+
+> KeyProcess Automation Services builds and manages business process automation for small and mid-sized businesses in any industry across the United States. We automate the repetitive work in sales, operations, bookkeeping, marketing, and reporting, including AI automation where it saves real time, so teams get hours back every week.
+
+- Who we help: owners and managers of businesses with 3 people or 300, including property management, e-commerce, home services, professional offices, healthcare practices, agencies, retail, and nonprofits.
+- Pricing: a single automated process from $1,000; a workflow package of 3 to 5 connected automations from $3,000; Automation Care (monitoring, fixes, and monthly improvements) from $500 a month.
+- Guarantee: if an automation doesn't save your team time in the first 30 days, we fix it free until it does. The first month of Automation Care is free with any build.
+- Every project starts with a free 30-minute automation audit and a fixed quote.
+- Contact: tyler@keyprocessautomation.com
+
+## Main pages
+
+- [Home](https://www.keyprocessautomation.com/): services, savings calculator, pricing, guarantee, and FAQ
+- [Case studies](https://www.keyprocessautomation.com/results): real automations and the time they save
+- [Free automation audit](https://www.keyprocessautomation.com/audit): request an audit
+
+## Services
+
+- [E-commerce automation](https://www.keyprocessautomation.com/ecommerce-automation): promotions, order tracking, and product reviews for online stores
+- [Leasing automation](https://www.keyprocessautomation.com/leasing-automation): approval letters, leases, and daily reports for property managers
+- [Maintenance automation](https://www.keyprocessautomation.com/maintenance-automation): work order follow-ups and maintenance reports
+- [Bookkeeping automation](https://www.keyprocessautomation.com/bookkeeping-automation): bills matched and logged, with exceptions flagged
+- [Marketing automation](https://www.keyprocessautomation.com/marketing-automation): listings and social posts kept current everywhere
+
+## Guides
+
+- [How much does business automation cost?](https://www.keyprocessautomation.com/blog/business-automation-cost)
+- [25 property management tasks you can automate](https://www.keyprocessautomation.com/property-management-tasks-to-automate)
+- [Blog](https://www.keyprocessautomation.com/blog/)
