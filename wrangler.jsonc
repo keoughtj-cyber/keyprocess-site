@@ -1,0 +1,10 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "keyprocess-site",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "."
+  },
+  // Lets Cloudflare build preview links for branches and pull requests.
+  "previews": {}
+}
