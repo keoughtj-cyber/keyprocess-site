@@ -39,6 +39,8 @@ One new post a week that ranks in search and turns readers into free audit reque
 
 ## Files to touch
 
+Posts live at `blog/<slug>.html`. The one exception is the older guide at `/property-management-tasks-to-automate`, which stays at its original address but is listed on the blog.
+
 1. Copy `blog/business-automation-cost.html` as the template for `blog/<slug>.html`. Update the title, description, canonical, og tags, `article:published_time`, all JSON-LD (BlogPosting, BreadcrumbList, FAQPage), the hero, meta line (date and read time at ~230 words a minute), body, FAQ, and CTA. Keep the header and footer menus identical to every other page, with absolute paths (`/styles.css`, `/logo.svg`).
 2. `blog/index.html`: add a `post-card` at the top of the list (below the `POSTS` comment) and a `BlogPosting` entry at the top of the `blogPost` array.
 3. `blog/feed.xml`: add an `<item>` below the `ITEMS` comment and update `lastBuildDate`.
