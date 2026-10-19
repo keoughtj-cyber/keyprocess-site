@@ -70,7 +70,7 @@
     </g>
     <g transform="translate(380 146)">
       <rect width="136" height="30" rx="15" fill="#f4b740"/>
-      <circle cx="16" cy="15" r="8" fill="#14213d"/><text x="12.5" y="19" fill="#f4b740">!</text>
+      <circle cx="16" cy="15" r="8" fill="#14213d"/><text x="16" y="19.5" fill="#f4b740" text-anchor="middle">!</text>
       <text x="30" y="19" fill="#14213d">Price drop live</text>
     </g>
   </g>
