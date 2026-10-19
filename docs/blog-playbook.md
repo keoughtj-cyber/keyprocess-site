@@ -57,7 +57,7 @@ Posts live at `blog/<slug>.html`. The one exception is the older guide at `/prop
 - Every `<img>` has descriptive `alt` text plus `width` and `height`. Images below the first screen get `loading="lazy" decoding="async"`; photos or screenshots ship as WebP (keep a JPG only where social posts or the feed need one).
 - All internal links and asset paths start with `/` (`/styles.css`, `/results`), never relative and never ending in `.html`.
 - No third-party scripts, fonts, or embeds. The site's security headers (`_headers`) block them; if one is ever truly needed, update the Content-Security-Policy there in the same pull request.
-- Link each new page from at least one existing page, and add it to `sitemap.xml`.
+- Link each new page from at least one existing page, and add it to `sitemap.xml`. Add new service pages and guides to `llms.txt` too.
 
 ## Checks before opening the pull request
 
