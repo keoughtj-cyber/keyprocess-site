@@ -111,7 +111,7 @@
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="logo" href="/"><img class="logo-img" src="logo.svg" alt="KeyProcess Automation Services logo" width="46" height="46"> KeyProcess Automation Services</a>
-      <nav class="nav" aria-label="Main">
+      <nav class="nav" id="site-nav" aria-label="Main">
         <a href="/results">Results</a>
         <a href="/#services">Services</a>
         <a href="/#calculator">Savings</a>
@@ -120,8 +120,10 @@
         <a href="/blog/">Blog</a>
         <a class="btn btn-small" href="/audit">Free audit</a>
       </nav>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
     </div>
   </header>
+  <script src="/menu.js" defer></script>
 
   <main id="top">
     <section class="page-hero">
