@@ -7,6 +7,7 @@ Keyword backlog and publishing log for the weekly post. See `blog-playbook.md` f
 | Date | Slug | Primary keyword |
 | --- | --- | --- |
 | 2026-10-19 | business-automation-cost | how much does business automation cost |
+| 2026-10-19 | property-management-tasks-to-automate (top-level URL, kept for its existing ranking) | property management tasks to automate |
 
 ## Backlog (rough priority order, refine with research)
 
