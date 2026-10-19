@@ -5,12 +5,19 @@ const FROM = "audit@keyprocessautomation.com";
 const TO = "keyprocessautomation@gmail.com";
 // Fields used for spam checks only; never included in the email.
 const HIDDEN = new Set(["website_url", "started"]);
+// Same security headers as _headers, which only covers static files.
+const SECURITY_HEADERS = {
+  "strict-transport-security": "max-age=31536000; includeSubDomains",
+  "x-content-type-options": "nosniff",
+  "x-frame-options": "DENY",
+  "referrer-policy": "strict-origin-when-cross-origin",
+};
 
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     if (url.pathname === "/api/audit") {
-      if (request.method !== "POST") return new Response("Method not allowed", { status: 405 });
+      if (request.method !== "POST") return new Response("Method not allowed", { status: 405, headers: { allow: "POST", ...SECURITY_HEADERS } });
       return handleAudit(request, env);
     }
     return env.ASSETS.fetch(request);
@@ -31,7 +38,7 @@ async function handleAudit(request, env) {
   // Bots fill the hidden field or submit within a couple of seconds of loading.
   const started = Number(form.get("started") || 0);
   if (form.get("website_url") || (started && Date.now() - started < 3000)) {
-    return Response.redirect(new URL("/audit-thanks", request.url), 303);
+    return redirect(request, "/audit-thanks");
   }
 
   const email = clean(form.get("Work email"));
@@ -71,7 +78,11 @@ async function handleAudit(request, env) {
     console.error("Audit email failed", err);
     return errorPage(500);
   }
-  return Response.redirect(new URL("/audit-thanks", request.url), 303);
+  return redirect(request, "/audit-thanks");
+}
+
+function redirect(request, path) {
+  return new Response(null, { status: 303, headers: { location: new URL(path, request.url).href, ...SECURITY_HEADERS } });
 }
 
 function clean(value) {
@@ -90,6 +101,6 @@ function encodeHeader(text) {
 }
 
 function errorPage(status) {
-  const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Something went wrong | KeyProcess Automation Services</title><link rel="stylesheet" href="/styles.css"></head><body><main><section class="page-hero"><div class="wrap"><h1>Sorry, that didn't go through</h1><p class="section-lead">Please go back and try again, or email <a href="mailto:tyler@keyprocessautomation.com">tyler@keyprocessautomation.com</a> and we'll set up your free audit from there.</p><p><a class="btn" href="/audit">Back to the form</a></p></div></section></main></body></html>`;
-  return new Response(html, { status, headers: { "content-type": "text/html; charset=utf-8" } });
+  const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>Something went wrong | KeyProcess Automation Services</title><link rel="stylesheet" href="/styles.css"></head><body><main><section class="page-hero"><div class="wrap"><h1>Sorry, that didn't go through</h1><p class="section-lead">Please go back and try again, or email <a href="mailto:tyler@keyprocessautomation.com">tyler@keyprocessautomation.com</a> and we'll set up your free audit from there.</p><p><a class="btn" href="/audit">Back to the form</a></p></div></section></main></body></html>`;
+  return new Response(html, { status, headers: { "content-type": "text/html; charset=utf-8", "x-robots-tag": "noindex", ...SECURITY_HEADERS } });
 }

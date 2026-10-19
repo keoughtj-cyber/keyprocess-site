@@ -5,7 +5,9 @@
   "compatibility_date": "2026-10-01",
   "assets": {
     "directory": ".",
-    "binding": "ASSETS"
+    "binding": "ASSETS",
+    // Unknown URLs get 404.html with a real 404 status instead of an empty page.
+    "not_found_handling": "404-page"
   },
   // Emails audit form submissions. The destination must be a verified
   // address in Cloudflare Email Routing.

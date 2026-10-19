@@ -41,16 +41,27 @@ One new post a week that ranks in search and turns readers into free audit reque
 
 Posts live at `blog/<slug>.html`. The one exception is the older guide at `/property-management-tasks-to-automate`, which stays at its original address but is listed on the blog.
 
-1. Copy `blog/business-automation-cost.html` as the template for `blog/<slug>.html`. Update the title, description, canonical, og tags, `article:published_time`, all JSON-LD (BlogPosting, BreadcrumbList, FAQPage), the hero, meta line (date and read time at ~230 words a minute), body, FAQ, and CTA. Keep the header and footer menus identical to every other page, with absolute paths (`/styles.css`, `/logo.svg`).
-2. Make the featured image: `NODE_PATH=$(npm root -g) node docs/blog-image.js <slug> "<post title>" "<short category>"`. It writes `blog/images/<slug>.jpg` (1200x630, branded). Look at it before committing. Point the post's `og:image`, `twitter:image`, and JSON-LD `image` at `https://www.keyprocessautomation.com/blog/images/<slug>.jpg`.
-3. `blog/index.html`: add a `post-card` at the top of the list (below the `POSTS` comment) with the `post-thumb` image, and a `BlogPosting` entry (with `image`) at the top of the `blogPost` array.
+1. Copy `blog/business-automation-cost.html` as the template for `blog/<slug>.html`. Update the title, description, canonical, og tags (including `og:image:alt`), twitter tags (`twitter:title`, `twitter:description`, `twitter:image`, `twitter:image:alt`), `article:published_time`, all JSON-LD (BlogPosting, BreadcrumbList, FAQPage), the hero, meta line (date and read time at ~230 words a minute), body, FAQ, and CTA. Keep the header and footer menus identical to every other page, with absolute paths (`/styles.css`, `/logo.svg`).
+2. Make the featured image: `NODE_PATH=$(npm root -g) node docs/blog-image.js <slug> "<post title>" "<short category>"`. It writes `blog/images/<slug>.jpg` (1200x630, branded, used by social posts and the feed) and a lighter `blog/images/<slug>.webp` (used on the site); commit both. Look at it before committing. Point the post's `og:image`, `twitter:image`, and JSON-LD `image` at `https://www.keyprocessautomation.com/blog/images/<slug>.jpg`.
+3. `blog/index.html`: add a `post-card` at the top of the list (below the `POSTS` comment) with the `post-thumb` image wrapped in a `<picture>` with the `.webp` as a `<source>` (copy an existing card), and a `BlogPosting` entry (with `image`) at the top of the `blogPost` array.
 4. `blog/feed.xml`: add an `<item>` below the `ITEMS` comment with an `<enclosure>` (url, byte `length`, `image/jpeg`) and a `<media:content>` tag for the image, and update `lastBuildDate`. Tyler's make.com scenario reads the feed and posts the image, title, link, and description to LinkedIn and Google Business Profile, so every item must have them.
 5. `sitemap.xml`: add the post URL with today's date, and update the `/blog/` lastmod.
 6. `docs/blog-topics.md`: move the topic to Published with the date, slug, and primary keyword.
 7. When a new post covers a topic an older post touches, add a link from the older post to the new one.
 
+## SEO standards (every page, every post)
+
+- Exactly one `<h1>`, and headings never skip a level (an H2 comes before any H3).
+- A self-referencing canonical: `https://www.keyprocessautomation.com/<path>` with no `.html` and no trailing slash (except `/blog/`).
+- Never add `noindex` to a public page. Only `/audit-thanks` and `/404` carry it.
+- Every `<img>` has descriptive `alt` text plus `width` and `height`. Images below the first screen get `loading="lazy" decoding="async"`; photos or screenshots ship as WebP (keep a JPG only where social posts or the feed need one).
+- All internal links and asset paths start with `/` (`/styles.css`, `/results`), never relative and never ending in `.html`.
+- No third-party scripts, fonts, or embeds. The site's security headers (`_headers`) block them; if one is ever truly needed, update the Content-Security-Policy there in the same pull request.
+- Link each new page from at least one existing page, and add it to `sitemap.xml`.
+
 ## Checks before opening the pull request
 
+- Run `python3 docs/seo-check.py`. It must print "All N pages pass." It checks headings, titles, descriptions, canonicals, social tags, alt text, image sizes, JSON-LD, broken links and anchors, and sitemap coverage.
 - Validate every JSON-LD block parses as JSON.
 - Search the new post for tool or vendor names, client names, "testimonial", and how-it-works details. Remove any.
 - Check each list of three or more items has an Oxford comma.
