@@ -46,6 +46,7 @@
           { "@type": "Question", "name": "What happens if something breaks?", "acceptedAnswer": { "@type": "Answer", "text": "With an Automation Care plan, we monitor everything, fix issues quickly, and keep improving your automations as your portfolio grows." } },
           { "@type": "Question", "name": "Do you only work with Philadelphia property managers?", "acceptedAnswer": { "@type": "Answer", "text": "We specialize in the Philadelphia area, including Safe and Healthy Homes licensing compliance, and work remotely with property management companies anywhere in the U.S." } },
           { "@type": "Question", "name": "Can you automate something that isn't listed here?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The case studies are a sample of dozens of automations we have built. If a task is repetitive, follows rules, or lives in email and spreadsheets, there is a good chance it can be automated. The free audit is where we figure that out together." } },
+          { "@type": "Question", "name": "Is there a guarantee?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. If your automation doesn't save your team time in the first 30 days, we fix it free until it does. Any build also comes with your first month of Automation Care free." } },
           { "@type": "Question", "name": "What size company is this for?", "acceptedAnswer": { "@type": "Answer", "text": "Property management companies managing roughly 50 to 1,000 units get the most out of it, because that is where manual work starts to outgrow the team." } }
         ]
       }
@@ -60,6 +61,7 @@
       <nav class="nav" aria-label="Main">
         <a href="results.html">Results</a>
         <a href="#services">Services</a>
+        <a href="#calculator">Savings</a>
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
         <a class="btn btn-small" href="#contact">Free audit</a>
@@ -206,7 +208,7 @@
         <p class="eyebrow">How it works</p>
         <h2>Three steps to a lighter workload</h2>
         <ol class="steps">
-          <li><img class="step-img" src="step-audit.svg" alt="Free audit illustration" width="320" height="180" loading="lazy"><h3>Free audit</h3><p>A 30-minute call to find the tasks costing your team the most time.</p></li>
+          <li><img class="step-img" src="step-audit.svg" alt="Free audit illustration" width="320" height="180" loading="lazy"><h3>Free audit</h3><p>A 30-minute call, and you leave with a written list of what to automate first.</p></li>
           <li><img class="step-img" src="step-build.svg" alt="Build illustration" width="320" height="180" loading="lazy"><h3>Build</h3><p>We build and test your automations, then walk your team through them.</p></li>
           <li><img class="step-img" src="step-care.svg" alt="Ongoing care illustration" width="320" height="180" loading="lazy"><h3>Ongoing care</h3><p>We monitor, fix, and improve everything as your portfolio grows.</p></li>
         </ol>
@@ -230,11 +232,40 @@
       </div>
     </section>
 
-    <section id="pricing">
+    <section id="calculator">
+      <div class="wrap calc-grid">
+        <div>
+          <p class="eyebrow">Savings calculator</p>
+          <h2>See what busywork really costs you</h2>
+          <p class="section-lead">Move the sliders to match your team. Most offices are surprised by the number.</p>
+          <div class="calc-inputs">
+            <label for="c-hours">Staff hours per week on repetitive tasks <output id="o-hours">15</output></label>
+            <input type="range" id="c-hours" min="2" max="80" step="1" value="15">
+            <label for="c-rate">Average hourly staff cost <output id="o-rate">$25</output></label>
+            <input type="range" id="c-rate" min="15" max="60" step="1" value="25">
+            <label for="c-share">Share of that work automated <output id="o-share">60%</output></label>
+            <input type="range" id="c-share" min="20" max="90" step="5" value="60">
+          </div>
+        </div>
+        <div class="calc-result" aria-live="polite">
+          <p class="calc-small">Busywork costs you about</p>
+          <p class="calc-big" id="r-cost">$19,500</p>
+          <p class="calc-small">every year</p>
+          <hr>
+          <div class="calc-row"><span>Estimated yearly savings</span><b id="r-save">$11,700</b></div>
+          <div class="calc-row"><span>Hours back each year</span><b id="r-hours">468</b></div>
+          <div class="calc-row"><span>A Quick Win pays for itself in</span><b id="r-pay">5 weeks</b></div>
+          <a class="btn btn-light" href="#contact">Get your free audit</a>
+          <p class="calc-note">Estimate only. Your free audit gives you real numbers.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt" id="pricing">
       <div class="wrap">
         <div class="center">
           <p class="eyebrow">Pricing</p>
-          <h2>Simple, fixed pricing</h2>
+          <h2>Pays for itself in weeks, not years</h2>
           <p class="section-lead">Every project starts with a free audit and a fixed quote. No surprises.</p>
         </div>
         <div class="grid grid-3">
@@ -242,18 +273,41 @@
             <h3>Quick Win</h3>
             <p class="price">From $1,000</p>
             <p>One process automated end to end, like lease approvals or vendor follow-ups.</p>
+            <p class="value">Example: lease approvals saved ~55 workdays a year, about $8,800 of staff time.</p>
           </div>
           <div class="price-card featured">
             <span class="badge">Most popular</span>
             <h3>Workflow Package</h3>
             <p class="price">From $3,000</p>
             <p>A process review, 3 to 5 connected automations, and team training.</p>
+            <p class="value">Most packages pay for themselves within months.</p>
           </div>
           <div class="price-card">
             <h3>Automation Care</h3>
             <p class="price">From $500/month</p>
             <p>Monitoring, fixes, and monthly improvements so everything keeps running.</p>
+            <p class="value">First month free with any build.</p>
           </div>
+        </div>
+        <div class="guarantee">
+          <div class="seal" aria-hidden="true">30<br><span>DAY</span></div>
+          <div>
+            <h3>The time-back guarantee</h3>
+            <p>If your automation doesn't save your team time in the first 30 days, we fix it free until it does.</p>
+          </div>
+        </div>
+        <p class="scarcity">Now taking 3 new clients this quarter, so every project gets hands-on attention.</p>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap about-grid">
+        <div class="avatar" aria-hidden="true">T</div>
+        <div>
+          <p class="eyebrow">Meet the founder</p>
+          <h2>Hi, I'm Tyler</h2>
+          <p class="section-lead">I built every automation on this site from inside a working Philadelphia-area property management office, dozens of them, across leasing, maintenance, bookkeeping, marketing, and compliance. I saw firsthand how much time good people lose to copy-and-paste work. Now I build those same systems for other property management teams, and I personally handle every project from the first call to ongoing care.</p>
+          <a class="btn" href="#contact">Talk with Tyler</a>
         </div>
       </div>
     </section>
@@ -271,6 +325,7 @@
           <details><summary>What happens if something breaks?</summary><p>With an Automation Care plan, we monitor everything, fix issues quickly, and keep improving your automations as your portfolio grows.</p></details>
           <details><summary>Do you only work with Philadelphia property managers?</summary><p>We specialize in the Philadelphia area, including Safe and Healthy Homes licensing compliance, and work remotely with property management companies anywhere in the U.S.</p></details>
           <details><summary>Can you automate something that isn't listed here?</summary><p>Yes. The case studies are a sample of dozens of automations we have built. If a task is repetitive, follows rules, or lives in email and spreadsheets, there is a good chance it can be automated. The free audit is where we figure that out together.</p></details>
+          <details><summary>Is there a guarantee?</summary><p>Yes. If your automation doesn't save your team time in the first 30 days, we fix it free until it does. Any build also comes with your first month of Automation Care free.</p></details>
           <details><summary>What size company is this for?</summary><p>Property management companies managing roughly 50 to 1,000 units get the most out of it, because that is where manual work starts to outgrow the team.</p></details>
         </div>
       </div>
@@ -279,7 +334,8 @@
     <section id="contact" class="cta">
       <div class="wrap">
         <h2>Find out what you could automate</h2>
-        <p>Book a free 30-minute audit. You'll leave with a short list of the tasks worth automating first, whether you hire us or not.</p>
+        <p>Book a free 30-minute audit. You'll leave with a written list of what to automate first and what it could save you, whether you hire us or not.</p>
+        <p class="cta-scarcity">Only 3 new client spots this quarter.</p>
         <a class="btn btn-light" href="https://docs.google.com/forms/d/e/1FAIpQLSfCZt3zUzsKpYbx8IMc2WUl2Xt0C9KUDH0YKJBwdxI4eCsLJQ/viewform" target="_blank" rel="noopener">Request your free audit</a>
         <p class="contact-alt">Or email <a href="mailto:tyler@keyprocessautomation.com">tyler@keyprocessautomation.com</a></p>
       </div>
@@ -301,5 +357,23 @@
       <p class="copy">&copy; 2026 KeyProcess Automation Services</p>
     </div>
   </footer>
+  <script>
+    (function () {
+      var $ = function (id) { return document.getElementById(id); };
+      var money = function (n) { return '$' + Math.round(n).toLocaleString('en-US'); };
+      function update() {
+        var h = +$('c-hours').value, r = +$('c-rate').value, sh = +$('c-share').value / 100;
+        $('o-hours').textContent = h; $('o-rate').textContent = '$' + r; $('o-share').textContent = Math.round(sh * 100) + '%';
+        var cost = h * 52 * r, save = cost * sh, weekly = h * r * sh;
+        $('r-cost').textContent = money(cost);
+        $('r-save').textContent = money(save);
+        $('r-hours').textContent = Math.round(h * 52 * sh).toLocaleString('en-US');
+        var weeks = weekly > 0 ? Math.ceil(1000 / weekly) : 0;
+        $('r-pay').textContent = weeks + (weeks === 1 ? ' week' : ' weeks');
+      }
+      ['c-hours', 'c-rate', 'c-share'].forEach(function (id) { $(id).addEventListener('input', update); });
+      update();
+    })();
+  </script>
 </body>
 </html>
