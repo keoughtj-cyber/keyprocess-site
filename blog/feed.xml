@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>KeyProcess Automation Services blog</title>
     <link>https://www.keyprocessautomation.com/blog/</link>
@@ -12,6 +12,8 @@
       <title>How much does business automation cost? A plain-English guide for 2026</title>
       <link>https://www.keyprocessautomation.com/blog/business-automation-cost</link>
       <guid>https://www.keyprocessautomation.com/blog/business-automation-cost</guid>
+      <enclosure url="https://www.keyprocessautomation.com/blog/images/business-automation-cost.jpg" length="90332" type="image/jpeg"/>
+      <media:content url="https://www.keyprocessautomation.com/blog/images/business-automation-cost.jpg" medium="image" type="image/jpeg" width="1200" height="630"/>
       <pubDate>Mon, 19 Oct 2026 12:00:00 GMT</pubDate>
       <description>Real price ranges, what you are actually paying for, what drives the price up or down, and a five-minute way to tell whether automating a task will pay for itself.</description>
     </item>
@@ -19,6 +21,8 @@
       <title>25 property management tasks you can automate</title>
       <link>https://www.keyprocessautomation.com/property-management-tasks-to-automate</link>
       <guid>https://www.keyprocessautomation.com/property-management-tasks-to-automate</guid>
+      <enclosure url="https://www.keyprocessautomation.com/blog/images/property-management-tasks-to-automate.jpg" length="84640" type="image/jpeg"/>
+      <media:content url="https://www.keyprocessautomation.com/blog/images/property-management-tasks-to-automate.jpg" medium="image" type="image/jpeg" width="1200" height="630"/>
       <pubDate>Mon, 19 Oct 2026 12:00:00 GMT</pubDate>
       <description>A practical list of 25 property management tasks you can automate across leasing, maintenance, bookkeeping, marketing, and compliance, grouped by department.</description>
     </item>

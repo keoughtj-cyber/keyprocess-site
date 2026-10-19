@@ -42,11 +42,12 @@ One new post a week that ranks in search and turns readers into free audit reque
 Posts live at `blog/<slug>.html`. The one exception is the older guide at `/property-management-tasks-to-automate`, which stays at its original address but is listed on the blog.
 
 1. Copy `blog/business-automation-cost.html` as the template for `blog/<slug>.html`. Update the title, description, canonical, og tags, `article:published_time`, all JSON-LD (BlogPosting, BreadcrumbList, FAQPage), the hero, meta line (date and read time at ~230 words a minute), body, FAQ, and CTA. Keep the header and footer menus identical to every other page, with absolute paths (`/styles.css`, `/logo.svg`).
-2. `blog/index.html`: add a `post-card` at the top of the list (below the `POSTS` comment) and a `BlogPosting` entry at the top of the `blogPost` array.
-3. `blog/feed.xml`: add an `<item>` below the `ITEMS` comment and update `lastBuildDate`.
-4. `sitemap.xml`: add the post URL with today's date, and update the `/blog/` lastmod.
-5. `docs/blog-topics.md`: move the topic to Published with the date, slug, and primary keyword.
-6. When a new post covers a topic an older post touches, add a link from the older post to the new one.
+2. Make the featured image: `NODE_PATH=$(npm root -g) node docs/blog-image.js <slug> "<post title>" "<short category>"`. It writes `blog/images/<slug>.jpg` (1200x630, branded). Look at it before committing. Point the post's `og:image`, `twitter:image`, and JSON-LD `image` at `https://www.keyprocessautomation.com/blog/images/<slug>.jpg`.
+3. `blog/index.html`: add a `post-card` at the top of the list (below the `POSTS` comment) with the `post-thumb` image, and a `BlogPosting` entry (with `image`) at the top of the `blogPost` array.
+4. `blog/feed.xml`: add an `<item>` below the `ITEMS` comment with an `<enclosure>` (url, byte `length`, `image/jpeg`) and a `<media:content>` tag for the image, and update `lastBuildDate`. Tyler's make.com scenario reads the feed and posts the image, title, link, and description to LinkedIn and Google Business Profile, so every item must have them.
+5. `sitemap.xml`: add the post URL with today's date, and update the `/blog/` lastmod.
+6. `docs/blog-topics.md`: move the topic to Published with the date, slug, and primary keyword.
+7. When a new post covers a topic an older post touches, add a link from the older post to the new one.
 
 ## Checks before opening the pull request
 

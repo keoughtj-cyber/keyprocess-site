@@ -394,3 +394,4 @@ a.card:hover { border-color: var(--brand); box-shadow: var(--shadow); transform:
 .article th, .article td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
 .article th { background: var(--bg-alt); font-weight: 700; }
 .article h2[id], .article h3[id] { scroll-margin-top: 90px; }
+.post-thumb { display: block; width: 100%; height: auto; border-radius: 10px; margin-bottom: 16px; }
