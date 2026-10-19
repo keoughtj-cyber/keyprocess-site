@@ -26,12 +26,12 @@
     <g transform="translate(22 158)">
       <rect width="142" height="44" rx="12" fill="#fff" stroke="#dfe5ee"/>
       <rect x="13" y="11" width="20" height="22" rx="3" fill="none" stroke="#e35d5d" stroke-width="2"/><path d="M17 18h12M17 23h12M17 28h8" stroke="#e35d5d" stroke-width="2"/>
-      <text x="44" y="27">Work orders</text>
+      <text x="44" y="27">Requests</text>
     </g>
     <g transform="translate(22 268)">
       <rect width="142" height="44" rx="12" fill="#fff" stroke="#dfe5ee"/>
       <rect x="12" y="12" width="22" height="20" rx="3" fill="none" stroke="#e35d5d" stroke-width="2"/><path d="M12 19h22M19 12v20" stroke="#e35d5d" stroke-width="2"/>
-      <text x="44" y="27">New listings</text>
+      <text x="44" y="27">New leads</text>
     </g>
     <!-- core -->
     <circle cx="280" cy="180" r="62" fill="url(#core)"/>
@@ -41,12 +41,12 @@
     <g transform="translate(380 48)">
       <rect width="158" height="44" rx="12" fill="#fff" stroke="#dfe5ee"/>
       <circle cx="23" cy="22" r="11" fill="#dcf3ea"/><path d="M18 22l4 4 6-7" stroke="#12805c" stroke-width="2.4" fill="none" stroke-linecap="round"/>
-      <text x="42" y="27">Leases sent</text>
+      <text x="42" y="27">Contracts sent</text>
     </g>
     <g transform="translate(380 158)">
       <rect width="158" height="44" rx="12" fill="#fff" stroke="#dfe5ee"/>
       <circle cx="23" cy="22" r="11" fill="#dcf3ea"/><path d="M18 22l4 4 6-7" stroke="#12805c" stroke-width="2.4" fill="none" stroke-linecap="round"/>
-      <text x="42" y="27">Vendors chased</text>
+      <text x="42" y="27">Follow-ups sent</text>
     </g>
     <g transform="translate(380 268)">
       <rect width="158" height="44" rx="12" fill="#fff" stroke="#dfe5ee"/>
