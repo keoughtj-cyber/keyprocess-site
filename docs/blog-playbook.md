@@ -6,6 +6,19 @@ How each blog post is researched, written, and published. The twice-weekly sched
 
 Two new posts a week (Mondays and Thursdays, chosen by Tyler 2026-10-20) that rank in search and turn readers into free audit requests. Readers are owners and managers of small and mid-sized U.S. businesses (any industry, "3 people or 300"). Property management and e-commerce are strong industries with real case studies.
 
+## Content pillars (Tyler, 2026-10-20)
+
+Every post belongs to one of four pillars and links to that pillar's anchor page plus `/audit`. Rotate through the pillars so each gets a new post about every two weeks.
+
+| Pillar | Covers | Anchor page |
+| --- | --- | --- |
+| 1. Costs and payback | Prices, ROI, automation vs hiring, whether a monthly plan is worth it | `/blog/business-automation-cost` |
+| 2. What to automate | Task lists, process examples, signs you need automation | `/property-management-tasks-to-automate` (until an any-business guide exists) |
+| 3. Industry playbooks | Automation for one industry at a time | The matching industry service page (`/leasing-automation`, `/maintenance-automation`, `/bookkeeping-automation`, `/marketing-automation`, `/ecommerce-automation`) |
+| 4. Hiring automation help | What a consultant does, what the free audit covers, DIY vs hiring, what ongoing care includes, who owns what | `/audit` |
+
+Pillar 4 describes what a client gets, what it costs, and who owns what. It never explains how automations are built.
+
 ## Rules (never break these)
 
 - Company name is always **KeyProcess Automation Services**.
@@ -21,7 +34,7 @@ Two new posts a week (Mondays and Thursdays, chosen by Tyler 2026-10-20) that ra
 ## Picking the keyword
 
 1. Read `docs/blog-topics.md` and skip anything already published.
-2. Pick the next topic from the backlog, or a better one found in research. Prefer keywords with buyer intent (cost, examples, "how to automate X", "X for small business", industry-specific tasks) that a small site can realistically rank for. Alternate between broad any-business topics and industry topics (property management, e-commerce, home services, professional offices, healthcare practices, agencies, nonprofits).
+2. Pick the next topic from the backlog (it is grouped by pillar and lists the planned order first), or a better one found in research. Keep the pillar rotation. Prefer keywords with buyer intent (cost, examples, "how to automate X", "X for small business", industry-specific tasks) that a small site can realistically rank for. Alternate between broad any-business topics and industry topics (property management, e-commerce, home services, professional offices, healthcare practices, agencies, nonprofits).
 3. Search the web for the keyword. Read the top results and note what they cover, what questions they answer, and what they miss. The post must answer the searcher's question better and faster than any of them.
 4. Choose one primary keyword and 3 to 5 close variations.
 
