@@ -1,10 +1,10 @@
 # Weekly blog playbook
 
-How the weekly blog post is researched, written, and published. The weekly scheduled task follows this file, so keep it current. The `docs` folder is listed in `.assetsignore`, so nothing here is published on the site.
+How each blog post is researched, written, and published. The twice-weekly scheduled task (Mondays and Thursdays) follows this file, so keep it current. The `docs` folder is listed in `.assetsignore`, so nothing here is published on the site.
 
 ## Goal
 
-One new post a week that ranks in search and turns readers into free audit requests. Readers are owners and managers of small and mid-sized U.S. businesses (any industry, "3 people or 300"). Property management and e-commerce are strong industries with real case studies.
+Two new posts a week (Mondays and Thursdays, chosen by Tyler 2026-10-20) that rank in search and turn readers into free audit requests. Readers are owners and managers of small and mid-sized U.S. businesses (any industry, "3 people or 300"). Property management and e-commerce are strong industries with real case studies.
 
 ## Rules (never break these)
 
