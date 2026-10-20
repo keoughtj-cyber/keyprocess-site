@@ -13,7 +13,7 @@ One new post a week that ranks in search and turns readers into free audit reque
 - Never invent statistics, testimonials, quotes, or client stories. The only numbers allowed are (a) real case study numbers from `results.html`, (b) the site's own prices (from $1,000, from $3,000, from $500/month), or (c) clearly labeled made-up examples ("An example, with made-up numbers"). If you cite an outside statistic, link the original source in the post and only use it if the source is reputable and recent.
 - No testimonials of any kind.
 - Oxford comma everywhere.
-- The 30-day guarantee, first month of Automation Care free with any build, and "3 new clients this quarter" are approved offers and can be mentioned.
+- The 30-day guarantee and "3 new clients this quarter" are approved offers and can be mentioned. Do not offer a free first month of Automation Care (offer retired 2026-10-20).
 - The daily industry news blog case study is a case study only: never pitch it as a service.
 - Safe and Healthy Homes law is only mentioned in the compliance case study, not in posts.
 - No new costs: no paid tools, images, or services.
