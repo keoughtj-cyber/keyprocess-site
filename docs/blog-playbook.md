@@ -6,7 +6,19 @@ How each blog post is researched, written, and published. The twice-weekly sched
 
 Two new posts a week (Mondays and Thursdays, chosen by Tyler 2026-10-20) that rank in search and turn readers into free audit requests. Readers are owners and managers of small and mid-sized U.S. businesses (any industry, "3 people or 300"). Property management and e-commerce are strong industries with real case studies.
 
-## Content pillars (Tyler, 2026-10-20)
+## Editorial standard (read first)
+
+Every post follows `docs/seo-content-prompt.md` (Tyler, 2026-10-20): how to choose the question, sourcing standards, the experience element, the writing rules, the on-page checklist, the monthly refresh, and the quality gate. Its clusters are the pillars below. This playbook covers the files and publishing; where the two differ on writing, the prompt wins.
+
+How its output format maps to this pipeline:
+
+- Items 1, 2, 5, 6, 8, and 9 (strategy brief, placeholders, sources, linking plan, verify flags, promotion idea) go in the pull request description.
+- Items 3, 4, and 7 (title, description, slug, the post, and JSON-LD) become `blog/<slug>.html`, not Markdown.
+- Anything flagged [VERIFY BEFORE PUBLISHING] must be checked against its source before merging, or cut.
+- A draft with any [AUTHOR INPUT NEEDED] placeholder is never merged. Leave the PR open and tell Tyler what's needed.
+- One of the eight posts each month is a refresh of an existing post (first Monday of the month), as the prompt's refresh section describes.
+
+
 
 Every post belongs to one of four pillars and links to that pillar's anchor page plus `/audit`. Rotate through the pillars so each gets a new post about every two weeks.
 
@@ -40,13 +52,15 @@ Pillar 4 describes what a client gets, what it costs, and who owns what. It neve
 
 ## Writing the post
 
-- 1,500 to 2,500 words. Plain English, short paragraphs, written for a busy owner.
-- Title (H1) contains the primary keyword. `<title>` under about 60 characters before the " | KeyProcess Automation Services" suffix. Meta description 140 to 160 characters with the keyword.
-- Open with an `answer-box` that answers the question in 2 to 4 sentences (this is what search snippets and AI answers pick up).
+- Usually 1,200 to 2,000 words for a supporting post and 2,500+ for a pillar page; whatever it takes to beat the current #1 result, never padded. Plain English (grade 8 to 9), short paragraphs, written for a busy owner.
+- Title (H1) contains the primary keyword. `<title>` under about 60 characters before the " | KeyProcess Automation Services" suffix. Meta description 140 to 155 characters with the keyword.
+- Open with an `answer-box` that answers the question in 2 to 3 sentences, 40 to 60 words (this is what search snippets and AI answers pick up), followed by a "Key takeaways" box (a `callout` with 3 to 5 bullets).
 - Add a `toc` list for posts with 5 or more sections, with `id`s on each H2.
 - Use H2s and H3s phrased like the questions people search.
 - At least 3 internal links: `/results` (or a specific `/results#id` case), `/#calculator`, `/audit`, and any relevant service page or earlier post.
 - 4 to 6 FAQ questions at the bottom, mirrored exactly in `FAQPage` JSON-LD.
+- Byline in the `post-meta` line: "By Tyler, Founder of KeyProcess Automation Services" (until Tyler gives his full name). In the BlogPosting JSON-LD, `author` is a `Person` named "Tyler" with `jobTitle` "Founder" and `worksFor` the organization, and `dateModified` is set.
+- Before the FAQ, a short author bio in a `callout`: Tyler founded KeyProcess Automation Services and has built dozens of automations for property management and e-commerce teams, with a link to `/results`.
 - End with the CTA section pointing to `/audit`.
 - Slug: short, lowercase, hyphenated, keyword-based, no dates (example: `business-automation-cost`).
 
