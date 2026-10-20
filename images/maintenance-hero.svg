@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" role="img" aria-label="Illustration of Monday work order follow-ups going out to vendors with replies coming back to the team">
+<rect width="480" height="320" rx="22" fill="#0f1a33"/>
+<rect x="24" y="24" width="432" height="272" rx="16" fill="#fff"/>
+<g font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+<text x="48" y="62" font-size="15" font-weight="700" fill="#14213d">Monday work order follow-ups</text>
+<text x="48" y="82" font-size="11.5" fill="#4a5568">Every stalled job, chased</text>
+<rect x="359.6" y="44" width="72.4" height="30" rx="15" fill="#fff6e0" stroke="#f4b740"/>
+<text x="395.8" y="64" font-size="12" font-weight="700" fill="#9a6400" text-anchor="middle">Monday</text>
+<rect x="48" y="104" width="384" height="40" rx="10" fill="#f4f7fb"/>
+<circle cx="70" cy="124" r="10" fill="#dcf3ea"/>
+<path d="M65 124l3.5 3.5 6.5-7" stroke="#12805c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="90" y="128.5" font-size="13" font-weight="600" fill="#14213d">Open 14+ days</text>
+<rect x="354" y="113" width="66" height="22" rx="11" fill="#dcf3ea"/>
+<text x="387.0" y="128" font-size="11.5" font-weight="700" fill="#12805c" text-anchor="middle">Chased</text>
+<rect x="48" y="150" width="384" height="40" rx="10" fill="#f4f7fb"/>
+<circle cx="70" cy="170" r="10" fill="#dcf3ea"/>
+<path d="M65 170l3.5 3.5 6.5-7" stroke="#12805c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="90" y="174.5" font-size="13" font-weight="600" fill="#14213d">Vendor status request</text>
+<rect x="368" y="159" width="52" height="22" rx="11" fill="#dcf3ea"/>
+<text x="394.0" y="174" font-size="11.5" font-weight="700" fill="#12805c" text-anchor="middle">Sent</text>
+<rect x="48" y="196" width="384" height="40" rx="10" fill="#f4f7fb"/>
+<circle cx="70" cy="216" r="10" fill="#e8f1fd"/>
+<path d="M65 216l3.5 3.5 6.5-7" stroke="#1d6fe0" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="90" y="220.5" font-size="13" font-weight="600" fill="#14213d">Vendor reply</text>
+<rect x="340" y="205" width="80" height="22" rx="11" fill="#e8f1fd"/>
+<text x="380.0" y="220" font-size="11.5" font-weight="700" fill="#1d6fe0" text-anchor="middle">Received</text>
+<rect x="48" y="242" width="384" height="40" rx="10" fill="#f4f7fb"/>
+<circle cx="70" cy="262" r="10" fill="#dcf3ea"/>
+<path d="M65 262l3.5 3.5 6.5-7" stroke="#12805c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="90" y="266.5" font-size="13" font-weight="600" fill="#14213d">Weekly maintenance report</text>
+<rect x="368" y="251" width="52" height="22" rx="11" fill="#dcf3ea"/>
+<text x="394.0" y="266" font-size="11.5" font-weight="700" fill="#12805c" text-anchor="middle">Sent</text>
+</g></svg>

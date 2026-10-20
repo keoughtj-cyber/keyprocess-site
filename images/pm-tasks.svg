@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" role="img" aria-label="Illustration of property management tasks running on their own across leasing, maintenance, accounting, and marketing">
+<rect width="480" height="320" rx="22" fill="#0f1a33"/>
+<rect x="24" y="24" width="432" height="272" rx="16" fill="#fff"/>
+<g font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+<text x="48" y="62" font-size="15" font-weight="700" fill="#14213d">Property management tasks</text>
+<text x="48" y="82" font-size="11.5" fill="#4a5568">Running on their own</text>
+<rect x="344.8" y="44" width="87.2" height="30" rx="15" fill="#fff6e0" stroke="#f4b740"/>
+<text x="388.4" y="64" font-size="12" font-weight="700" fill="#9a6400" text-anchor="middle">25 ideas</text>
+<rect x="48" y="104" width="384" height="40" rx="10" fill="#f4f7fb"/>
+<circle cx="70" cy="124" r="10" fill="#dcf3ea"/>
+<path d="M65 124l3.5 3.5 6.5-7" stroke="#12805c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="90" y="128.5" font-size="13" font-weight="600" fill="#14213d">Leasing paperwork</text>
+<rect x="333" y="113" width="87" height="22" rx="11" fill="#dcf3ea"/>
+<text x="376.5" y="128" font-size="11.5" font-weight="700" fill="#12805c" text-anchor="middle">Automated</text>
+<rect x="48" y="150" width="384" height="40" rx="10" fill="#f4f7fb"/>
+<circle cx="70" cy="170" r="10" fill="#dcf3ea"/>
+<path d="M65 170l3.5 3.5 6.5-7" stroke="#12805c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="90" y="174.5" font-size="13" font-weight="600" fill="#14213d">Work order follow-ups</text>
+<rect x="333" y="159" width="87" height="22" rx="11" fill="#dcf3ea"/>
+<text x="376.5" y="174" font-size="11.5" font-weight="700" fill="#12805c" text-anchor="middle">Automated</text>
+<rect x="48" y="196" width="384" height="40" rx="10" fill="#f4f7fb"/>
+<circle cx="70" cy="216" r="10" fill="#dcf3ea"/>
+<path d="M65 216l3.5 3.5 6.5-7" stroke="#12805c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="90" y="220.5" font-size="13" font-weight="600" fill="#14213d">Utility bills</text>
+<rect x="333" y="205" width="87" height="22" rx="11" fill="#dcf3ea"/>
+<text x="376.5" y="220" font-size="11.5" font-weight="700" fill="#12805c" text-anchor="middle">Automated</text>
+<rect x="48" y="242" width="384" height="40" rx="10" fill="#f4f7fb"/>
+<circle cx="70" cy="262" r="10" fill="#dcf3ea"/>
+<path d="M65 262l3.5 3.5 6.5-7" stroke="#12805c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="90" y="266.5" font-size="13" font-weight="600" fill="#14213d">Listings and social posts</text>
+<rect x="333" y="251" width="87" height="22" rx="11" fill="#dcf3ea"/>
+<text x="376.5" y="266" font-size="11.5" font-weight="700" fill="#12805c" text-anchor="middle">Automated</text>
+</g></svg>

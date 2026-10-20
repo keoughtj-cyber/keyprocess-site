@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" role="img" aria-label="Illustration of new rentals, price drops, and rented units updated everywhere, and one video published to five platforms">
+<rect width="480" height="320" rx="22" fill="#0f1a33"/>
+<rect x="24" y="24" width="432" height="272" rx="16" fill="#fff"/>
+<g font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+<text x="48" y="62" font-size="15" font-weight="700" fill="#14213d">Rental marketing this week</text>
+<text x="48" y="82" font-size="11.5" fill="#4a5568">Updated everywhere, no copy and paste</text>
+<rect x="344.8" y="44" width="87.2" height="30" rx="15" fill="#fff6e0" stroke="#f4b740"/>
+<text x="388.4" y="64" font-size="12" font-weight="700" fill="#9a6400" text-anchor="middle">All live</text>
+<rect x="48" y="104" width="384" height="40" rx="10" fill="#f4f7fb"/>
+<circle cx="70" cy="124" r="10" fill="#dcf3ea"/>
+<path d="M65 124l3.5 3.5 6.5-7" stroke="#12805c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="90" y="128.5" font-size="13" font-weight="600" fill="#14213d">New rental posted</text>
+<rect x="368" y="113" width="52" height="22" rx="11" fill="#dcf3ea"/>
+<text x="394.0" y="128" font-size="11.5" font-weight="700" fill="#12805c" text-anchor="middle">Live</text>
+<rect x="48" y="150" width="384" height="40" rx="10" fill="#f4f7fb"/>
+<circle cx="70" cy="170" r="10" fill="#dcf3ea"/>
+<path d="M65 170l3.5 3.5 6.5-7" stroke="#12805c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="90" y="174.5" font-size="13" font-weight="600" fill="#14213d">Price drop</text>
+<rect x="347" y="159" width="73" height="22" rx="11" fill="#dcf3ea"/>
+<text x="383.5" y="174" font-size="11.5" font-weight="700" fill="#12805c" text-anchor="middle">Updated</text>
+<rect x="48" y="196" width="384" height="40" rx="10" fill="#f4f7fb"/>
+<circle cx="70" cy="216" r="10" fill="#dcf3ea"/>
+<path d="M65 216l3.5 3.5 6.5-7" stroke="#12805c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="90" y="220.5" font-size="13" font-weight="600" fill="#14213d">Rented unit</text>
+<rect x="347" y="205" width="73" height="22" rx="11" fill="#dcf3ea"/>
+<text x="383.5" y="220" font-size="11.5" font-weight="700" fill="#12805c" text-anchor="middle">Removed</text>
+<rect x="48" y="242" width="384" height="40" rx="10" fill="#f4f7fb"/>
+<circle cx="70" cy="262" r="10" fill="#dcf3ea"/>
+<path d="M65 262l3.5 3.5 6.5-7" stroke="#12805c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="90" y="266.5" font-size="13" font-weight="600" fill="#14213d">Video on 5 platforms</text>
+<rect x="333" y="251" width="87" height="22" rx="11" fill="#dcf3ea"/>
+<text x="376.5" y="266" font-size="11.5" font-weight="700" fill="#12805c" text-anchor="middle">Published</text>
+</g></svg>
