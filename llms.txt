@@ -18,6 +18,7 @@
 ## Services
 
 - [E-commerce automation](https://www.keyprocessautomation.com/ecommerce-automation): promotions, order tracking, and product reviews for online stores
+- [Home services automation](https://www.keyprocessautomation.com/home-services-automation): quote follow-ups, reminders, review requests, and invoice reminders for contractors
 - [Leasing automation](https://www.keyprocessautomation.com/leasing-automation): approval letters, leases, and daily reports for property managers
 - [Maintenance automation](https://www.keyprocessautomation.com/maintenance-automation): work order follow-ups and maintenance reports
 - [Bookkeeping automation](https://www.keyprocessautomation.com/bookkeeping-automation): bills matched and logged, with exceptions flagged
