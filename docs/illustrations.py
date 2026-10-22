@@ -57,3 +57,6 @@ card('pricing-guide','Illustration of the three ways to buy automation: a single
 card('pm-tasks','Illustration of property management tasks running on their own across leasing, maintenance, accounting, and marketing',
  'Property management tasks','Running on their own','25 ideas',
  [('Leasing paperwork','Automated',G),('Work order follow-ups','Automated',G),('Utility bills','Automated',G),('Listings and social posts','Automated',G)])
+card('business-processes',"Illustration of a small business's weekly processes running on their own: lead follow-ups, reminders, invoices, and reports",
+ 'This week, on autopilot','Repetitive work your team stopped doing by hand','Running',
+ [('New lead follow-ups','Sent',G),('Appointment reminders','Sent',G),('Invoice reminders','Sent',G),('Monday report','Delivered','blue')])

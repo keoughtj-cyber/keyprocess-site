@@ -18,14 +18,14 @@ How its output format maps to this pipeline:
 - A draft with any [AUTHOR INPUT NEEDED] placeholder is never merged. Leave the PR open and tell Tyler what's needed.
 - One of the eight posts each month is a refresh of an existing post (first Monday of the month), as the prompt's refresh section describes.
 
-
+## Content pillars (Tyler, 2026-10-20)
 
 Every post belongs to one of four pillars and links to that pillar's anchor page plus `/audit`. Rotate through the pillars so each gets a new post about every two weeks.
 
 | Pillar | Covers | Anchor page |
 | --- | --- | --- |
 | 1. Costs and payback | Prices, ROI, automation vs hiring, whether a monthly plan is worth it | `/blog/business-automation-cost` |
-| 2. What to automate | Task lists, process examples, signs you need automation | `/property-management-tasks-to-automate` (until an any-business guide exists) |
+| 2. What to automate | Task lists, process examples, signs you need automation | `/blog/business-processes-to-automate` (any business; `/property-management-tasks-to-automate` for property management) |
 | 3. Industry playbooks | Automation for one industry at a time | The matching industry service page (`/leasing-automation`, `/maintenance-automation`, `/bookkeeping-automation`, `/marketing-automation`, `/ecommerce-automation`) |
 | 4. Hiring automation help | What a consultant does, what the free audit covers, DIY vs hiring, what ongoing care includes, who owns what | `/audit` |
 
