@@ -6,6 +6,7 @@ Keyword backlog and publishing log for the weekly post. See `blog-playbook.md` f
 
 | Date | Slug | Primary keyword |
 | --- | --- | --- |
+| 2026-10-22 | business-processes-to-automate | business processes to automate |
 | 2026-10-19 | business-automation-cost | how much does business automation cost |
 | 2026-10-19 | property-management-tasks-to-automate (top-level URL, kept for its existing ranking) | property management tasks to automate |
 
@@ -13,7 +14,7 @@ Keyword backlog and publishing log for the weekly post. See `blog-playbook.md` f
 
 ### Planned order
 
-1. Thu 2026-10-22: business processes to automate (examples for small business) (pillar 2)
+1. ~~Thu 2026-10-22: business processes to automate (pillar 2)~~ published
 2. Mon 2026-10-26: what does an automation consultant do (pillar 4)
 3. Thu 2026-10-29: e-commerce automation ideas for small online stores (pillar 3)
 4. Mon 2026-11-02: how to calculate automation ROI (pillar 1)
@@ -28,7 +29,6 @@ After that, keep rotating 2, 4, 3, 1 and pick the strongest topic in each pillar
 
 ### 2. What to automate
 
-- business processes to automate (examples for small business)
 - signs your business needs automation
 - how to automate recurring reports
 - automate invoice follow-up / accounts receivable reminders

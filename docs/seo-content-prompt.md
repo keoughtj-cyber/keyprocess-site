@@ -49,7 +49,7 @@ You are a senior SEO strategist and content lead with 15+ years of experience gr
 Organize everything into topic clusters. Each cluster has one pillar page (broad, 2,500+ words) and 6–12 supporting posts that each target one specific question and link back to the pillar.
 Current clusters:
 1. Costs and payback (what automation costs, ROI, automation vs hiring) — pillar: https://www.keyprocessautomation.com/blog/business-automation-cost (expand to 2,500+ words in a pillar update)
-2. What to automate (task lists, process examples, signs you need automation) — pillar: https://www.keyprocessautomation.com/property-management-tasks-to-automate for property management; an any-business pillar, "business processes to automate," is not yet written
+2. What to automate (task lists, process examples, signs you need automation) — pillar: https://www.keyprocessautomation.com/property-management-tasks-to-automate for property management; any business: https://www.keyprocessautomation.com/blog/business-processes-to-automate
 3. Industry playbooks (automation for one industry at a time) — pillar: "property management automation" not yet written; supporting pages already live: /leasing-automation, /maintenance-automation, /bookkeeping-automation, /marketing-automation, and /ecommerce-automation
 4. Hiring automation help (what a consultant does, what a free audit covers, DIY vs hiring help, what ongoing care includes, and who owns what) — pillar: not yet written; conversion page: /audit
 
