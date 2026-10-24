@@ -6,8 +6,17 @@
     <atom:link href="https://www.keyprocessautomation.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Practical guides on business process automation: what to automate first, what it costs, and how businesses win back hours every week.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 22 Oct 2026 12:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 24 Oct 2026 12:00:00 GMT</lastBuildDate>
     <!-- ITEMS: newest first. Add new items directly below this line. -->
+    <item>
+      <title>Does business automation qualify for the R&amp;D tax credit? A plain-English guide</title>
+      <link>https://www.keyprocessautomation.com/blog/rd-tax-credit-automation</link>
+      <guid>https://www.keyprocessautomation.com/blog/rd-tax-credit-automation</guid>
+      <enclosure url="https://www.keyprocessautomation.com/blog/images/rd-tax-credit-automation.jpg" length="83354" type="image/jpeg"/>
+      <media:content url="https://www.keyprocessautomation.com/blog/images/rd-tax-credit-automation.jpg" medium="image" type="image/jpeg" width="1200" height="630"/>
+      <pubDate>Sat, 24 Oct 2026 12:00:00 GMT</pubDate>
+      <description>What the federal R&amp;D tax credit is, when custom automation work can count, who gets to claim it, and the records that make a claim hold up.</description>
+    </item>
     <item>
       <title>Business processes to automate: 15 examples for small businesses, and how to pick the first one</title>
       <link>https://www.keyprocessautomation.com/blog/business-processes-to-automate</link>

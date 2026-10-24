@@ -6,6 +6,7 @@ Keyword backlog and publishing log for the weekly post. See `blog-playbook.md` f
 
 | Date | Slug | Primary keyword |
 | --- | --- | --- |
+| 2026-10-24 | rd-tax-credit-automation (extra post from CPA Lawron Ballard's notes, outside the rotation) | R&D tax credit for automation |
 | 2026-10-22 | business-processes-to-automate | business processes to automate |
 | 2026-10-19 | business-automation-cost | how much does business automation cost |
 | 2026-10-19 | property-management-tasks-to-automate (top-level URL, kept for its existing ranking) | property management tasks to automate |
