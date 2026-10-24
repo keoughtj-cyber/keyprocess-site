@@ -271,6 +271,9 @@ a.card:hover { border-color: var(--brand); box-shadow: var(--shadow); transform:
 .faq summary::after { content: "+"; font-size: 1.4rem; line-height: 1; color: var(--brand); }
 .faq details[open] summary::after { content: "–"; }
 .faq details p { color: var(--ink-soft); padding-bottom: 20px; margin: 0; }
+.how-steps { max-width: 780px; margin: 0 auto; padding-left: 1.4em; }
+.how-steps li { margin-bottom: 12px; color: var(--ink-soft); }
+.how-steps li b { color: var(--ink); }
 
 /* CTA */
 .cta { background: var(--ink); color: #fff; text-align: center; }

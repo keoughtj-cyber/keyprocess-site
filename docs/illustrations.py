@@ -63,3 +63,6 @@ card('business-processes',"Illustration of a small business's weekly processes r
 card('rd-credit-test','Illustration of the four questions a project must pass for the federal R&D tax credit, with the last two marked as questions for your CPA',
  'R&D tax credit: the four-part test','Every question must be a yes','Ask your CPA',
  [('Building or improving something?','Check',G),('Relies on computer science?','Check',G),('Unsure how at the start?','Ask','amber'),('Tested different approaches?','Ask','amber')])
+card('ai-hero','Illustration of AI steps inside a workflow: captions drafted, details pulled from a messy email, a reply drafted, and one item held for a person to approve',
+ 'AI inside your workflow','Drafts and details, ready for review','You approve',
+ [('Captions for 5 platforms','Drafted',G),('Details from a messy email','Pulled',G),('Product description','Drafted',G),('Reply to a customer','Review','amber')])

@@ -17,6 +17,7 @@
 
 ## Services
 
+- [AI automation](https://www.keyprocessautomation.com/ai-automation): AI built into everyday workflows to draft captions, product copy, articles, and replies, and to pull details out of messy emails and documents, with your team approving what matters
 - [E-commerce automation](https://www.keyprocessautomation.com/ecommerce-automation): promotions, order tracking, and product reviews for online stores
 - [Home services automation](https://www.keyprocessautomation.com/home-services-automation): quote follow-ups, reminders, review requests, and invoice reminders for contractors
 - [Leasing automation](https://www.keyprocessautomation.com/leasing-automation): approval letters, leases, and daily reports for property managers
@@ -24,8 +25,19 @@
 - [Bookkeeping automation](https://www.keyprocessautomation.com/bookkeeping-automation): bills matched and logged, with exceptions flagged
 - [Marketing automation](https://www.keyprocessautomation.com/marketing-automation): listings and social posts kept current everywhere
 
+## Quick answers
+
+- What does KeyProcess Automation Services do? It builds and manages automations that take repetitive work off small and mid-sized teams, such as paperwork, follow-ups, bookkeeping, marketing, and reporting, using the software a business already has.
+- Does KeyProcess Automation Services do AI automation? Yes. It adds AI where a step needs reading or writing, such as drafting captions, product descriptions, articles, and replies, or pulling names, dates, and amounts out of unstructured text. Steps that must be exact stay rules-based, and a person approves anything customer-facing or financial.
+- What is AI automation? Automation that uses artificial intelligence for the steps that need language, while rules handle the steps that must be exact.
+- Who is it for? Businesses of 3 people or 300 in any industry, anywhere in the United States. Work is done remotely.
+- How much does it cost? From $1,000 for one automated process, from $3,000 for 3 to 5 connected automations, and from $500 a month for Automation Care. Every project starts with a free 30-minute audit and a fixed quote.
+- What results has it delivered? Lease approval packets cut from 2 hours to 10 minutes, 100 to 250 follow-ups sent every Monday hands-free, and one video posted to 5 platforms with captions written for each. See the case studies.
+
 ## Guides
 
+- [15 business processes to automate in a small business](https://www.keyprocessautomation.com/blog/business-processes-to-automate)
+- [Does automation qualify for the R&D tax credit?](https://www.keyprocessautomation.com/blog/rd-tax-credit-automation)
 - [How much does business automation cost?](https://www.keyprocessautomation.com/blog/business-automation-cost)
 - [25 property management tasks you can automate](https://www.keyprocessautomation.com/property-management-tasks-to-automate)
 - [Blog](https://www.keyprocessautomation.com/blog/)
