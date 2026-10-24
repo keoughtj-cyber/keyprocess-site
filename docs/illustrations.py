@@ -60,3 +60,6 @@ card('pm-tasks','Illustration of property management tasks running on their own 
 card('business-processes',"Illustration of a small business's weekly processes running on their own: lead follow-ups, reminders, invoices, and reports",
  'This week, on autopilot','Repetitive work your team stopped doing by hand','Running',
  [('New lead follow-ups','Sent',G),('Appointment reminders','Sent',G),('Invoice reminders','Sent',G),('Monday report','Delivered','blue')])
+card('rd-credit-test','Illustration of the four questions a project must pass for the federal R&D tax credit, with the last two marked as questions for your CPA',
+ 'R&D tax credit: the four-part test','Every question must be a yes','Ask your CPA',
+ [('Building or improving something?','Check',G),('Relies on computer science?','Check',G),('Unsure how at the start?','Ask','amber'),('Tested different approaches?','Ask','amber')])
