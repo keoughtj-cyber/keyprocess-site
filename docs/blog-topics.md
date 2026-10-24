@@ -55,3 +55,22 @@ After that, keep rotating 2, 4, 3, 1 and pick the strongest topic in each pillar
 - what you get from a free automation audit
 - doing it yourself vs hiring automation help
 - what happens after an automation is built (ongoing care, who owns what)
+
+### AI keywords (Semrush, U.S., October 2026)
+
+Work these into the rotation as the pick for their pillar, about one every other week, and link each post to /ai-automation. Only claim AI where the work really uses it (drafting, summarizing, sorting, and pulling details from text), and never name the AI tools.
+
+| Keyword | Monthly searches | Difficulty | Pillar |
+| --- | --- | --- | --- |
+| what is ai automation | 1,600 | low | 2 |
+| how to automate tasks with ai | 590 | n/a | 2 |
+| ai automation consultant / what an AI automation consultant does | 590 | 24 | 4 |
+| ai automation examples (for small businesses) | 260 | 40 | 2 |
+| ai automation for small business | 210 | 39 | 3 |
+| agentic ai vs traditional automation | 210 | n/a | 2 |
+| ai consulting for small business | 140 | 21 | 4 |
+| ai agents for small business (what they can and can't do) | 110 | 27 | 2 |
+| what is the difference between ai and automation | 70 | n/a | 2 |
+| ai email automation | 320 | 50 | 2 |
+
+Bigger head terms the /ai-automation page targets directly: ai automation services (1,900), ai automation agency (2,900), ai workflow automation (5,400), ai business automation (1,000).
