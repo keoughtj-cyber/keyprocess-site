@@ -9,12 +9,12 @@
   </g>
   <g fill="#dfe5ee"><rect x="48" y="252" width="384" height="2"/></g>
   <g>
-    <rect x="62"  y="214" width="34" height="38" rx="6" fill="#bcd5f8"/>
-    <rect x="114" y="196" width="34" height="56" rx="6" fill="#9cc0f4"/>
-    <rect x="166" y="180" width="34" height="72" rx="6" fill="#7aa9ef"/>
-    <rect x="218" y="160" width="34" height="92" rx="6" fill="#5590e9"/>
+    <rect x="62"  y="214" width="34" height="38" rx="6" fill="#a8b6cf"/>
+    <rect x="114" y="196" width="34" height="56" rx="6" fill="#6f86ad"/>
+    <rect x="166" y="180" width="34" height="72" rx="6" fill="#3b5788"/>
+    <rect x="218" y="160" width="34" height="92" rx="6" fill="#1f3a68"/>
     <rect x="270" y="140" width="34" height="112" rx="6" fill="#3a7ee4"/>
-    <rect x="322" y="122" width="34" height="130" rx="6" fill="#1d6fe0"/>
+    <rect x="322" y="122" width="34" height="130" rx="6" fill="#1f3a68"/>
     <rect x="374" y="100" width="34" height="152" rx="6" fill="#f4b740"/>
   </g>
   <path d="M79 204 L131 186 L183 170 L235 150 L287 130 L339 112 L391 90" fill="none" stroke="#14213d" stroke-width="2.5" stroke-dasharray="4 6" stroke-linecap="round"/>

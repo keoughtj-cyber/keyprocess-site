@@ -7,23 +7,23 @@
 <rect x="330.0" y="44" width="102.0" height="30" rx="15" fill="#fff6e0" stroke="#f4b740"/>
 <text x="381.0" y="64" font-size="12" font-weight="700" fill="#9a6400" text-anchor="middle">Free audit</text>
 <rect x="48" y="104" width="384" height="40" rx="10" fill="#f4f7fb"/>
-<circle cx="70" cy="124" r="10" fill="#e8f1fd"/>
-<path d="M65 124l3.5 3.5 6.5-7" stroke="#1d6fe0" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="70" cy="124" r="10" fill="#e9eef6"/>
+<path d="M65 124l3.5 3.5 6.5-7" stroke="#1f3a68" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
 <text x="90" y="128.5" font-size="13" font-weight="600" fill="#14213d">One automated process</text>
-<rect x="319" y="113" width="101" height="22" rx="11" fill="#e8f1fd"/>
-<text x="369.5" y="128" font-size="11.5" font-weight="700" fill="#1d6fe0" text-anchor="middle">From $1,000</text>
+<rect x="319" y="113" width="101" height="22" rx="11" fill="#e9eef6"/>
+<text x="369.5" y="128" font-size="11.5" font-weight="700" fill="#1f3a68" text-anchor="middle">From $1,000</text>
 <rect x="48" y="150" width="384" height="40" rx="10" fill="#f4f7fb"/>
-<circle cx="70" cy="170" r="10" fill="#e8f1fd"/>
-<path d="M65 170l3.5 3.5 6.5-7" stroke="#1d6fe0" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="70" cy="170" r="10" fill="#e9eef6"/>
+<path d="M65 170l3.5 3.5 6.5-7" stroke="#1f3a68" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
 <text x="90" y="174.5" font-size="13" font-weight="600" fill="#14213d">Package of 3 to 5</text>
-<rect x="319" y="159" width="101" height="22" rx="11" fill="#e8f1fd"/>
-<text x="369.5" y="174" font-size="11.5" font-weight="700" fill="#1d6fe0" text-anchor="middle">From $3,000</text>
+<rect x="319" y="159" width="101" height="22" rx="11" fill="#e9eef6"/>
+<text x="369.5" y="174" font-size="11.5" font-weight="700" fill="#1f3a68" text-anchor="middle">From $3,000</text>
 <rect x="48" y="196" width="384" height="40" rx="10" fill="#f4f7fb"/>
-<circle cx="70" cy="216" r="10" fill="#e8f1fd"/>
-<path d="M65 216l3.5 3.5 6.5-7" stroke="#1d6fe0" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="70" cy="216" r="10" fill="#e9eef6"/>
+<path d="M65 216l3.5 3.5 6.5-7" stroke="#1f3a68" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
 <text x="90" y="220.5" font-size="13" font-weight="600" fill="#14213d">Automation Care</text>
-<rect x="312" y="205" width="108" height="22" rx="11" fill="#e8f1fd"/>
-<text x="366.0" y="220" font-size="11.5" font-weight="700" fill="#1d6fe0" text-anchor="middle">From $500/mo</text>
+<rect x="312" y="205" width="108" height="22" rx="11" fill="#e9eef6"/>
+<text x="366.0" y="220" font-size="11.5" font-weight="700" fill="#1f3a68" text-anchor="middle">From $500/mo</text>
 <rect x="48" y="242" width="384" height="40" rx="10" fill="#f4f7fb"/>
 <circle cx="70" cy="262" r="10" fill="#dcf3ea"/>
 <path d="M65 262l3.5 3.5 6.5-7" stroke="#12805c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
