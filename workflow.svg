@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 360" role="img" aria-label="Illustration of busywork flowing into one automation and out as finished tasks">
   <defs>
     <linearGradient id="core" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#1d6fe0"/>
+      <stop offset="0" stop-color="#1f3a68"/>
       <stop offset="1" stop-color="#14213d"/>
     </linearGradient>
   </defs>
   <rect width="560" height="360" rx="22" fill="#f4f7fb"/>
-  <g fill="none" stroke="#1d6fe0" stroke-width="2.5" stroke-dasharray="3 8" stroke-linecap="round" opacity=".6">
+  <g fill="none" stroke="#1f3a68" stroke-width="2.5" stroke-dasharray="3 8" stroke-linecap="round" opacity=".6">
     <path d="M164 70 C 220 70, 224 180, 280 180"/>
     <path d="M164 180 L 280 180"/>
     <path d="M164 290 C 220 290, 224 180, 280 180"/>
@@ -35,7 +35,7 @@
     </g>
     <!-- core -->
     <circle cx="280" cy="180" r="62" fill="url(#core)"/>
-    <circle cx="280" cy="180" r="76" fill="none" stroke="#1d6fe0" stroke-opacity=".25" stroke-width="2"/>
+    <circle cx="280" cy="180" r="76" fill="none" stroke="#1f3a68" stroke-opacity=".25" stroke-width="2"/>
     <path d="M266 160l-12 22h18l-8 22 26-30h-18l10-14z" fill="#f4b740" transform="translate(8 -2)"/>
     <!-- outputs -->
     <g transform="translate(380 48)">

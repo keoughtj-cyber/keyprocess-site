@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" role="img" aria-label="Illustration of automations being monitored">
-  <rect width="320" height="180" rx="16" fill="#e8f1fd"/>
+  <rect width="320" height="180" rx="16" fill="#e9eef6"/>
   <rect x="30" y="28" width="260" height="124" rx="14" fill="#fff"/>
   <g font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12" font-weight="700">
     <text x="48" y="54" fill="#14213d">All automations healthy</text>
     <circle cx="262" cy="50" r="6" fill="#12805c"/>
   </g>
-  <path d="M48 112h40l12-30 16 52 14-36 10 14h120" fill="none" stroke="#1d6fe0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M48 112h40l12-30 16 52 14-36 10 14h120" fill="none" stroke="#1f3a68" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
   <g fill="#dfe5ee"><rect x="48" y="132" width="60" height="6" rx="3"/><rect x="118" y="132" width="40" height="6" rx="3"/></g>
   <path d="M250 96c0-8 12-8 12 0 0-8 12-8 12 0 0 8-12 14-12 18-0-4-12-10-12-18z" fill="#f4b740"/>
 </svg>

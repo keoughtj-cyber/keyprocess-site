@@ -3,7 +3,7 @@
 import os
 OUT=os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'images')
 F='font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif"'
-CH={'green':('#dcf3ea','#12805c'),'blue':('#e8f1fd','#1d6fe0'),'amber':('#fdf1d6','#9a6400')}
+CH={'green':('#dcf3ea','#12805c'),'blue':('#e9eef6','#1f3a68'),'amber':('#fdf1d6','#9a6400')}
 def esc(s): return s.replace('&','&amp;')
 def card(name,label,title,sub,badge,rows):
     o=[f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" role="img" aria-label="{esc(label)}">',

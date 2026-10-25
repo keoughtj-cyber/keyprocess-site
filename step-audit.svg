@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" role="img" aria-label="Illustration of a conversation during a free audit">
-  <rect width="320" height="180" rx="16" fill="#e8f1fd"/>
+  <rect width="320" height="180" rx="16" fill="#e9eef6"/>
   <g font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12" font-weight="600">
     <rect x="28" y="30" width="170" height="48" rx="14" fill="#fff"/>
     <path d="M44 78 l-6 14 l18 -14z" fill="#fff"/>
     <text x="44" y="51" fill="#14213d">Where does your</text><text x="44" y="67" fill="#14213d">team lose time?</text>
-    <rect x="120" y="96" width="172" height="48" rx="14" fill="#1d6fe0"/>
-    <path d="M276 144 l6 14 l-18 -14z" fill="#1d6fe0"/>
+    <rect x="120" y="96" width="172" height="48" rx="14" fill="#1f3a68"/>
+    <path d="M276 144 l6 14 l-18 -14z" fill="#1f3a68"/>
     <text x="136" y="117" fill="#fff">Paperwork and</text><text x="136" y="133" fill="#fff">follow-ups, every day.</text>
   </g>
   <circle cx="248" cy="48" r="20" fill="#f4b740"/>

@@ -66,6 +66,7 @@
 
     <section class="form-section">
       <div class="wrap">
+    <div class="audit-layout">
     <form class="audit-form" method="post" action="/api/audit" novalidate>
       <p class="form-note">Fields marked <em>*</em> are required.</p>
       <div class="form-step">
@@ -246,6 +247,16 @@
         <p class="fineprint">We'll only use your answers to prepare your audit. Please don't include passwords.</p>
       </div>
     </form>
+    <aside class="flow-builder" id="flow-builder" aria-live="polite">
+      <h2><span class="mh-dot" aria-hidden="true"></span>Your automation sketch</h2>
+      <p class="fbld-lead">Builds itself as you fill in step 3.</p>
+      <p class="fbld-task" id="fbld-task" hidden></p>
+      <p class="fbld-empty" id="fbld-empty">Check the areas that take the most manual work, and we'll sketch what could run on its own.</p>
+      <ul class="fbld-list" id="fbld-list"></ul>
+      <p class="fbld-more" id="fbld-more" hidden></p>
+      <div class="fbld-est" id="fbld-est" hidden><b id="fbld-hours"></b><span>A rough estimate of time back each week. Your audit gives you the real number.</span></div>
+    </aside>
+    </div>
       </div>
     </section>
   </main>
@@ -294,6 +305,68 @@
         form.querySelector('button[type=submit]').disabled = true;
         form.querySelector('button[type=submit]').textContent = 'Sending...';
       });
+    })();
+  </script>
+  <script>
+    // Audit flow builder: sketches an automation for each area the visitor checks, plus a rough time estimate.
+    (function () {
+      var form = document.querySelector('.audit-form'), aside = document.getElementById('flow-builder');
+      if (!form || !aside) return;
+      var AREAS = {
+        'Lead follow-up and sales': ['New lead comes in', 'Instant reply and follow-ups', 'Only warm leads reach you'],
+        'Scheduling and appointments': ['Booking made', 'Reminders sent', 'Fewer no-shows'],
+        'Customer intake and onboarding': ['Form submitted', 'Welcome packet built', 'Ready on day one'],
+        'Customer communication': ['Customer writes in', 'Sorted and routed', 'Answered faster'],
+        'Quotes, proposals, and contracts': ['Details approved', 'Document filled in', 'Ready to sign'],
+        'Jobs, orders, or work orders': ['Job goes quiet', 'Status request sent', 'Nothing slips'],
+        'Vendor coordination and invoices': ['Invoice arrives', 'Logged and matched', 'Only issues flagged'],
+        'Billing, payments, and collections': ['Invoice overdue', 'Friendly reminders', 'Paid sooner'],
+        'Bookkeeping and reconciliation': ['Transaction lands', 'Matched and checked', 'Books stay current'],
+        'Reports and dashboards': ['Every Monday', 'Numbers gathered', 'Report in your inbox'],
+        'Compliance, licensing, and deadlines': ['Deadline coming up', 'Checked and flagged', 'No missed renewals'],
+        'Marketing and social media': ['One post approved', 'Published everywhere', 'Steady presence'],
+        'Hiring and employee onboarding': ['New hire signs', 'Accounts and documents set up', 'Ready on day one'],
+        'Copying data between systems': ['A record changes', 'Copied everywhere', 'No retyping'],
+        'Other': ['Your task', 'Mapped in your audit', 'Time back']
+      };
+      var HOURS = { 'Less than 5': [1, 2], '5 to 10': [2, 4], '10 to 20': [4, 8], '20 to 40': [8, 16], 'More than 40': [16, 20] };
+      var list = document.getElementById('fbld-list'), empty = document.getElementById('fbld-empty'), more = document.getElementById('fbld-more');
+      var est = document.getElementById('fbld-est'), hours = document.getElementById('fbld-hours'), task = document.getElementById('fbld-task');
+      var areaName = 'Which areas take the most manual work?', taskName = 'If you could hand off one task tomorrow, what would it be?';
+      var hoursName = 'About how many hours a week does your team spend on repetitive admin work?';
+      var shown = [];
+      function update() {
+        var picked = [].slice.call(form.querySelectorAll('input[type=checkbox]')).filter(function (c) { return c.name === areaName && c.checked; }).map(function (c) { return c.value; });
+        var top = picked.slice(0, 4);
+        if (top.join('|') !== shown.join('|')) {
+          list.innerHTML = '';
+          top.forEach(function (a) {
+            var li = document.createElement('li'), b = document.createElement('b'), chain = document.createElement('div');
+            li.className = 'fbld-item'; chain.className = 'fbld-chain'; b.textContent = a;
+            (AREAS[a] || AREAS.Other).forEach(function (step, i) {
+              if (i) { var w = document.createElement('i'); w.setAttribute('aria-hidden', 'true'); chain.appendChild(w); }
+              var s = document.createElement('span'); s.textContent = step; chain.appendChild(s);
+            });
+            li.appendChild(b); li.appendChild(chain); list.appendChild(li);
+          });
+          shown = top;
+        }
+        empty.hidden = picked.length > 0;
+        more.hidden = picked.length <= 4;
+        more.textContent = '+ ' + (picked.length - 4) + ' more to look at in your audit';
+        var t = form.querySelector('textarea[name="' + taskName + '"]'), tv = t ? t.value.trim() : '';
+        task.hidden = !tv; task.textContent = 'Your #1: "' + (tv.length > 90 ? tv.slice(0, 90) + '...' : tv) + '"';
+        var h = form.querySelector('input[type=radio][name="' + hoursName + '"]:checked'), r = h && HOURS[h.value];
+        est.hidden = !r || !picked.length;
+        if (r) hours.textContent = 'About ' + r[0] + ' to ' + r[1] + ' hours a week';
+      }
+      // On narrow screens the sketch sits right under the areas question instead of beside the form.
+      var home = aside.parentNode, areas = form.querySelector('fieldset[data-required]'), mq = window.matchMedia('(max-width: 1000px)');
+      function place() { if (mq.matches && areas) areas.parentNode.insertBefore(aside, areas.nextSibling); else home.appendChild(aside); }
+      if (mq.addEventListener) mq.addEventListener('change', place); else mq.addListener(place);
+      place();
+      form.addEventListener('input', update); form.addEventListener('change', update);
+      update();
     })();
   </script>
 </body>
