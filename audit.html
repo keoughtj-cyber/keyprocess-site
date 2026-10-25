@@ -60,7 +60,7 @@
       <div class="wrap">
         <p class="eyebrow">Free automation audit</p>
         <h1>Find out what your team could stop doing by hand</h1>
-        <p class="section-lead">Tell us how your team works today, and we'll come back with a short audit: the tasks worth automating first, the time you could get back, and what it would take. It takes about 5 minutes, and there's no obligation.</p>
+        <p class="section-lead">Tell us how your team works today, and we'll come back with a short audit: the tasks worth automating first, the time you could get back, and what it would take. It's six quick steps, about 4 minutes, and there's no obligation.</p>
       </div>
     </section>
 
@@ -69,33 +69,8 @@
     <div class="audit-layout">
     <form class="audit-form" method="post" action="/api/audit" novalidate>
       <p class="form-note">Fields marked <em>*</em> are required.</p>
-      <div class="form-step">
-        <h2><span class="step-num">1</span> About you</h2>
-        <div class="field-row">
-        <label class="field"><span class="q">First name <em>*</em></span><input type="text" name="First name" required autocomplete="given-name"></label>
-        <label class="field"><span class="q">Last name <em>*</em></span><input type="text" name="Last name" required autocomplete="family-name"></label>
-        </div>
-        <div class="field-row">
-        <label class="field"><span class="q">Work email <em>*</em></span><input type="email" name="Work email" required autocomplete="email"></label>
-        <label class="field"><span class="q">Phone</span><input type="tel" name="Phone" autocomplete="tel"></label>
-        </div>
-        <div class="field-row">
-        <label class="field"><span class="q">Company name <em>*</em></span><input type="text" name="Company name" required autocomplete="organization"></label>
-        <label class="field"><span class="q">Company website</span><input type="text" name="Company website" autocomplete="url"></label>
-        </div>
-        <fieldset class="field"><legend class="q">Your role <em>*</em></legend>
-          <div class="options">
-            <label><input type="radio" name="Your role" value="Owner or founder" required> Owner or founder</label>
-            <label><input type="radio" name="Your role" value="Operations or general manager"> Operations or general manager</label>
-            <label><input type="radio" name="Your role" value="Office or admin manager"> Office or admin manager</label>
-            <label><input type="radio" name="Your role" value="Sales or marketing"> Sales or marketing</label>
-            <label><input type="radio" name="Your role" value="Finance or bookkeeping"> Finance or bookkeeping</label>
-            <label class="other"><input type="radio" name="Your role" value="Other"> Other: <input type="text" name="Your role (other)" aria-label="Other, please specify"></label>
-          </div>
-        </fieldset>
-      </div>
-      <div class="form-step">
-        <h2><span class="step-num">2</span> Your business</h2>
+      <div class="form-step" data-step="1" data-label="Business">
+        <h2 tabindex="-1"><span class="step-num">1</span> Your business</h2><p class="step-lead">Quick taps to start. No typing yet.</p>
         <fieldset class="field"><legend class="q">What industry are you in? <em>*</em></legend>
           <div class="options options-2">
             <label><input type="radio" name="What industry are you in?" value="Property management" required> Property management</label>
@@ -118,9 +93,19 @@
             <label><input type="radio" name="How many people are on your team?" value="More than 50"> More than 50</label>
           </div>
         </fieldset>
+        <fieldset class="field"><legend class="q">Your role <em>*</em></legend>
+          <div class="options">
+            <label><input type="radio" name="Your role" value="Owner or founder" required> Owner or founder</label>
+            <label><input type="radio" name="Your role" value="Operations or general manager"> Operations or general manager</label>
+            <label><input type="radio" name="Your role" value="Office or admin manager"> Office or admin manager</label>
+            <label><input type="radio" name="Your role" value="Sales or marketing"> Sales or marketing</label>
+            <label><input type="radio" name="Your role" value="Finance or bookkeeping"> Finance or bookkeeping</label>
+            <label class="other"><input type="radio" name="Your role" value="Other"> Other: <input type="text" name="Your role (other)" aria-label="Other, please specify"></label>
+          </div>
+        </fieldset>
       </div>
-      <div class="form-step">
-        <h2><span class="step-num">3</span> Where your time goes</h2>
+      <div class="form-step" data-step="2" data-label="Your time" data-sketch>
+        <h2 tabindex="-1"><span class="step-num">2</span> Where your time goes</h2><p class="step-lead">Check everything that eats your week. Watch your automation sketch build as you go.</p>
         <fieldset class="field" data-required><legend class="q">Which areas take the most manual work? <em>*</em></legend>
           <div class="options options-2">
             <label><input type="checkbox" name="Which areas take the most manual work?" value="Lead follow-up and sales"> Lead follow-up and sales</label>
@@ -141,6 +126,9 @@
           </div>
           <span class="field-error" hidden>Please choose at least one.</span>
         </fieldset>
+      </div>
+      <div class="form-step" data-step="3" data-label="#1 task" data-sketch>
+        <h2 tabindex="-1"><span class="step-num">3</span> Your #1 task</h2><p class="step-lead">This is the one we look at first.</p>
         <label class="field"><span class="q">If you could hand off one task tomorrow, what would it be? <em>*</em></span><span class="help">Walk us through how it&#x27;s done today, step by step. The more detail, the better the audit.</span><textarea name="If you could hand off one task tomorrow, what would it be?" rows="4" required></textarea></label>
         <fieldset class="field"><legend class="q">About how many hours a week does your team spend on repetitive admin work? <em>*</em></legend>
           <div class="options">
@@ -164,8 +152,8 @@
           </div>
         </fieldset>
       </div>
-      <div class="form-step">
-        <h2><span class="step-num">4</span> Your tools</h2><p class="step-lead">This helps us scope your audit. We work with whatever you already use, so there&#x27;s no need to switch anything.</p>
+      <div class="form-step" data-step="4" data-label="Tools">
+        <h2 tabindex="-1"><span class="step-num">4</span> Your tools</h2><p class="step-lead">We work with whatever you already use, so there&#x27;s no need to switch anything.</p>
         <label class="field"><span class="q">What main software does your business run on? <em>*</em></span><span class="help">For example, your CRM, scheduling, practice management, field service, or property management software. If it&#x27;s mostly spreadsheets, just say so.</span><input type="text" name="What main software does your business run on?" required></label>
         <fieldset class="field"><legend class="q">Which email and calendar do you use? <em>*</em></legend>
           <div class="options">
@@ -174,6 +162,7 @@
             <label class="other"><input type="radio" name="Which email and calendar do you use?" value="Other"> Other: <input type="text" name="Which email and calendar do you use? (other)" aria-label="Other, please specify"></label>
           </div>
         </fieldset>
+        <details class="more-q"><summary>Tell us more about your tools (optional)</summary>
         <fieldset class="field"><legend class="q">What else does your team use day to day?</legend>
           <div class="options options-2">
             <label><input type="checkbox" name="What else does your team use day to day?" value="Spreadsheets (Excel or Google Sheets)"> Spreadsheets (Excel or Google Sheets)</label>
@@ -195,10 +184,10 @@
             <label><input type="radio" name="Do you have admin access to your software?" value="Not sure"> Not sure</label>
           </div>
         </fieldset>
+        </details>
       </div>
-      <div class="form-step">
-        <h2><span class="step-num">5</span> Next steps</h2>
-        <label class="field"><span class="q">What would a win look like 90 days from now?</span><textarea name="What would a win look like 90 days from now?" rows="4"></textarea></label>
+      <div class="form-step" data-step="5" data-label="Timing">
+        <h2 tabindex="-1"><span class="step-num">5</span> Your timing</h2><p class="step-lead">Almost there.</p>
         <fieldset class="field"><legend class="q">When are you hoping to get started? <em>*</em></legend>
           <div class="options">
             <label><input type="radio" name="When are you hoping to get started?" value="As soon as possible" required> As soon as possible</label>
@@ -223,6 +212,30 @@
             <label><input type="radio" name="Have you tried automation before?" value="Yes, but it didn&#x27;t stick"> Yes, but it didn&#x27;t stick</label>
           </div>
         </fieldset>
+        <label class="field"><span class="q">What would a win look like 90 days from now?</span><textarea name="What would a win look like 90 days from now?" rows="4"></textarea></label>
+      </div>
+      <div class="form-step" data-step="6" data-label="Contact" data-sketch>
+        <h2 tabindex="-1"><span class="step-num">6</span> Where should we send your audit?</h2><p class="step-lead">Last step. We&#x27;ll reply within one business day.</p>
+        <div class="field-row">
+        <label class="field"><span class="q">First name <em>*</em></span><input type="text" name="First name" required autocomplete="given-name"></label>
+        <label class="field"><span class="q">Last name <em>*</em></span><input type="text" name="Last name" required autocomplete="family-name"></label>
+        </div>
+        <div class="field-row">
+        <label class="field"><span class="q">Work email <em>*</em></span><input type="email" name="Work email" required autocomplete="email"></label>
+        <label class="field"><span class="q">Phone</span><input type="tel" name="Phone" autocomplete="tel"></label>
+        </div>
+        <div class="field-row">
+        <label class="field"><span class="q">Company name <em>*</em></span><input type="text" name="Company name" required autocomplete="organization"></label>
+        <label class="field"><span class="q">Company website</span><input type="text" name="Company website" autocomplete="url"></label>
+        </div>
+        <fieldset class="field"><legend class="q">Best way to reach you <em>*</em></legend>
+          <div class="options">
+            <label><input type="radio" name="Best way to reach you" value="Email" required> Email</label>
+            <label><input type="radio" name="Best way to reach you" value="Phone call"> Phone call</label>
+            <label><input type="radio" name="Best way to reach you" value="Text"> Text</label>
+          </div>
+        </fieldset>
+        <details class="more-q"><summary>Anything else? (optional)</summary>
         <fieldset class="field"><legend class="q">How did you hear about us?</legend>
           <div class="options">
             <label><input type="radio" name="How did you hear about us?" value="Google search"> Google search</label>
@@ -231,14 +244,8 @@
             <label class="other"><input type="radio" name="How did you hear about us?" value="Other"> Other: <input type="text" name="How did you hear about us? (other)" aria-label="Other, please specify"></label>
           </div>
         </fieldset>
-        <fieldset class="field"><legend class="q">Best way to reach you <em>*</em></legend>
-          <div class="options">
-            <label><input type="radio" name="Best way to reach you" value="Email" required> Email</label>
-            <label><input type="radio" name="Best way to reach you" value="Phone call"> Phone call</label>
-            <label><input type="radio" name="Best way to reach you" value="Text"> Text</label>
-          </div>
-        </fieldset>
         <label class="field"><span class="q">Anything else we should know?</span><textarea name="Anything else we should know?" rows="4"></textarea></label>
+        </details>
       </div>
       <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="website_url" tabindex="-1" autocomplete="off"></label></div>
       <input type="hidden" name="started" value="">
@@ -249,7 +256,7 @@
     </form>
     <aside class="flow-builder" id="flow-builder" aria-live="polite">
       <h2><span class="mh-dot" aria-hidden="true"></span>Your automation sketch</h2>
-      <p class="fbld-lead">Builds itself as you fill in step 3.</p>
+      <p class="fbld-lead">Builds itself as you answer.</p>
       <p class="fbld-task" id="fbld-task" hidden></p>
       <p class="fbld-empty" id="fbld-empty">Check the areas that take the most manual work, and we'll sketch what could run on its own.</p>
       <ul class="fbld-list" id="fbld-list"></ul>
@@ -281,30 +288,92 @@
     </div>
   </footer>
   <script>
+    // Shows the audit form one short step at a time, with a progress bar, and checks each step before moving on.
     (function () {
       var form = document.querySelector('.audit-form');
       form.elements.started.value = Date.now();
-      form.addEventListener('submit', function (e) {
-        var first = null;
-        form.querySelectorAll('fieldset[data-required]').forEach(function (fs) {
-          var ok = fs.querySelector('input[type=checkbox]:checked');
-          fs.querySelector('.field-error').hidden = !!ok;
-          fs.classList.toggle('invalid', !ok);
-          if (!ok && !first) first = fs;
-        });
-        if (!form.checkValidity()) {
-          e.preventDefault();
-          form.reportValidity();
-          return;
-        }
-        if (first) {
-          e.preventDefault();
-          first.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          return;
-        }
-        form.querySelector('button[type=submit]').disabled = true;
-        form.querySelector('button[type=submit]').textContent = 'Sending...';
+      var steps = [].slice.call(form.querySelectorAll('.form-step')), submit = form.querySelector('.form-submit');
+      var btn = submit.querySelector('button[type=submit]'), current = 0;
+
+      function check(fs) {
+        var ok = fs.querySelector('input[type=checkbox]:checked');
+        fs.querySelector('.field-error').hidden = !!ok;
+        fs.classList.toggle('invalid', !ok);
+        return !!ok;
+      }
+      // Returns the first problem in a step, or null when it is complete.
+      function problem(step) {
+        var bad = null;
+        step.querySelectorAll('fieldset[data-required]').forEach(function (fs) { if (!check(fs) && !bad) bad = fs; });
+        var invalid = [].slice.call(step.querySelectorAll('input, textarea')).filter(function (el) { return !el.checkValidity(); })[0];
+        return invalid || bad;
+      }
+      function show(el) {
+        if (el.reportValidity && el.matches('input, textarea')) el.reportValidity();
+        else el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+
+      form.classList.add('is-wizard');
+      var bar = document.createElement('div');
+      bar.className = 'wz-progress';
+      bar.innerHTML = '<div class="wz-meta"><span class="wz-label"></span><span class="wz-left"></span></div>' +
+        '<div class="wz-track" role="progressbar" aria-valuemin="0" aria-valuemax="' + steps.length + '"><span></span></div>' +
+        '<ol class="wz-dots"></ol>';
+      form.insertBefore(bar, steps[0]);
+      var dots = bar.querySelector('.wz-dots'), track = bar.querySelector('.wz-track'), fill = track.querySelector('span');
+      steps.forEach(function (st, i) {
+        var li = document.createElement('li');
+        li.textContent = st.dataset.label;
+        li.addEventListener('click', function () { if (i < current) go(i); });
+        dots.appendChild(li);
       });
+      var nav = document.createElement('div');
+      nav.className = 'wz-nav';
+      nav.innerHTML = '<button type="button" class="btn btn-ghost wz-back">Back</button><button type="button" class="btn wz-next">Next</button>';
+      form.insertBefore(nav, submit);
+      var back = nav.querySelector('.wz-back'), next = nav.querySelector('.wz-next');
+
+      function go(i, focus) {
+        current = i;
+        steps.forEach(function (st, n) { st.classList.toggle('is-active', n === i); });
+        [].forEach.call(dots.children, function (d, n) { d.className = n < i ? 'done' : n === i ? 'now' : ''; });
+        var last = i === steps.length - 1, left = steps.length - 1 - i;
+        bar.querySelector('.wz-label').textContent = 'Step ' + (i + 1) + ' of ' + steps.length;
+        bar.querySelector('.wz-left').textContent = last ? 'Last step' : 'About ' + Math.max(1, Math.round(left * 0.7)) + ' min left';
+        fill.style.width = ((i + 1) / steps.length * 100) + '%';
+        track.setAttribute('aria-valuenow', i + 1);
+        back.hidden = i === 0;
+        next.hidden = last;
+        submit.hidden = !last;
+        form.dispatchEvent(new CustomEvent('wizardstep', { detail: steps[i] }));
+        if (focus !== false) {
+          bar.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          steps[i].querySelector('h2').focus({ preventScroll: true });
+        }
+      }
+      function forward() {
+        var bad = problem(steps[current]);
+        if (bad) return show(bad);
+        go(current + 1);
+      }
+      next.addEventListener('click', forward);
+      back.addEventListener('click', function () { go(current - 1); });
+
+      form.addEventListener('submit', function (e) {
+        // Enter in a text box moves to the next step instead of sending early.
+        if (current < steps.length - 1) { e.preventDefault(); forward(); return; }
+        for (var i = 0; i < steps.length; i++) {
+          var bad = problem(steps[i]);
+          if (bad) { e.preventDefault(); if (i !== current) go(i, false); show(bad); return; }
+        }
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
+      });
+      form.addEventListener('change', function (e) {
+        var fs = e.target.closest('fieldset[data-required]');
+        if (fs && fs.classList.contains('invalid')) check(fs);
+      });
+      go(0, false);
     })();
   </script>
   <script>
@@ -360,9 +429,14 @@
         est.hidden = !r || !picked.length;
         if (r) hours.textContent = 'About ' + r[0] + ' to ' + r[1] + ' hours a week';
       }
-      // On narrow screens the sketch sits right under the areas question instead of beside the form.
-      var home = aside.parentNode, areas = form.querySelector('fieldset[data-required]'), mq = window.matchMedia('(max-width: 1000px)');
-      function place() { if (mq.matches && areas) areas.parentNode.insertBefore(aside, areas.nextSibling); else home.appendChild(aside); }
+      // On narrow screens the sketch sits at the end of the steps that feed it instead of beside the form.
+      var home = aside.parentNode, mq = window.matchMedia('(max-width: 1000px)'), active = form.querySelector('.form-step');
+      function place() {
+        var inline = mq.matches && active && active.hasAttribute('data-sketch');
+        aside.hidden = mq.matches && !inline;
+        if (inline) active.appendChild(aside); else home.appendChild(aside);
+      }
+      form.addEventListener('wizardstep', function (e) { active = e.detail; place(); });
       if (mq.addEventListener) mq.addEventListener('change', place); else mq.addListener(place);
       place();
       form.addEventListener('input', update); form.addEventListener('change', update);
