@@ -7,7 +7,10 @@
     "directory": ".",
     "binding": "ASSETS",
     // Unknown URLs get 404.html with a real 404 status instead of an empty page.
-    "not_found_handling": "404-page"
+    "not_found_handling": "404-page",
+    // Browser form posts are navigation requests, which the asset layer would
+    // otherwise answer with a 405 before the Worker sees them.
+    "run_worker_first": ["/api/*"]
   },
   // Emails audit form submissions. The destination must be a verified
   // address in Cloudflare Email Routing.
