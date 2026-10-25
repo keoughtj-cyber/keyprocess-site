@@ -425,7 +425,7 @@
       var steps = hub.querySelectorAll('.mh-step'), name = document.getElementById('mh-name'), time = document.getElementById('mh-time');
       var FLOWS = [
         { name: 'New lead', mins: 15, steps: [['New inquiry arrives', '"Need help with reminders ASAP"'], ['AI reads it', 'Need: scheduling. Urgency: high.'], ['Rules decide', 'Hot lead, so alert the owner'], ['Done', 'Reply sent, owner texted, logged']] },
-        { name: 'Bill arrives', mins: 8, steps: [['Bill hits the inbox', 'Repair invoice for $1,840'], ['AI pulls the details', 'Vendor, amount, and due date'], ['Rules decide', 'Over $1,000, so the owner approves'], ['Done', 'Entered in the books, reminder set']] },
+        { name: 'Bill arrives', mins: 8, steps: [['Bill hits the inbox', 'Repair invoice for $1,840'], ['Pull the details', 'Vendor, amount, and due date'], ['Rules decide', 'Over $1,000, so the owner approves'], ['Done', 'Entered in the books, reminder set']] },
         { name: 'Customer question', mins: 10, steps: [['Customer asks a question', '"Can I move my Tuesday visit?"'], ['AI sorts it', 'Type: scheduling. Mood: calm.'], ['Rules decide', 'Known answer, so reply now'], ['Done', 'Reply sent, ticket closed']] },
         { name: 'Weekly report', mins: 45, steps: [['Monday, 7:00 AM', 'Runs on its own every week'], ['Gather the numbers', '14 leads, 37 jobs, 3 unpaid'], ['Rules decide', '3 unpaid, so flag the bookkeeper'], ['Done', 'Summary in the owner\'s inbox']] }
       ];
