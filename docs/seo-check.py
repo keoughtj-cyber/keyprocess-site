@@ -11,7 +11,7 @@ from html.parser import HTMLParser
 
 SITE = "https://www.keyprocessautomation.com"
 SUFFIX = " | KeyProcess Automation Services"
-NOINDEX_OK = {"/audit-thanks", "/404", "/hub-lab"}  # Pages that should stay out of search (hub-lab is a test page).
+NOINDEX_OK = {"/audit-thanks", "/404"}  # Pages that should stay out of search.
 REQUIRED_META = ["og:title", "og:description", "og:image", "og:image:alt", "og:url", "og:type", "og:site_name",
                  "twitter:card", "twitter:title", "twitter:description", "twitter:image", "twitter:image:alt"]
 
