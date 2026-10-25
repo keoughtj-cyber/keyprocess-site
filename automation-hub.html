@@ -93,15 +93,15 @@
     .wire { fill: none; stroke: var(--edge); stroke-width: 2; stroke-dasharray: 5 6; transition: stroke 0.3s, opacity 0.3s; }
     .wire.lit { stroke: var(--gold); stroke-dasharray: none; filter: drop-shadow(0 0 4px rgba(244,183,64,0.6)); }
     .wire.skip { opacity: 0.25; }
+    .wire.loop { stroke-dasharray: 3 7; }
+    .wire.loop.lit { stroke-dasharray: 3 7; }
     .packet { fill: #fff; filter: drop-shadow(0 0 6px var(--gold)) drop-shadow(0 0 2px #fff); }
     .packet.mini { fill: var(--gold); filter: drop-shadow(0 0 4px var(--gold)); }
 
-    .flow { position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); grid-template-rows: auto auto; column-gap: 40px; row-gap: 28px; align-items: center; }
+    .flow { position: relative; display: grid; grid-template-columns: repeat(var(--cols, 5), minmax(0, 1fr)); grid-template-rows: repeat(var(--rows, 2), auto); column-gap: 40px; row-gap: 22px; align-items: center; }
+    .flow[data-shape="report"] { padding-bottom: 40px; }
     .node { position: relative; z-index: 1; background: var(--panel); border: 1px solid var(--edge); border-radius: 16px; padding: 14px 14px 12px; min-height: 120px; transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s, opacity 0.3s; }
-    .node[data-id="trigger"], .node[data-id="read"], .node[data-id="route"], .node[data-id="done"] { grid-row: 1 / 3; }
-    .node[data-id="actA"] { grid-column: 4; grid-row: 1; }
-    .node[data-id="actB"] { grid-column: 4; grid-row: 2; }
-    .node[data-id="done"] { grid-column: 5; }
+    .flow .node { grid-column: var(--c); grid-row: var(--r) / span var(--span); }
     .node-head { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
     .node-icon { width: 34px; height: 34px; border-radius: 10px; background: rgba(255,255,255,0.06); display: grid; place-items: center; flex-shrink: 0; color: var(--muted); transition: background 0.3s, color 0.3s; }
     .node-icon svg { width: 18px; height: 18px; }
@@ -147,22 +147,28 @@
     .hub-cta .btn { background: var(--gold); color: var(--navy); }
     .hub-cta .btn:hover { background: #fff; }
 
+    .presets { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; align-items: center; }
+    .presets::before { content: "Try:"; font-size: 0.8rem; color: var(--muted); margin-right: 2px; }
+    .preset { appearance: none; border: 1px dashed var(--edge); background: transparent; color: var(--muted); border-radius: 999px; padding: 4px 11px; font-family: inherit; font-size: 0.8rem; font-weight: 600; cursor: pointer; }
+    .preset:hover { color: var(--text); border-color: var(--gold); }
+    .preset[aria-pressed="true"] { color: var(--gold); border-style: solid; border-color: var(--gold); }
+    .preset:disabled { opacity: 0.5; cursor: wait; }
+    .console-bar .shape { font: 600 0.78rem/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--gold); letter-spacing: 0.06em; margin-right: auto; margin-left: 8px; }
     .lab-notes { padding: 72px 0; }
-    .lab-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .lab-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
     .lab-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; background: #fff; }
     .lab-card .num { font: 700 0.8rem/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: #b07d12; letter-spacing: 0.08em; }
     .lab-card h3 { margin-top: 8px; }
     .lab-card p { color: var(--ink-soft); margin: 0; }
 
     @media (max-width: 960px) {
-      .flow { grid-template-columns: 1fr 1fr; column-gap: 16px; row-gap: 36px; }
-      .node[data-id] { grid-row: auto; grid-column: 1 / 3; }
-      .node[data-id="actA"] { grid-column: 1; }
-      .node[data-id="actB"] { grid-column: 2; }
+      .flow { grid-template-columns: repeat(var(--rows, 2), minmax(0, 1fr)); grid-template-rows: none; column-gap: 12px; row-gap: 36px; }
+      .flow .node { grid-row: var(--c); grid-column: var(--r) / span var(--span); }
+      .flow[data-shape="report"] { padding-bottom: 0; margin-right: 22px; }
       .node { min-height: 0; }
       .readout { grid-template-columns: 1fr; }
       .log { border-right: 0; border-bottom: 1px solid var(--edge); height: 160px; }
-      .lab-grid { grid-template-columns: 1fr; }
+      .lab-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 640px) {
       .hub { padding: 44px 0 56px; }
@@ -172,6 +178,16 @@
       .tabs, .controls { padding-left: 12px; padding-right: 12px; }
       .tab { padding: 8px 12px; font-size: 0.86rem; }
       .race-row { grid-template-columns: 72px 1fr 56px; }
+      .lab-grid { grid-template-columns: 1fr; }
+      .flow[data-rows="3"] { column-gap: 8px; }
+      .flow[data-rows="3"] .node { padding: 10px 8px; }
+      .flow[data-rows="3"] .node-head { flex-direction: column; align-items: flex-start; gap: 6px; }
+      .flow[data-rows="3"] .node-icon { width: 28px; height: 28px; }
+      .flow[data-rows="3"] .node h3 { font-size: 0.84rem; }
+      .flow[data-rows="3"] .node-step { font-size: 0.62rem; }
+      .flow[data-rows="3"] .node-out { font-size: 0.7rem; }
+      .flow[data-rows="3"] .node-out .row { display: block; }
+      .flow[data-rows="3"] .node-out .row b { display: block; text-align: left; }
     }
     @media (prefers-reduced-motion: reduce) {
       .live-dot, .approve, .node-out .row, .node-out .note, .log li, .node.pulse { animation: none !important; }
@@ -210,6 +226,7 @@
           <h2 class="sr-only">Try the automation demo</h2>
           <div class="console-bar">
             <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="shape" id="shape"></div>
             <div class="status" id="status" role="status">STATUS: <b>READY</b></div>
           </div>
 
@@ -224,6 +241,7 @@
             <div>
               <label for="input" id="input-label">What came in</label>
               <textarea id="input" spellcheck="false"></textarea>
+              <div class="presets" id="presets"></div>
             </div>
             <div class="run-col">
               <label class="switch"><input type="checkbox" id="approval"><span class="track" aria-hidden="true"></span>Ask me before anything goes out</label>
@@ -236,14 +254,7 @@
 
           <div class="canvas" id="canvas">
             <svg class="wires" id="wires" aria-hidden="true"></svg>
-            <div class="flow" id="flow">
-              <div class="node" data-id="trigger"><div class="node-head"><div class="node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div><div><div class="node-step">01 Trigger</div><h3></h3></div></div><div class="node-out"></div></div>
-              <div class="node" data-id="read"><div class="node-head"><div class="node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 17l.8 2.2L22 20l-2.2.8L19 23l-.8-2.2L16 20l2.2-.8z"/></svg></div><div><div class="node-step">02 Read</div><h3></h3></div></div><div class="node-out"></div></div>
-              <div class="node" data-id="route"><div class="node-head"><div class="node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3v6a6 6 0 0 0 6 6h6M6 9v12M15 12l3 3-3 3"/></svg></div><div><div class="node-step">03 Decide</div><h3></h3></div></div><div class="node-out"></div></div>
-              <div class="node" data-id="actA"><div class="node-head"><div class="node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10 21h4"/></svg></div><div><div class="node-step">04 Path A</div><h3></h3></div></div><div class="node-out"></div></div>
-              <div class="node" data-id="actB"><div class="node-head"><div class="node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></div><div><div class="node-step">04 Path B</div><h3></h3></div></div><div class="node-out"></div></div>
-              <div class="node" data-id="done"><div class="node-head"><div class="node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></div><div><div class="node-step">05 Finish</div><h3></h3></div></div><div class="node-out"></div></div>
-            </div>
+            <div class="flow" id="flow"></div>
           </div>
 
           <div class="readout">
@@ -271,12 +282,13 @@
 
     <section class="lab-notes">
       <div class="wrap">
-        <h2>What you just watched</h2>
-        <p class="section-lead">Almost every automation follows the same shape. Once you see it, you start spotting it all over your business.</p>
+        <h2>Every automation has a shape</h2>
+        <p class="section-lead">Each demo above runs a different way. Once you see these four shapes, you start spotting them all over your business.</p>
         <div class="lab-grid">
-          <div class="lab-card"><div class="num">01 + 02</div><h3>Something happens, and it gets read</h3><p>A message, a bill, a form, or a day of the week starts the job. The details get pulled out instantly, even from messy text.</p></div>
-          <div class="lab-card"><div class="num">03</div><h3>Your rules make the call</h3><p>Hot or not, over budget or under, answer now or hand it off. The same rules your best person follows, applied every single time.</p></div>
-          <div class="lab-card"><div class="num">04 + 05</div><h3>The work gets done, and you stay in control</h3><p>Replies, entries, reminders, and reports happen on their own. Turn on approvals and nothing goes out until you say so.</p></div>
+          <div class="lab-card"><div class="num">New lead</div><h3>Two paths</h3><p>One decision sends the work down the right road. Hot leads reach you in seconds, and the rest get steady follow-ups.</p></div>
+          <div class="lab-card"><div class="num">Bill arrives</div><h3>Three rules, one gate</h3><p>Every bill gets checked the same way. Duplicates get stopped, big ones wait for your OK, and small ones go straight through.</p></div>
+          <div class="lab-card"><div class="num">Customer question</div><h3>Three jobs at once</h3><p>One message sets off a reply, a ticket, and a heads-up to the right person, all at the same moment.</p></div>
+          <div class="lab-card"><div class="num">Weekly report</div><h3>Runs on a schedule</h3><p>No one has to remember. It starts on its own, does every step, and sets itself up for next week.</p></div>
         </div>
       </div>
     </section>
@@ -303,14 +315,33 @@
   </footer>
 
   <script>
-    // Automation hub demo: runs a task through five steps, lighting each node and wire as it goes.
+    // Automation hub demo: each task has its own flow shape. Nodes and wires are drawn from the
+    // task's definition, then a run lights them stage by stage as the work passes along.
     (function () {
       var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       var $ = function (s, r) { return (r || document).querySelector(s); };
       var flow = $('#flow'), wires = $('#wires'), canvas = $('#canvas'), log = $('#log'), input = $('#input');
       var runBtn = $('#run'), burstBtn = $('#burst'), approval = $('#approval'), status = $('#status');
-      var EDGES = [['trigger', 'read'], ['read', 'route'], ['route', 'actA'], ['route', 'actB'], ['actA', 'done'], ['actB', 'done']];
-      var paths = {}, busy = false, totals = { runs: 0, mins: 0 }, current = 'lead';
+      var paths = {}, busy = false, totals = { runs: 0, mins: 0 }, current = 'lead', scn = null;
+
+      var ICONS = {
+        bolt: '<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>',
+        spark: '<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 17l.8 2.2L22 20l-2.2.8L19 23l-.8-2.2L16 20l2.2-.8z"/>',
+        fork: '<path d="M6 3v6a6 6 0 0 0 6 6h6M6 9v12M15 12l3 3-3 3"/>',
+        bell: '<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10 21h4"/>',
+        send: '<path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/>',
+        cal: '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18"/>',
+        check: '<path d="M5 12l5 5L20 7"/>',
+        stop: '<circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/>',
+        shield: '<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/>',
+        book: '<path d="M4 4h11a3 3 0 0 1 3 3v13H7a3 3 0 0 1-3-3z"/><path d="M8 8h6M8 12h6"/>',
+        ticket: '<path d="M3 8a2 2 0 0 0 0 4v4h18v-4a2 2 0 0 1 0-4V4H3z"/><path d="M13 4v12"/>',
+        users: '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"/>',
+        clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+        db: '<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>',
+        chart: '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
+        mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>'
+      };
 
       // Text helpers for pulling details out of whatever the visitor types.
       function find(re, text, i) { var m = text.match(re); return m ? m[i || 1].trim() : ''; }
@@ -320,107 +351,209 @@
       function money(text) { var m = text.match(/\$\s?([\d,]+(?:\.\d{2})?)/); return m ? parseFloat(m[1].replace(/,/g, '')) : 0; }
       function usd(n) { return '$' + n.toLocaleString('en-US', { minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2 }); }
       function topic(text, map, fallback) { for (var k in map) if (new RegExp(k, 'i').test(text)) return map[k]; return fallback; }
+      function quote(t) { return '"' + t.slice(0, 70) + (t.length > 70 ? '...' : '') + '"'; }
+      function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
 
       var SCENARIOS = {
+        // Shape: one decision, two possible paths that meet again.
         lead: {
+          shape: 'Two paths',
           label: 'A message from a website form, email, or text',
-          sample: "Hi, this is Dana from Brightside Dental. We're drowning in appointment reminders and need help ASAP. Call me at (215) 555-0142.",
-          manual: 15,
-          titles: { trigger: 'New inquiry arrives', read: 'AI reads the message', route: 'Hot lead?', actA: 'Alert the owner now', actB: 'Start the follow-ups', done: 'Reply sent and logged' },
+          samples: [
+            ['Urgent lead', "Hi, this is Dana from Brightside Dental. We're drowning in appointment reminders and need help ASAP. Call me at (215) 555-0142."],
+            ['Just browsing', "Hello, I'm Marcus with Hilltop Landscaping. Curious what it would cost to automate our quotes at some point. marcus@example.com"]
+          ],
+          manual: 15, cols: 5, rows: 2,
+          nodes: [
+            { id: 'in', col: 1, step: 'Trigger', icon: 'bolt', title: 'New inquiry arrives' },
+            { id: 'read', col: 2, step: 'Read', icon: 'spark', title: 'AI reads the message' },
+            { id: 'hot', col: 3, step: 'Decide', icon: 'fork', title: 'Hot lead or not?' },
+            { id: 'alert', col: 4, row: 1, step: 'If hot', icon: 'bell', title: 'Alert the owner now' },
+            { id: 'nurture', col: 4, row: 2, step: 'If not', icon: 'cal', title: 'Schedule follow-ups' },
+            { id: 'reply', col: 5, step: 'Finish', icon: 'send', title: 'Reply sent and logged', gate: true }
+          ],
+          edges: [['in', 'read'], ['read', 'hot'], ['hot', 'alert'], ['hot', 'nurture'], ['alert', 'reply'], ['nurture', 'reply']],
           build: function (t) {
-            var name = firstName(t) || 'New contact', co = company(t) || 'Not given';
+            var name = firstName(t) || 'New contact', co = company(t) || 'Not given', first = name.split(' ')[0];
             var phone = find(/(\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4})/, t), email = find(/([^\s@]+@[^\s@]+\.[a-z]{2,})/i, t);
             var need = topic(t, { 'remind|appoint|schedul|book': 'Scheduling', 'invoice|bill|payment|bookkeep|books': 'Bookkeeping', 'quote|estimate|price|cost': 'Pricing', 'social|post|marketing|review': 'Marketing', 'report': 'Reporting' }, 'General question');
-            var hot = /asap|urgent|today|right away|this week|immediately|drowning/i.test(t);
-            var first = name.split(' ')[0];
+            var hot = /asap|urgent|today|right away|this week|immediately|drowning/i.test(t), path = hot ? 'alert' : 'nurture';
             return {
-              trigger: [['note', '"' + t.slice(0, 70) + (t.length > 70 ? '...' : '') + '"']],
-              read: [['Name', name], ['Company', co], ['Need', need], [phone ? 'Phone' : 'Email', phone || email || 'Not given']],
-              route: [['note', hot ? 'Urgent words found' : 'No rush signals'], ['tag', hot ? 'HOT' : 'WARM']],
-              branch: hot ? 'actA' : 'actB',
-              actA: [['note', 'Text to owner: "' + first + ' at ' + co + ' needs ' + need.toLowerCase() + ' help today."']],
-              actB: [['Day 2', 'Friendly check-in'], ['Day 5', 'Helpful example'], ['Day 10', 'Last nudge']],
-              done: [['note', '"Hi ' + first + ', thanks for reaching out about ' + need.toLowerCase() + '. Here is a link to grab 15 minutes."'], ['Logged', 'Pipeline + weekly report']],
-              approveAt: null,
+              out: {
+                in: [['note', quote(t)]],
+                read: [['Name', name], ['Company', co], ['Need', need], [phone ? 'Phone' : 'Email', phone || email || 'Not given']],
+                hot: [['note', hot ? 'Urgent words found' : 'No rush signals'], ['tag', hot ? 'HOT' : 'WARM']],
+                alert: [['note', 'Text to owner: "' + first + ' at ' + co + ' needs ' + need.toLowerCase() + ' help today."']],
+                nurture: [['Day 2', 'Friendly check-in'], ['Day 5', 'Helpful example'], ['Day 10', 'Last nudge']],
+                reply: [['note', '"Hi ' + first + ', thanks for reaching out about ' + need.toLowerCase() + '. Here is a link to grab 15 minutes."']]
+              },
+              stages: [
+                { nodes: ['in'], log: 'Trigger fired' },
+                { edges: [['in', 'read']], nodes: ['read'], log: 'Details pulled out' },
+                { edges: [['read', 'hot']], nodes: ['hot'], log: hot ? 'Hot lead, taking the fast path' : 'Warm lead, taking the follow-up path', decide: true },
+                { edges: [['hot', path]], nodes: [path], log: hot ? 'Owner alerted by text' : 'Follow-ups scheduled' },
+                { edges: [[path, 'reply']], nodes: ['reply'], log: 'Reply sent and logged' }
+              ],
               summary: hot ? 'hot lead, owner alerted' : 'warm lead, follow-ups set'
             };
           },
-          burst: function (i) { var hot = Math.random() < 0.35; return { branch: hot ? 'actA' : 'actB', line: 'Lead #' + i + ' ' + (hot ? 'hot, owner alerted' : 'follow-ups scheduled') }; }
+          burst: function (i) { var hot = Math.random() < 0.35, p = hot ? 'alert' : 'nurture'; return { hops: [[['in', 'read']], [['read', 'hot']], [['hot', p]], [[p, 'reply']]], line: 'Lead #' + i + ' ' + (hot ? 'hot, owner alerted' : 'follow-ups scheduled') }; }
         },
+
+        // Shape: one gate with three rules, and one rule stops the job cold.
         bill: {
+          shape: 'Three rules, one gate',
           label: 'A bill that just landed in the inbox',
-          sample: 'Invoice from Delaware Valley Plumbing for the water heater repair at 41 Elm St. Amount due: $1,840.00, due Nov 15.',
-          manual: 8,
-          titles: { trigger: 'Bill hits the inbox', read: 'AI pulls the details', route: 'Over $1,000?', actA: 'Send for approval', actB: 'Auto-approve it', done: 'In the books, reminder set' },
+          samples: [
+            ['Big bill', 'Invoice #4471 from Delaware Valley Plumbing for the water heater repair at 41 Elm St. Amount due: $1,840.00, due Nov 15.'],
+            ['Small bill', 'Invoice #2290 from Northside Cleaning for October office cleaning. Amount due: $240.00, due Nov 3.'],
+            ['Sent twice', 'Resending invoice #4471 from Delaware Valley Plumbing (duplicate copy). Amount due: $1,840.00, due Nov 15.']
+          ],
+          manual: 8, cols: 5, rows: 3,
+          nodes: [
+            { id: 'in', col: 1, step: 'Trigger', icon: 'mail', title: 'Bill hits the inbox' },
+            { id: 'read', col: 2, step: 'Read', icon: 'spark', title: 'AI pulls the details' },
+            { id: 'gate', col: 3, step: 'Check rules', icon: 'shield', title: 'Which rule applies?' },
+            { id: 'dup', col: 4, row: 1, step: 'Rule 1', icon: 'stop', title: 'Already paid? Block it' },
+            { id: 'big', col: 4, row: 2, step: 'Rule 2', icon: 'bell', title: 'Over $1,000? Owner OKs' },
+            { id: 'auto', col: 4, row: 3, step: 'Rule 3', icon: 'check', title: 'Under $1,000? Approve' },
+            { id: 'books', col: 5, step: 'Finish', icon: 'book', title: 'In the books, reminder set', gate: true }
+          ],
+          edges: [['in', 'read'], ['read', 'gate'], ['gate', 'dup'], ['gate', 'big'], ['gate', 'auto'], ['big', 'books'], ['auto', 'books']],
           build: function (t) {
-            var amt = money(t), vendor = company(t) || 'Unknown vendor';
+            var amt = money(t), vendor = company(t) || 'Unknown vendor', inv = find(/#\s?(\d+)/, t);
             var due = find(/due\s+(?:on\s+|by\s+|date:?\s*)?((?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+\d{1,2}|\d{1,2}\/\d{1,2}(?:\/\d{2,4})?)/i, t) || 'Not listed';
-            var cat = topic(t, { 'plumb|repair|hvac|roof|fix|heater': 'Repairs', 'software|subscription|license': 'Software', 'electric|water bill|gas|utility': 'Utilities', 'ad|marketing|print': 'Marketing', 'clean|landscap|lawn': 'Services' }, 'General');
-            var big = amt >= 1000;
+            var cat = topic(t, { 'plumb|repair|hvac|roof|fix|heater': 'Repairs', 'software|subscription|license': 'Software', 'electric|water bill|gas|utility': 'Utilities', 'clean|landscap|lawn': 'Services', 'ad |marketing|print': 'Marketing' }, 'General');
+            var dup = /resend|resent|duplicate|again|second copy|copy of/i.test(t), big = !dup && (amt >= 1000 || !amt);
+            var rule = dup ? 'dup' : big ? 'big' : 'auto';
+            var stages = [
+              { nodes: ['in'], log: 'Bill received' },
+              { edges: [['in', 'read']], nodes: ['read'], log: 'Vendor, amount, and due date pulled out' },
+              { edges: [['read', 'gate']], nodes: ['gate'], log: 'Checked against 3 rules', decide: true },
+              { edges: [['gate', rule]], nodes: [rule], log: dup ? 'Duplicate found. Stopped before anyone pays twice.' : big ? 'Over the limit, sent to the owner' : 'Under the limit, approved automatically', approve: big }
+            ];
+            if (!dup) stages.push({ edges: [[rule, 'books']], nodes: ['books'], log: 'Entered in the books' });
             return {
-              trigger: [['note', '"' + t.slice(0, 70) + (t.length > 70 ? '...' : '') + '"']],
-              read: [['Vendor', vendor], ['Amount', amt ? usd(amt) : 'Not found'], ['Due', due], ['Category', cat]],
-              route: [['note', amt ? usd(amt) + (big ? ' is over the limit' : ' is under the limit') : 'No amount, flagged'], ['tag', big || !amt ? 'NEEDS OK' : 'AUTO']],
-              branch: big || !amt ? 'actA' : 'actB',
-              actA: [['note', 'Sent to the owner with the bill attached. One tap to approve.']],
-              actB: [['note', 'Matches the rules, so no one has to look at it.']],
-              done: [['Entered', cat + ', ' + (amt ? usd(amt) : 'amount pending')], ['Reminder', '3 days before ' + (due === 'Not listed' ? 'due date' : due)]],
-              approveAt: big || !amt ? 'actA' : null,
-              summary: big || !amt ? 'bill approved and entered' : 'bill auto-approved and entered'
+              out: {
+                in: [['note', quote(t)]],
+                read: [['Vendor', vendor], ['Invoice', inv ? '#' + inv : 'No number'], ['Amount', amt ? usd(amt) : 'Not found'], ['Due', due]],
+                gate: [['note', dup ? 'Invoice ' + (inv ? '#' + inv + ' ' : '') + 'matches one already logged' : amt ? usd(amt) + (big ? ' is over the $1,000 limit' : ' is under the $1,000 limit') : 'No amount found'], ['tag', dup ? 'DUPLICATE' : big ? 'NEEDS OK' : 'AUTO']],
+                dup: [['note', 'Not entered. Vendor gets a polite "already received" reply.']],
+                big: [['note', 'Sent to the owner with the bill attached. One tap to approve.']],
+                auto: [['note', 'Matches the rules, so no one has to look at it.']],
+                books: [['Entered', cat + ', ' + (amt ? usd(amt) : 'amount pending')], ['Reminder', '3 days before ' + (due === 'Not listed' ? 'due date' : due)]]
+              },
+              stages: stages,
+              summary: dup ? 'duplicate blocked, nothing paid twice' : big ? 'bill approved and entered' : 'bill auto-approved and entered'
             };
           },
-          burst: function (i) { var big = Math.random() < 0.25; return { branch: big ? 'actA' : 'actB', line: 'Bill #' + i + ' ' + usd(Math.round(80 + Math.random() * (big ? 3000 : 900))) + (big ? ', sent for approval' : ', entered') }; }
+          burst: function (i) {
+            var r = Math.random(), rule = r < 0.12 ? 'dup' : r < 0.37 ? 'big' : 'auto', hops = [[['in', 'read']], [['read', 'gate']], [['gate', rule]]];
+            if (rule !== 'dup') hops.push([[rule, 'books']]);
+            return { hops: hops, line: 'Bill #' + i + ' ' + (rule === 'dup' ? 'duplicate, blocked' : usd(Math.round(rule === 'big' ? 1000 + Math.random() * 3000 : 80 + Math.random() * 900)) + (rule === 'big' ? ', sent for approval' : ', entered')) };
+          }
         },
+
+        // Shape: one question sets off three jobs at the same time.
         question: {
+          shape: 'Three jobs at once',
           label: 'A question from a customer',
-          sample: "Hey, I was charged twice for my October invoice. Can someone fix this? It's the second time.",
-          manual: 10,
-          titles: { trigger: 'Customer asks a question', read: 'AI sorts the question', route: 'Can we answer now?', actA: 'Hand it to the right person', actB: 'Draft the reply', done: 'Tracked until it is solved' },
+          samples: [
+            ['Upset customer', "Hey, I was charged twice for my October invoice. Can someone fix this? It's the second time."],
+            ['Simple question', 'Hi! Can I move my Tuesday appointment to Thursday afternoon?'],
+            ['Something broke', 'The heater you installed last month stopped working this morning.']
+          ],
+          manual: 10, cols: 4, rows: 3,
+          nodes: [
+            { id: 'in', col: 1, step: 'Trigger', icon: 'mail', title: 'Customer asks a question' },
+            { id: 'sort', col: 2, step: 'Read', icon: 'spark', title: 'AI sorts it' },
+            { id: 'reply', col: 3, row: 1, step: 'At once', icon: 'send', title: 'Reply drafted', gate: true },
+            { id: 'ticket', col: 3, row: 2, step: 'At once', icon: 'ticket', title: 'Ticket opened' },
+            { id: 'notify', col: 3, row: 3, step: 'At once', icon: 'users', title: 'Right person told' },
+            { id: 'track', col: 4, step: 'Finish', icon: 'clock', title: 'Tracked until solved' }
+          ],
+          edges: [['in', 'sort'], ['sort', 'reply'], ['sort', 'ticket'], ['sort', 'notify'], ['reply', 'track'], ['ticket', 'track'], ['notify', 'track']],
           build: function (t) {
-            var kind = topic(t, { 'charg|invoice|bill|refund|pay': 'Billing', 'appoint|schedul|resched|time|book|hours': 'Scheduling', 'broken|not working|leak|repair|issue': 'Repair or issue', 'price|quote|cost': 'Pricing' }, 'Other');
+            var kind = topic(t, { 'charg|invoice|bill|refund|pay': 'Billing', 'appoint|schedul|resched|move my|book|hours': 'Scheduling', 'broken|broke|not working|stopped|leak|repair|issue': 'Repair', 'price|quote|cost': 'Pricing' }, 'Other');
             var upset = /twice|again|second time|still|angry|frustrat|unacceptable|ridiculous|!{2,}/i.test(t);
-            var easy = (kind === 'Scheduling' || kind === 'Pricing') && !upset;
-            var who = { Billing: 'Bookkeeper', Scheduling: 'Front desk', 'Repair or issue': 'Service lead', Pricing: 'Sales', Other: 'Office manager' }[kind];
+            var who = { Billing: 'Bookkeeper', Scheduling: 'Front desk', Repair: 'Service lead', Pricing: 'Sales', Other: 'Office manager' }[kind];
+            var reply = { Billing: 'Sorry about that! We are looking into the charge now and will confirm the fix today.', Scheduling: 'No problem! Thursday at 2:00 or 3:30 is open. Which works better?', Repair: 'Sorry to hear that! A technician will call you within the hour to set up a visit.', Pricing: 'Thanks for asking! Here is our price list, and a link to book a quick call.', Other: 'Thanks for reaching out! The right person will get back to you shortly.' }[kind];
+            var ticketNo = '#' + (1000 + Math.floor(Math.random() * 9000));
             return {
-              trigger: [['note', '"' + t.slice(0, 70) + (t.length > 70 ? '...' : '') + '"']],
-              read: [['Type', kind], ['Mood', upset ? 'Frustrated' : 'Calm'], ['Priority', upset ? 'High' : 'Normal']],
-              route: [['note', easy ? 'Common question, known answer' : 'Needs a person'], ['tag', easy ? 'ANSWER' : 'ESCALATE']],
-              branch: easy ? 'actB' : 'actA',
-              actA: [['To', who], ['note', upset ? 'Flagged high priority with the full history attached.' : 'Sent with the full history attached.']],
-              actB: [['note', '"Thanks for asking! Here are the details you need, and a link if you want to change anything."']],
-              done: [['Ticket', '#' + (1000 + Math.floor(Math.random() * 9000))], ['Check', 'Reminder if not closed in 24 hours']],
-              approveAt: null,
-              summary: easy ? 'answered right away' : 'handed to ' + who.toLowerCase()
+              out: {
+                in: [['note', quote(t)]],
+                sort: [['Type', kind], ['Mood', upset ? 'Frustrated' : 'Calm'], ['Priority', upset || kind === 'Repair' ? 'High' : 'Normal']],
+                reply: [['note', '"' + reply + '"']],
+                ticket: [['Ticket', ticketNo], ['Type', kind]],
+                notify: [['To', who], ['note', upset ? 'Flagged high priority with the history.' : 'Sent with the full history.']],
+                track: [['note', 'Reminder if ' + ticketNo + ' is still open in 24 hours.']]
+              },
+              stages: [
+                { nodes: ['in'], log: 'Question received' },
+                { edges: [['in', 'sort']], nodes: ['sort'], log: 'Sorted: ' + kind.toLowerCase() + (upset ? ', high priority' : '') },
+                { edges: [['sort', 'reply'], ['sort', 'ticket'], ['sort', 'notify']], nodes: ['reply', 'ticket', 'notify'], log: 'Three jobs done at the same time: reply, ticket, and ' + who.toLowerCase() + ' told' },
+                { edges: [['reply', 'track'], ['ticket', 'track'], ['notify', 'track']], nodes: ['track'], log: 'Tracking until it is solved' }
+              ],
+              summary: kind.toLowerCase() + ' question handled three ways at once'
             };
           },
-          burst: function (i) { var easy = Math.random() < 0.6; return { branch: easy ? 'actB' : 'actA', line: 'Question #' + i + (easy ? ' answered' : ' routed to the right person') }; }
+          burst: function (i) { return { hops: [[['in', 'sort']], [['sort', 'reply'], ['sort', 'ticket'], ['sort', 'notify']], [['reply', 'track'], ['ticket', 'track'], ['notify', 'track']]], line: 'Question #' + i + ' replied, ticketed, and routed' }; }
         },
+
+        // Shape: a straight line that runs on a schedule and loops back to start again.
         report: {
-          label: "This week's numbers (edit them, one per line)",
-          sample: 'New leads: 14\nJobs completed: 37\nUnpaid invoices: 3\nReviews this week: 5',
-          manual: 45,
-          titles: { trigger: 'Monday, 7:00 AM', read: 'Gather the numbers', route: 'Anything off track?', actA: 'Flag it to the right person', actB: 'All clear', done: 'Summary in your inbox' },
+          shape: 'Runs on a schedule',
+          label: "This week's numbers, with last week in brackets (edit them)",
+          samples: [
+            ['Mixed week', 'New leads: 14 (11)\nJobs completed: 37 (40)\nUnpaid invoices: 3 (1)'],
+            ['Great week', 'New leads: 22 (15)\nJobs completed: 45 (38)\nUnpaid invoices: 0 (2)']
+          ],
+          manual: 45, cols: 5, rows: 1,
+          nodes: [
+            { id: 'clock', col: 1, step: 'Schedule', icon: 'clock', title: 'Monday, 7:00 AM' },
+            { id: 'pull', col: 2, step: 'Step 1', icon: 'db', title: 'Pull the numbers' },
+            { id: 'compare', col: 3, step: 'Step 2', icon: 'chart', title: 'Compare to last week' },
+            { id: 'write', col: 4, step: 'Step 3', icon: 'spark', title: 'AI writes the summary' },
+            { id: 'send', col: 5, step: 'Finish', icon: 'mail', title: 'Sent to your inbox', gate: true }
+          ],
+          edges: [['clock', 'pull'], ['pull', 'compare'], ['compare', 'write'], ['write', 'send'], ['send', 'clock', 'loop']],
           build: function (t) {
-            var rows = t.split('\n').map(function (l) { var m = l.match(/^\s*([^:]+):\s*([\d,.$]+)/); return m ? [m[1].trim(), m[2].trim()] : null; }).filter(Boolean).slice(0, 5);
-            if (!rows.length) rows = [['No numbers found', '0']];
-            var unpaid = rows.filter(function (r) { return /unpaid|overdue|late|open/i.test(r[0]) && parseFloat(r[1].replace(/[$,]/g, '')) > 0; })[0];
+            var rows = t.split('\n').map(function (l) {
+              var m = l.match(/^\s*([^:]+):\s*([\d,]+)(?:\s*\((?:last week:?\s*)?([\d,]+)\))?/i);
+              return m ? { label: m[1].trim(), now: +m[2].replace(/,/g, ''), was: m[3] == null ? null : +m[3].replace(/,/g, '') } : null;
+            }).filter(Boolean).slice(0, 4);
+            if (!rows.length) rows = [{ label: 'No numbers found', now: 0, was: null }];
+            var bad = rows.filter(function (r) { var lower = /unpaid|overdue|late|open|complaint|cancel/i.test(r.label); return r.was != null && (lower ? r.now > r.was : r.now < r.was); });
+            var good = rows.filter(function (r) { return r.was != null && bad.indexOf(r) < 0 && r.now !== r.was; });
+            function diff(r) { if (r.was == null) return 'new'; var d = r.now - r.was; return (d > 0 ? '+' : '') + d + (d === 0 ? ' (same)' : ''); }
+            var sentence = (good.length ? good.map(function (r) { return r.label.toLowerCase() + ' ' + (r.now > r.was ? 'up' : 'down') + ' to ' + r.now; }).join(', ') + '. ' : '') +
+              (bad.length ? 'Watch ' + bad.map(function (r) { return r.label.toLowerCase(); }).join(' and ') + '.' : 'Nothing needs attention.');
+            sentence = sentence.charAt(0).toUpperCase() + sentence.slice(1);
             return {
-              trigger: [['note', 'Runs on its own every week. No one has to remember.']],
-              read: rows,
-              route: [['note', unpaid ? unpaid[1] + ' ' + unpaid[0].toLowerCase() : 'Everything is on track'], ['tag', unpaid ? 'FLAG' : 'CLEAR']],
-              branch: unpaid ? 'actA' : 'actB',
-              actA: [['To', 'Bookkeeper'], ['note', 'List of who owes what, sorted by days late.']],
-              actB: [['note', 'Nothing needs attention this week.']],
-              done: [['note', 'One-page summary with ' + rows.length + ' numbers and how they compare to last week.']],
-              approveAt: null,
-              summary: unpaid ? 'report sent, overdue items flagged' : 'report sent, all clear'
+              out: {
+                clock: [['note', 'Starts on its own. No one has to remember.']],
+                pull: rows.map(function (r) { return [r.label, String(r.now)]; }),
+                compare: rows.map(function (r) { return [r.label, diff(r)]; }).concat([['tag', bad.length ? bad.length + ' TO WATCH' : 'ALL GOOD']]),
+                write: [['note', '"' + sentence + '"']],
+                send: [['To', bad.length ? 'Owner, bookkeeper cc\'d' : 'Owner'], ['Next run', 'Next Monday, 7:00 AM']]
+              },
+              stages: [
+                { nodes: ['clock'], log: 'Monday 7:00 AM, report started' },
+                { edges: [['clock', 'pull']], nodes: ['pull'], log: rows.length + ' numbers pulled' },
+                { edges: [['pull', 'compare']], nodes: ['compare'], log: bad.length ? bad.length + ' number(s) going the wrong way' : 'Every number on track' },
+                { edges: [['compare', 'write']], nodes: ['write'], log: 'Summary written in plain English' },
+                { edges: [['write', 'send']], nodes: ['send'], log: 'Report delivered' },
+                { edges: [['send', 'clock']], nodes: [], log: 'Scheduled again for next Monday', quiet: true }
+              ],
+              summary: bad.length ? 'report sent, ' + bad.length + ' item(s) flagged' : 'report sent, all good'
             };
           },
-          burst: function (i) { var flag = Math.random() < 0.3; return { branch: flag ? 'actA' : 'actB', line: 'Location #' + i + ' report ' + (flag ? 'sent with a flag' : 'sent, all clear') }; }
+          burst: function (i) { return { hops: [[['clock', 'pull']], [['pull', 'compare']], [['compare', 'write']], [['write', 'send']]], line: 'Location #' + i + ' report ' + pick(['sent, all good', 'sent, 1 item flagged', 'sent, all good']) }; }
         }
       };
 
       function nodeEl(id) { return flow.querySelector('[data-id="' + id + '"]'); }
+      function key(e) { return e[0] + '>' + e[1]; }
       function wait(ms) { return new Promise(function (r) { setTimeout(r, reduce ? 0 : ms); }); }
       function stamp() { var d = new Date(); return d.toTimeString().slice(0, 8) + '.' + String(d.getMilliseconds()).padStart(3, '0'); }
       function addLog(text, cls) {
@@ -432,47 +565,74 @@
       }
       function setStatus(text, isBusy) { status.innerHTML = ''; status.appendChild(document.createTextNode('STATUS: ')); var b = document.createElement('b'); b.textContent = text; status.appendChild(b); status.classList.toggle('busy', !!isBusy); }
 
-      // Wires are drawn from the live node positions, so they follow the layout on any screen size.
-      function anchor(el, side) {
-        var c = canvas.getBoundingClientRect(), r = el.getBoundingClientRect();
-        var x = r.left - c.left, y = r.top - c.top;
-        if (side === 'right') return [x + r.width, y + r.height / 2];
-        if (side === 'left') return [x, y + r.height / 2];
-        if (side === 'bottom') return [x + r.width / 2, y + r.height];
-        return [x + r.width / 2, y];
+      // Builds the task's nodes on a grid. On narrow screens the grid turns sideways (columns become rows).
+      function render() {
+        flow.innerHTML = ''; wires.innerHTML = ''; paths = {};
+        flow.style.setProperty('--cols', scn.cols); flow.style.setProperty('--rows', scn.rows);
+        flow.dataset.shape = current; flow.dataset.rows = scn.rows;
+        scn.nodes.forEach(function (n, i) {
+          var el = document.createElement('div');
+          el.className = 'node'; el.dataset.id = n.id;
+          var single = !n.row;
+          el.style.setProperty('--c', n.col);
+          el.style.setProperty('--r', single ? 1 : n.row);
+          el.style.setProperty('--span', single ? scn.rows : 1);
+          el.innerHTML = '<div class="node-head"><div class="node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ICONS[n.icon] + '</svg></div><div><div class="node-step"></div><h3></h3></div></div><div class="node-out"></div>';
+          el.querySelector('.node-step').textContent = String(i + 1).padStart(2, '0') + ' ' + n.step;
+          el.querySelector('h3').textContent = n.title;
+          flow.appendChild(el);
+        });
+        scn.edges.forEach(function (e) {
+          var p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+          p.setAttribute('class', e[2] === 'loop' ? 'wire loop' : 'wire');
+          wires.appendChild(p); paths[key(e)] = p;
+        });
+        drawWires();
       }
+
+      function box(el) {
+        var c = canvas.getBoundingClientRect(), r = el.getBoundingClientRect();
+        return { l: r.left - c.left, t: r.top - c.top, r: r.right - c.left, b: r.bottom - c.top, w: r.width, h: r.height };
+      }
+      // Wires follow the live node positions, so they fit the layout on any screen size.
       function drawWires() {
-        var horizontal = window.innerWidth > 960;
-        EDGES.forEach(function (e) {
-          var a = nodeEl(e[0]), b = nodeEl(e[1]), p1, p2, d;
-          if (horizontal) {
-            p1 = anchor(a, 'right'); p2 = anchor(b, 'left'); var dx = (p2[0] - p1[0]) / 2;
+        var wide = window.innerWidth > 960;
+        scn.edges.forEach(function (e) {
+          var a = box(nodeEl(e[0])), b = box(nodeEl(e[1])), d;
+          if (e[2] === 'loop') {
+            if (wide) {
+              var low = Math.max(a.b, b.b) + 26, x1 = a.l + a.w / 2, x2 = b.l + b.w / 2;
+              d = 'M' + x1 + ',' + a.b + ' C' + x1 + ',' + low + ' ' + x1 + ',' + low + ' ' + (x1 - 30) + ',' + low + ' L' + (x2 + 30) + ',' + low + ' C' + x2 + ',' + low + ' ' + x2 + ',' + low + ' ' + x2 + ',' + b.b;
+            } else {
+              var side = Math.max(a.r, b.r) + 6, y1 = a.t + a.h / 2, y2 = b.t + b.h / 2;
+              d = 'M' + a.r + ',' + y1 + ' C' + side + ',' + y1 + ' ' + side + ',' + y1 + ' ' + side + ',' + (y1 - 24) + ' L' + side + ',' + (y2 + 24) + ' C' + side + ',' + y2 + ' ' + side + ',' + y2 + ' ' + b.r + ',' + y2;
+            }
+          } else if (wide) {
+            var p1 = [a.r, a.t + a.h / 2], p2 = [b.l, b.t + b.h / 2], dx = (p2[0] - p1[0]) / 2;
             d = 'M' + p1 + ' C' + (p1[0] + dx) + ',' + p1[1] + ' ' + (p2[0] - dx) + ',' + p2[1] + ' ' + p2;
           } else {
-            p1 = anchor(a, 'bottom'); p2 = anchor(b, 'top'); var dy = (p2[1] - p1[1]) / 2;
-            d = 'M' + p1 + ' C' + p1[0] + ',' + (p1[1] + dy) + ' ' + p2[0] + ',' + (p2[1] - dy) + ' ' + p2;
+            var q1 = [a.l + a.w / 2, a.b], q2 = [b.l + b.w / 2, b.t], dy = (q2[1] - q1[1]) / 2;
+            d = 'M' + q1 + ' C' + q1[0] + ',' + (q1[1] + dy) + ' ' + q2[0] + ',' + (q2[1] - dy) + ' ' + q2;
           }
-          var key = e.join('>'), path = paths[key];
-          if (!path) { path = document.createElementNS('http://www.w3.org/2000/svg', 'path'); path.setAttribute('class', 'wire'); wires.appendChild(path); paths[key] = path; }
-          path.setAttribute('d', d);
+          paths[key(e)].setAttribute('d', d);
         });
       }
 
-      function travel(key, mini, ms) {
-        var path = paths[key];
+      function travel(k, mini, ms) {
+        var path = paths[k];
         return new Promise(function (resolve) {
-          if (reduce) return resolve();
+          if (reduce || !path) return resolve();
           var dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
           dot.setAttribute('r', mini ? 3.5 : 6); dot.setAttribute('class', mini ? 'packet mini' : 'packet');
-          var len = path.getTotalLength(), start = null, dur = ms || 650, p0 = path.getPointAtLength(0);
+          var len = path.getTotalLength(), start = null, dur = (ms || 650) * (path.classList.contains('loop') ? 1.8 : 1), p0 = path.getPointAtLength(0);
           dot.setAttribute('cx', p0.x); dot.setAttribute('cy', p0.y);
           wires.appendChild(dot);
           function step(t) {
             if (start === null) start = t;
-            var k = Math.min((t - start) / dur, 1), ease = k < 0.5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+            var k2 = Math.min((t - start) / dur, 1), ease = k2 < 0.5 ? 2 * k2 * k2 : 1 - Math.pow(-2 * k2 + 2, 2) / 2;
             var pt = path.getPointAtLength(ease * len);
             dot.setAttribute('cx', pt.x); dot.setAttribute('cy', pt.y);
-            if (k < 1) requestAnimationFrame(step); else { dot.remove(); resolve(); }
+            if (k2 < 1) requestAnimationFrame(step); else { dot.remove(); resolve(); }
           }
           requestAnimationFrame(step);
         });
@@ -481,7 +641,7 @@
       function fill(id, rows) {
         var out = nodeEl(id).querySelector('.node-out');
         out.innerHTML = '';
-        rows.forEach(function (r, i) {
+        (rows || []).forEach(function (r, i) {
           var el = document.createElement('div');
           if (r[0] === 'note') { el.className = 'note'; el.textContent = r[1]; }
           else if (r[0] === 'tag') { el.className = 'tag'; el.textContent = r[1]; }
@@ -494,18 +654,28 @@
 
       function reset() {
         flow.querySelectorAll('.node').forEach(function (n) { n.classList.remove('active', 'done', 'skipped'); n.querySelector('.node-out').innerHTML = ''; var a = n.querySelector('.approve'); if (a) a.remove(); });
-        Object.keys(paths).forEach(function (k) { paths[k].setAttribute('class', 'wire'); });
+        Object.keys(paths).forEach(function (k) { paths[k].classList.remove('lit', 'skip'); });
         drawWires();
       }
 
+      function loadSample(i) {
+        input.value = scn.samples[i][1];
+        document.querySelectorAll('.preset').forEach(function (b, n) { b.setAttribute('aria-pressed', n === i ? 'true' : 'false'); });
+      }
       function load(name) {
-        current = name;
-        var s = SCENARIOS[name];
+        current = name; scn = SCENARIOS[name];
         document.querySelectorAll('.tab').forEach(function (t) { t.setAttribute('aria-selected', t.dataset.scn === name ? 'true' : 'false'); });
-        $('#input-label').textContent = s.label;
-        input.value = s.sample;
-        Object.keys(s.titles).forEach(function (id) { nodeEl(id).querySelector('h3').textContent = s.titles[id]; });
-        reset();
+        $('#input-label').textContent = scn.label;
+        $('#shape').textContent = 'FLOW: ' + scn.shape.toUpperCase();
+        var presets = $('#presets'); presets.innerHTML = '';
+        scn.samples.forEach(function (s, i) {
+          var b = document.createElement('button');
+          b.type = 'button'; b.className = 'preset'; b.textContent = s[0];
+          b.addEventListener('click', function () { if (!busy) { loadSample(i); reset(); } });
+          presets.appendChild(b);
+        });
+        loadSample(0);
+        render();
         setStatus('READY');
       }
 
@@ -513,7 +683,8 @@
         return new Promise(function (resolve) {
           var btn = document.createElement('button');
           btn.type = 'button'; btn.className = 'approve'; btn.textContent = 'Approve';
-          nodeEl(id).appendChild(btn); drawWires(); btn.focus({ preventScroll: true }); btn.scrollIntoView({ block: 'nearest', behavior: reduce ? 'auto' : 'smooth' });
+          nodeEl(id).appendChild(btn); drawWires();
+          btn.focus({ preventScroll: true }); btn.scrollIntoView({ block: 'nearest', behavior: reduce ? 'auto' : 'smooth' });
           setStatus('WAITING ON YOU', true);
           addLog('Paused. Waiting for your OK...', 'gold');
           var t0 = Date.now();
@@ -521,63 +692,64 @@
         });
       }
 
-      async function activate(id, rows, text) {
-        var n = nodeEl(id);
-        n.classList.add('active');
-        fill(id, rows);
-        addLog(text);
-        await wait(520);
-        n.classList.remove('active'); n.classList.add('done');
-      }
+      function lock(on) { busy = on; runBtn.disabled = burstBtn.disabled = on; document.querySelectorAll('.preset').forEach(function (b) { b.disabled = on; }); }
 
       async function run() {
         if (busy) return;
-        var s = SCENARIOS[current], text = input.value.trim() || s.sample, plan = s.build(text);
-        busy = true; runBtn.disabled = burstBtn.disabled = true;
-        reset(); setStatus('RUNNING', true);
-        var t0 = performance.now(), paused = 0, other = plan.branch === 'actA' ? 'actB' : 'actA';
-        addLog('Run started: ' + s.titles.trigger.toLowerCase(), 'gold');
-        await activate('trigger', plan.trigger, 'Trigger fired');
-        await go('trigger>read'); await activate('read', plan.read, 'Details pulled out');
-        await go('route', 'read>route'); await activate('route', plan.route, 'Rule checked, taking ' + (plan.branch === 'actA' ? 'path A' : 'path B'));
-        paths['route>' + other].setAttribute('class', 'wire skip'); paths[other + '>done'].setAttribute('class', 'wire skip'); nodeEl(other).classList.add('skipped');
-        await go('route>' + plan.branch); await activate(plan.branch, plan[plan.branch], s.titles[plan.branch]);
-        if (plan.approveAt === plan.branch) paused += await askApproval(plan.branch);
-        await go(plan.branch + '>done');
-        if (approval.checked) { nodeEl('done').classList.add('active'); paused += await askApproval('done'); }
-        await activate('done', plan.done, s.titles.done);
-        var secs = Math.max(((performance.now() - t0 - paused) / 1000), 0.4);
+        var text = input.value.trim() || scn.samples[0][1], plan = scn.build(text);
+        lock(true); reset(); setStatus('RUNNING', true);
+        var t0 = performance.now(), paused = 0;
+        var used = {}, usedEdges = {};
+        plan.stages.forEach(function (s) { s.nodes.forEach(function (n) { used[n] = 1; }); (s.edges || []).forEach(function (e) { usedEdges[key(e)] = 1; }); });
+        addLog('Run started: ' + scn.nodes[0].title.toLowerCase(), 'gold');
+        for (var i = 0; i < plan.stages.length; i++) {
+          var st = plan.stages[i], edges = st.edges || [];
+          edges.forEach(function (e) { paths[key(e)].classList.add('lit'); });
+          await Promise.all(edges.map(function (e) { return travel(key(e)); }));
+          var gated = st.nodes.filter(function (n) { return approval.checked && scn.nodes.some(function (d) { return d.id === n && d.gate; }); });
+          if (gated.length) { nodeEl(gated[0]).classList.add('active'); paused += await askApproval(gated[0]); }
+          st.nodes.forEach(function (n) { nodeEl(n).classList.add('active'); fill(n, plan.out[n]); });
+          addLog(st.log, st.quiet ? 'gold' : null);
+          if (st.decide) {
+            scn.nodes.forEach(function (n) { if (!used[n.id]) nodeEl(n.id).classList.add('skipped'); });
+            Object.keys(paths).forEach(function (k) { if (!usedEdges[k]) paths[k].classList.add('skip'); });
+          }
+          await wait(520);
+          st.nodes.forEach(function (n) { nodeEl(n).classList.remove('active'); nodeEl(n).classList.add('done'); });
+          if (st.approve) paused += await askApproval(st.nodes[0]);
+        }
+        var secs = Math.max((performance.now() - t0 - paused) / 1000, 0.4);
         addLog('Done: ' + plan.summary + ' in ' + secs.toFixed(1) + 's', 'ok');
-        totals.runs += 1; totals.mins += s.manual; updateStats(s.manual * 60, secs);
-        setStatus('READY'); busy = false; runBtn.disabled = burstBtn.disabled = false;
+        totals.runs += 1; totals.mins += scn.manual; updateStats(scn.manual * 60, secs);
+        setStatus('READY'); lock(false);
       }
-      async function go(a, b) { var key = b || a; paths[key].setAttribute('class', 'wire lit'); await travel(key); }
 
       async function burst() {
         if (busy) return;
-        var s = SCENARIOS[current], count = 25, finished = 0, t0 = performance.now();
-        busy = true; runBtn.disabled = burstBtn.disabled = true;
-        reset(); setStatus('25 IN THE QUEUE', true);
+        var count = 25, finished = 0, t0 = performance.now();
+        lock(true); reset(); setStatus('25 IN THE QUEUE', true);
         flow.querySelectorAll('.node').forEach(function (n) { n.classList.add('done'); });
-        Object.keys(paths).forEach(function (k) { paths[k].setAttribute('class', 'wire lit'); });
+        Object.keys(paths).forEach(function (k) { if (!paths[k].classList.contains('loop')) paths[k].classList.add('lit'); });
         addLog('Burst: 25 at once, same rules every time', 'gold');
         function pulse(id) { var n = nodeEl(id); n.classList.remove('pulse'); void n.offsetWidth; n.classList.add('pulse'); }
         await new Promise(function (resolve) {
           for (var i = 1; i <= count; i++) (function (i) {
             setTimeout(async function () {
-              var r = s.burst(i);
-              var hops = ['trigger>read', 'read>route', 'route>' + r.branch, r.branch + '>done'];
-              for (var h = 0; h < hops.length; h++) { await travel(hops[h], true, 420); pulse(hops[h].split('>')[1]); }
+              var r = scn.burst(i);
+              for (var h = 0; h < r.hops.length; h++) {
+                await Promise.all(r.hops[h].map(function (e) { return travel(key(e), true, 420); }));
+                r.hops[h].forEach(function (e) { pulse(e[1]); });
+              }
               addLog(r.line);
-              totals.runs += 1; totals.mins += s.manual; updateStats(null);
+              totals.runs += 1; totals.mins += scn.manual; updateStats(null);
               if (++finished === count) resolve();
             }, reduce ? 0 : i * 140);
           })(i);
         });
         var secs = (performance.now() - t0) / 1000;
-        addLog('All 25 done in ' + secs.toFixed(1) + 's. By hand: about ' + Math.round(count * s.manual / 60 * 10) / 10 + ' hours.', 'ok');
-        updateStats(count * s.manual * 60, secs);
-        setStatus('READY'); busy = false; runBtn.disabled = burstBtn.disabled = false;
+        addLog('All 25 done in ' + secs.toFixed(1) + 's. By hand: about ' + Math.round(count * scn.manual / 60 * 10) / 10 + ' hours.', 'ok');
+        updateStats(count * scn.manual * 60, secs);
+        setStatus('READY'); lock(false);
       }
 
       function fmt(sec) { if (sec < 60) return sec.toFixed(1) + 's'; var m = sec / 60; return m < 60 ? Math.round(m) + ' min' : (Math.round(m / 6) / 10) + ' hr'; }
