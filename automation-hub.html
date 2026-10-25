@@ -1,0 +1,780 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Try a Live Automation Demo | KeyProcess Automation Services</title>
+  <meta name="description" content="Try a live automation demo: pick a task like a new lead or a bill, press Run, and watch each step light up and hand the work to the next in seconds.">
+  <link rel="canonical" href="https://www.keyprocessautomation.com/automation-hub">
+  <meta property="og:title" content="Try a Live Automation Demo | KeyProcess Automation Services">
+  <meta property="og:description" content="Pick a task, press Run, and watch busywork run itself, step by step, with your approval where it matters.">
+  <meta property="og:url" content="https://www.keyprocessautomation.com/automation-hub">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="KeyProcess Automation Services">
+  <meta property="og:image" content="https://www.keyprocessautomation.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="KeyProcess Automation Services: business process automation that gives your team hours back every week">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Try a Live Automation Demo | KeyProcess Automation Services">
+  <meta name="twitter:description" content="Pick a task, press Run, and watch busywork run itself, step by step, with your approval where it matters.">
+  <meta name="twitter:image" content="https://www.keyprocessautomation.com/og-image.png">
+  <meta name="twitter:image:alt" content="KeyProcess Automation Services: business process automation that gives your team hours back every week">
+  <meta name="theme-color" content="#0f1a33">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Live automation demo",
+    "url": "https://www.keyprocessautomation.com/automation-hub",
+    "description": "An interactive demo of business process automation: a task comes in, its details are read, rules decide the path, and the work gets done, with optional approval.",
+    "isPartOf": { "@id": "https://www.keyprocessautomation.com/#website" },
+    "publisher": { "@id": "https://www.keyprocessautomation.com/#business" }
+  }
+  </script>
+  <style>
+    .hub { --navy: #0f1a33; --panel: #16244a; --edge: #2b3d6b; --gold: #f4b740; --gold-soft: rgba(244, 183, 64, 0.16); --text: #e9eef8; --muted: #9fb0cf;
+      background: radial-gradient(900px 500px at 90% 0%, rgba(29, 111, 224, 0.4), transparent 60%), radial-gradient(700px 400px at 0% 100%, rgba(244, 183, 64, 0.12), transparent 60%), var(--navy);
+      color: var(--text); position: relative; overflow: hidden; padding: 64px 0 72px; }
+    .hub::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+      background-image: radial-gradient(rgba(255,255,255,0.09) 1px, transparent 1px); background-size: 24px 24px;
+      mask-image: linear-gradient(180deg, #000, transparent 90%); }
+    .hub .wrap { position: relative; }
+    .hub .eyebrow { color: var(--gold); display: inline-flex; align-items: center; gap: 8px; }
+    .live-dot { width: 8px; height: 8px; border-radius: 50%; background: #3ddc97; box-shadow: 0 0 0 0 rgba(61,220,151,0.6); animation: ping 2s infinite; }
+    @keyframes ping { 70% { box-shadow: 0 0 0 10px rgba(61,220,151,0); } 100% { box-shadow: 0 0 0 0 rgba(61,220,151,0); } }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+    .hub h1 { color: #fff; max-width: 18ch; }
+    .hub h1 .hl { color: var(--gold); }
+    .hub .lead { color: #c7d2e4; max-width: 60ch; }
+    .hub .fineprint { color: var(--muted); }
+
+    .console { margin-top: 36px; background: rgba(10, 18, 38, 0.72); border: 1px solid var(--edge); border-radius: 20px; box-shadow: 0 30px 70px rgba(0,0,0,0.35); overflow: hidden; }
+    .console-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 14px 18px; border-bottom: 1px solid var(--edge); background: rgba(255,255,255,0.03); }
+    .console-bar .dots { display: flex; gap: 6px; }
+    .console-bar .dots i { width: 11px; height: 11px; border-radius: 50%; background: #2b3d6b; }
+    .console-bar .dots i:first-child { background: var(--gold); }
+    .console-bar .status { font: 600 0.82rem/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--muted); letter-spacing: 0.04em; }
+    .console-bar .status b { color: #3ddc97; font-weight: 600; }
+    .console-bar .status.busy b { color: var(--gold); }
+
+    .tabs { display: flex; flex-wrap: wrap; gap: 8px; padding: 18px 18px 0; }
+    .tab { appearance: none; border: 1px solid var(--edge); background: transparent; color: var(--text); border-radius: 999px; padding: 9px 16px; font-family: inherit; font-size: 0.92rem; font-weight: 600; line-height: 1.2; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: background 0.15s, border-color 0.15s, color 0.15s; }
+    .tab:hover { border-color: var(--gold); }
+    .tab[aria-selected="true"] { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+    .tab svg { width: 16px; height: 16px; }
+
+    .controls { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: end; padding: 16px 18px 18px; border-bottom: 1px solid var(--edge); }
+    .controls label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--muted); margin-bottom: 6px; letter-spacing: 0.02em; }
+    .controls textarea { width: 100%; min-height: 76px; resize: vertical; background: rgba(255,255,255,0.04); color: var(--text); border: 1px solid var(--edge); border-radius: 12px; padding: 12px 14px; font: 0.95rem/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .controls textarea:focus { outline: 2px solid var(--gold); outline-offset: 1px; border-color: transparent; }
+    .run-col { display: flex; flex-direction: column; gap: 10px; align-items: stretch; min-width: 220px; }
+    .switch { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--text); cursor: pointer; user-select: none; }
+    .switch input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+    .switch .track { display: inline-block; width: 40px; height: 22px; border-radius: 999px; background: var(--edge); position: relative; flex-shrink: 0; transition: background 0.15s; }
+    .switch .track::after { content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: #fff; transition: transform 0.15s; }
+    .switch input:checked + .track { background: var(--gold); }
+    .switch input:checked + .track::after { transform: translateX(18px); }
+    .switch input:focus-visible + .track { outline: 2px solid var(--gold); outline-offset: 2px; }
+    .run-btns { display: flex; gap: 8px; }
+    .run { appearance: none; border: 0; cursor: pointer; border-radius: 999px; padding: 13px 22px; font-family: inherit; font-size: 1rem; font-weight: 700; line-height: 1; background: var(--gold); color: var(--navy); display: inline-flex; align-items: center; justify-content: center; gap: 8px; flex: 1; transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s; box-shadow: 0 0 0 0 rgba(244,183,64,0.5); }
+    .run:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(244,183,64,0.3); }
+    .run:disabled { opacity: 0.5; cursor: wait; transform: none; box-shadow: none; }
+    .run.ghost { background: transparent; color: var(--text); border: 1px solid var(--edge); flex: 0 0 auto; padding: 13px 16px; font-weight: 600; }
+    .run.ghost:hover { border-color: var(--gold); box-shadow: none; }
+    .run svg { width: 16px; height: 16px; }
+
+    .canvas { position: relative; padding: 32px 18px 36px; }
+    .wires { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+    .wire { fill: none; stroke: var(--edge); stroke-width: 2; stroke-dasharray: 5 6; transition: stroke 0.3s, opacity 0.3s; }
+    .wire.lit { stroke: var(--gold); stroke-dasharray: none; filter: drop-shadow(0 0 4px rgba(244,183,64,0.6)); }
+    .wire.skip { opacity: 0.25; }
+    .wire.loop { stroke-dasharray: 3 7; }
+    .wire.loop.lit { stroke-dasharray: 3 7; }
+    .packet { fill: #fff; filter: drop-shadow(0 0 6px var(--gold)) drop-shadow(0 0 2px #fff); }
+    .packet.mini { fill: var(--gold); filter: drop-shadow(0 0 4px var(--gold)); }
+
+    .flow { position: relative; display: grid; grid-template-columns: repeat(var(--cols, 5), minmax(0, 1fr)); grid-template-rows: repeat(var(--rows, 2), auto); column-gap: 40px; row-gap: 22px; align-items: center; }
+    .flow[data-shape="report"] { padding-bottom: 40px; }
+    .node { position: relative; z-index: 1; background: var(--panel); border: 1px solid var(--edge); border-radius: 16px; padding: 14px 14px 12px; min-height: 120px; transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s, opacity 0.3s; }
+    .flow .node { grid-column: var(--c); grid-row: var(--r) / span var(--span); }
+    .node-head { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+    .node-icon { width: 34px; height: 34px; border-radius: 10px; background: rgba(255,255,255,0.06); display: grid; place-items: center; flex-shrink: 0; color: var(--muted); transition: background 0.3s, color 0.3s; }
+    .node-icon svg { width: 18px; height: 18px; }
+    .node-step { font: 600 0.7rem/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+    .node h3 { font-size: 0.98rem; color: #fff; margin: 2px 0 0; line-height: 1.25; }
+    .node-out { margin-top: 8px; font: 0.8rem/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--muted); min-height: 1.45em; }
+    .node-out .row { display: flex; gap: 6px; justify-content: space-between; border-top: 1px dashed rgba(255,255,255,0.08); padding: 3px 0; animation: rowin 0.35s ease both; }
+    .node-out .row:first-child { border-top: 0; }
+    .node-out .row span { color: var(--muted); flex-shrink: 0; }
+    .node-out .row b { color: var(--text); font-weight: 600; text-align: right; min-width: 0; }
+    .node-out .note { color: var(--text); animation: rowin 0.35s ease both; }
+    .node-out .tag { display: inline-block; margin-top: 4px; padding: 2px 8px; border-radius: 999px; background: var(--gold-soft); color: var(--gold); font-weight: 700; font-size: 0.74rem; }
+    @keyframes rowin { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+    .ai-chip { display: inline-block; margin-left: 6px; padding: 1px 6px; border-radius: 999px; background: rgba(120, 170, 255, 0.18); color: #a9c8ff; font-size: 0.66rem; letter-spacing: 0.06em; vertical-align: 1px; }
+    .node.active { border-color: var(--gold); box-shadow: 0 0 0 4px var(--gold-soft), 0 14px 40px rgba(0,0,0,0.35); transform: translateY(-2px); }
+    .node.active .node-icon, .node.done .node-icon { background: var(--gold); color: var(--navy); }
+    .node.done { border-color: rgba(244,183,64,0.55); }
+    .node.skipped { opacity: 0.35; }
+    .node.pulse { animation: npulse 0.45s ease; }
+    @keyframes npulse { 40% { box-shadow: 0 0 0 6px var(--gold-soft); border-color: var(--gold); } }
+    .approve { margin-top: 10px; width: 100%; appearance: none; border: 0; border-radius: 10px; padding: 10px; font-family: inherit; font-size: 0.9rem; font-weight: 700; line-height: 1; background: var(--gold); color: var(--navy); cursor: pointer; animation: glow 1.2s ease-in-out infinite; }
+    @keyframes glow { 50% { box-shadow: 0 0 0 6px var(--gold-soft); } }
+
+    .readout { display: grid; grid-template-columns: 1.4fr 1fr; border-top: 1px solid var(--edge); }
+    .log { margin: 0; padding: 14px 18px; height: 196px; overflow-y: auto; list-style: none; font: 0.8rem/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--muted); border-right: 1px solid var(--edge); }
+    .log li { animation: rowin 0.25s ease both; }
+    .log time { color: #5f75a3; margin-right: 8px; }
+    .log .ok { color: #3ddc97; }
+    .log .gold { color: var(--gold); }
+    .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--edge); }
+    .stat { background: rgba(10, 18, 38, 0.9); padding: 16px 18px; }
+    .stat b { display: block; font-size: 1.6rem; color: #fff; line-height: 1.1; font-variant-numeric: tabular-nums; }
+    .stat span { font-size: 0.8rem; color: var(--muted); }
+    .stat.race { grid-column: 1 / 3; }
+    .race-bars { display: grid; gap: 6px; margin-top: 4px; }
+    .race-row { display: grid; grid-template-columns: 84px 1fr 64px; align-items: center; gap: 10px; font-size: 0.8rem; color: var(--muted); }
+    .race-row .bar-bg { height: 8px; background: rgba(255,255,255,0.06); border-radius: 999px; overflow: hidden; }
+    .race-row .bar-fill { height: 100%; width: 0; border-radius: 999px; background: #5f75a3; transition: width 0.9s ease; }
+    .race-row.auto .bar-fill { background: var(--gold); }
+    .race-row b { font-size: 0.85rem; color: #fff; display: inline; text-align: right; }
+
+    .hub-cta { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 36px; }
+    .hub-cta p { margin: 0; color: #c7d2e4; max-width: 60ch; }
+    .hub-cta .btn { background: var(--gold); color: var(--navy); }
+    .hub-cta .btn:hover { background: #fff; }
+
+    .presets { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; align-items: center; }
+    .presets::before { content: "Try:"; font-size: 0.8rem; color: var(--muted); margin-right: 2px; }
+    .preset { appearance: none; border: 1px dashed var(--edge); background: transparent; color: var(--muted); border-radius: 999px; padding: 4px 11px; font-family: inherit; font-size: 0.8rem; font-weight: 600; cursor: pointer; }
+    .preset:hover { color: var(--text); border-color: var(--gold); }
+    .preset[aria-pressed="true"] { color: var(--gold); border-style: solid; border-color: var(--gold); }
+    .preset:disabled { opacity: 0.5; cursor: wait; }
+    .console-bar .shape { font: 600 0.78rem/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--gold); letter-spacing: 0.06em; margin-right: auto; margin-left: 8px; }
+    .lab-notes { padding: 72px 0; }
+    .lab-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .lab-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; background: #fff; }
+    .lab-card .num { font: 700 0.8rem/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: #b07d12; letter-spacing: 0.08em; }
+    .lab-card h3 { margin-top: 8px; }
+    .lab-card p { color: var(--ink-soft); margin: 0; }
+
+    @media (max-width: 960px) {
+      .flow { grid-template-columns: repeat(var(--rows, 2), minmax(0, 1fr)); grid-template-rows: none; column-gap: 12px; row-gap: 36px; }
+      .flow .node { grid-row: var(--c); grid-column: var(--r) / span var(--span); }
+      .flow[data-shape="report"] { padding-bottom: 0; margin-right: 22px; }
+      .node { min-height: 0; }
+      .readout { grid-template-columns: 1fr; }
+      .log { border-right: 0; border-bottom: 1px solid var(--edge); height: 160px; }
+      .lab-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .hub { padding: 44px 0 56px; }
+      .controls { grid-template-columns: 1fr; }
+      .run-col { min-width: 0; }
+      .canvas { padding: 24px 12px 28px; }
+      .tabs, .controls { padding-left: 12px; padding-right: 12px; }
+      .tab { padding: 8px 12px; font-size: 0.86rem; }
+      .race-row { grid-template-columns: 72px 1fr 56px; }
+      .lab-grid { grid-template-columns: 1fr; }
+      .flow[data-rows="3"] { column-gap: 8px; }
+      .flow[data-rows="3"] .node { padding: 10px 8px; }
+      .flow[data-rows="3"] .node-head { flex-direction: column; align-items: flex-start; gap: 6px; }
+      .flow[data-rows="3"] .node-icon { width: 28px; height: 28px; }
+      .flow[data-rows="3"] .node h3 { font-size: 0.84rem; }
+      .flow[data-rows="3"] .node-step { font-size: 0.62rem; }
+      .flow[data-rows="3"] .node-out { font-size: 0.7rem; }
+      .flow[data-rows="3"] .node-out .row { display: block; }
+      .flow[data-rows="3"] .node-out .row b { display: block; text-align: left; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .live-dot, .approve, .node-out .row, .node-out .note, .log li, .node.pulse { animation: none !important; }
+      .node, .race-row .bar-fill { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="logo" href="/"><img class="logo-img" src="/logo.svg" alt="KeyProcess Automation Services logo" width="46" height="46"> KeyProcess Automation Services</a>
+      <nav class="nav" id="site-nav" aria-label="Main">
+        <a href="/results">Results</a>
+        <a href="/automation-hub">Live demo</a>
+        <a href="/#services">Services</a>
+        <a href="/#calculator">Savings</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/blog/">Blog</a>
+        <a class="btn btn-small" href="/audit">Free audit</a>
+      </nav>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+  <script src="/menu.js" defer></script>
+
+  <main id="top">
+    <section class="hub">
+      <div class="wrap">
+        <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span> Automation hub</p>
+        <h1>Watch busywork <span class="hl">run itself</span></h1>
+        <p class="lead">Pick a job your team does by hand, change the details if you like, and press Run. Each step lights up and hands the work to the next, just like your automations will, every day, without anyone touching them.</p>
+        <p class="fineprint">This is a demo. Nothing you type leaves this page.</p>
+
+        <div class="console">
+          <h2 class="sr-only">Try the automation demo</h2>
+          <div class="console-bar">
+            <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="shape" id="shape"></div>
+            <div class="status" id="status" role="status">STATUS: <b>READY</b></div>
+          </div>
+
+          <div class="tabs" role="tablist" aria-label="Pick a task">
+            <button class="tab" role="tab" type="button" data-scn="lead" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v12H5.2L4 17.2z"/></svg>New lead</button>
+            <button class="tab" role="tab" type="button" data-scn="bill" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2z"/><path d="M9 7h6M9 11h6M9 15h4"/></svg>Bill arrives</button>
+            <button class="tab" role="tab" type="button" data-scn="question" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7M12 17h.01"/></svg>Customer question</button>
+            <button class="tab" role="tab" type="button" data-scn="report" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Weekly report</button>
+          </div>
+
+          <div class="controls">
+            <div>
+              <label for="input" id="input-label">What came in</label>
+              <textarea id="input" spellcheck="false"></textarea>
+              <div class="presets" id="presets"></div>
+            </div>
+            <div class="run-col">
+              <label class="switch"><input type="checkbox" id="approval"><span class="track" aria-hidden="true"></span>Ask me before anything goes out</label>
+              <div class="run-btns">
+                <button class="run" id="run" type="button"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4l13 8-13 8z"/></svg>Run it</button>
+                <button class="run ghost" id="burst" type="button" title="Send 25 at once">&times;25</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="canvas" id="canvas">
+            <svg class="wires" id="wires" aria-hidden="true"></svg>
+            <div class="flow" id="flow"></div>
+          </div>
+
+          <div class="readout">
+            <ol class="log" id="log" aria-live="polite" aria-label="Run log"></ol>
+            <div class="stats">
+              <div class="stat"><b id="s-runs">0</b><span>Jobs handled this visit</span></div>
+              <div class="stat"><b id="s-mins">0</b><span>Minutes of busywork skipped</span></div>
+              <div class="stat race">
+                <span>Last run, by hand vs. automated</span>
+                <div class="race-bars">
+                  <div class="race-row"><span>By hand</span><div class="bar-bg"><div class="bar-fill" id="bar-hand"></div></div><b id="t-hand">&ndash;</b></div>
+                  <div class="race-row auto"><span>Automated</span><div class="bar-bg"><div class="bar-fill" id="bar-auto"></div></div><b id="t-auto">&ndash;</b></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hub-cta">
+          <p>Your business has its own version of these. Bring the task that eats the most time to a free audit, and we'll map out how it could run on its own.</p>
+          <a class="btn" href="/audit">Get a free audit</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="lab-notes">
+      <div class="wrap">
+        <h2>Every automation has a shape</h2>
+        <p class="section-lead">Each demo above runs a different way. Once you see these four shapes, you start spotting them all over your business. AI only shows up where it makes a step better, like reading a messy message or drafting a reply. Everything else runs on simple, reliable rules.</p>
+        <div class="lab-grid">
+          <div class="lab-card"><div class="num">New lead</div><h3>Two paths</h3><p>One decision sends the work down the right road. Hot leads reach you in seconds, and the rest get steady follow-ups.</p></div>
+          <div class="lab-card"><div class="num">Bill arrives</div><h3>Three rules, one gate</h3><p>Every bill gets checked the same way. Duplicates get stopped, big ones wait for your OK, and small ones go straight through.</p></div>
+          <div class="lab-card"><div class="num">Customer question</div><h3>Three jobs at once</h3><p>One message sets off a reply, a ticket, and a heads-up to the right person, all at the same moment.</p></div>
+          <div class="lab-card"><div class="num">Weekly report</div><h3>Runs on a schedule</h3><p>No one has to remember. It starts on its own, does every step, and sets itself up for next week.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div><strong>KeyProcess Automation Services</strong><br>Business process automation across the U.S.</div>
+        <nav aria-label="Footer">
+          <a href="/results">Results</a>
+          <a href="/automation-hub">Live demo</a>
+          <a href="/#services">Services</a>
+          <a href="/#calculator">Savings</a>
+          <a href="/#pricing">Pricing</a>
+          <a href="/#faq">FAQ</a>
+          <a href="/blog/">Blog</a>
+          <a href="mailto:tyler@keyprocessautomation.com">Contact</a>
+          <a href="https://www.linkedin.com/company/keyprocess-automation-services" rel="noopener" target="_blank">LinkedIn</a>
+        </nav>
+      </div>
+      <p class="copy">&copy; 2026 KeyProcess Automation Services</p>
+    </div>
+  </footer>
+
+  <script>
+    // Automation hub demo: each task has its own flow shape. Nodes and wires are drawn from the
+    // task's definition, then a run lights them stage by stage as the work passes along.
+    (function () {
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var $ = function (s, r) { return (r || document).querySelector(s); };
+      var flow = $('#flow'), wires = $('#wires'), canvas = $('#canvas'), log = $('#log'), input = $('#input');
+      var runBtn = $('#run'), burstBtn = $('#burst'), approval = $('#approval'), status = $('#status');
+      var paths = {}, busy = false, totals = { runs: 0, mins: 0 }, current = 'lead', scn = null;
+
+      var ICONS = {
+        bolt: '<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>',
+        spark: '<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 17l.8 2.2L22 20l-2.2.8L19 23l-.8-2.2L16 20l2.2-.8z"/>',
+        fork: '<path d="M6 3v6a6 6 0 0 0 6 6h6M6 9v12M15 12l3 3-3 3"/>',
+        bell: '<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10 21h4"/>',
+        send: '<path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/>',
+        cal: '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18"/>',
+        check: '<path d="M5 12l5 5L20 7"/>',
+        stop: '<circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/>',
+        shield: '<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/>',
+        book: '<path d="M4 4h11a3 3 0 0 1 3 3v13H7a3 3 0 0 1-3-3z"/><path d="M8 8h6M8 12h6"/>',
+        ticket: '<path d="M3 8a2 2 0 0 0 0 4v4h18v-4a2 2 0 0 1 0-4V4H3z"/><path d="M13 4v12"/>',
+        users: '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"/>',
+        clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+        db: '<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>',
+        chart: '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
+        list: '<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>',
+        mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>'
+      };
+
+      // Text helpers for pulling details out of whatever the visitor types.
+      function find(re, text, i) { var m = text.match(re); return m ? m[i || 1].trim() : ''; }
+      function titleCase(s) { return s.replace(/\b\w/g, function (c) { return c.toUpperCase(); }); }
+      function firstName(text) { return titleCase(find(/(?:i'm|i am|this is|my name is|name's)\s+([a-z]+(?:\s[a-z]+)?)(?=\s+(?:from|at|with|and|here)\b|[,.!]|$)/i, text)); }
+      function company(text) { return find(/(?:from|at|with|of)\s+((?:[A-Z][\w&'-]*\s?){1,4})/, text).replace(/[.,]$/, ''); }
+      function money(text) { var m = text.match(/\$\s?([\d,]+(?:\.\d{2})?)/); return m ? parseFloat(m[1].replace(/,/g, '')) : 0; }
+      function usd(n) { return '$' + n.toLocaleString('en-US', { minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2 }); }
+      function topic(text, map, fallback) { for (var k in map) if (new RegExp(k, 'i').test(text)) return map[k]; return fallback; }
+      function quote(t) { return '"' + t.slice(0, 70) + (t.length > 70 ? '...' : '') + '"'; }
+      function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+
+      var SCENARIOS = {
+        // Shape: one decision, two possible paths that meet again.
+        lead: {
+          shape: 'Two paths',
+          label: 'A message from a website form, email, or text',
+          samples: [
+            ['Urgent lead', "Hi, this is Dana from Brightside Dental. We're drowning in appointment reminders and need help ASAP. Call me at (215) 555-0142."],
+            ['Just browsing', "Hello, I'm Marcus with Hilltop Landscaping. Curious what it would cost to automate our quotes at some point. marcus@example.com"]
+          ],
+          manual: 15, cols: 5, rows: 2,
+          nodes: [
+            { id: 'in', col: 1, step: 'Trigger', icon: 'bolt', title: 'New inquiry arrives' },
+            { id: 'read', col: 2, step: 'Read', icon: 'spark', title: 'AI reads the message', ai: true },
+            { id: 'hot', col: 3, step: 'Decide', icon: 'fork', title: 'Hot lead or not?' },
+            { id: 'alert', col: 4, row: 1, step: 'If hot', icon: 'bell', title: 'Alert the owner now' },
+            { id: 'nurture', col: 4, row: 2, step: 'If not', icon: 'cal', title: 'Schedule follow-ups' },
+            { id: 'reply', col: 5, step: 'Finish', icon: 'send', title: 'Reply sent and logged', gate: true }
+          ],
+          edges: [['in', 'read'], ['read', 'hot'], ['hot', 'alert'], ['hot', 'nurture'], ['alert', 'reply'], ['nurture', 'reply']],
+          build: function (t) {
+            var name = firstName(t) || 'New contact', co = company(t) || 'Not given', first = name.split(' ')[0];
+            var phone = find(/(\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4})/, t), email = find(/([^\s@]+@[^\s@]+\.[a-z]{2,})/i, t);
+            var need = topic(t, { 'remind|appoint|schedul|book': 'Scheduling', 'invoice|bill|payment|bookkeep|books': 'Bookkeeping', 'quote|estimate|price|cost': 'Pricing', 'social|post|marketing|review': 'Marketing', 'report': 'Reporting' }, 'General question');
+            var hot = /asap|urgent|today|right away|this week|immediately|drowning/i.test(t), path = hot ? 'alert' : 'nurture';
+            return {
+              out: {
+                in: [['note', quote(t)]],
+                read: [['Name', name], ['Company', co], ['Need', need], [phone ? 'Phone' : 'Email', phone || email || 'Not given']],
+                hot: [['note', hot ? 'Urgent words found' : 'No rush signals'], ['tag', hot ? 'HOT' : 'WARM']],
+                alert: [['note', 'Text to owner: "' + first + ' at ' + co + ' needs ' + need.toLowerCase() + ' help today."']],
+                nurture: [['Day 2', 'Friendly check-in'], ['Day 5', 'Helpful example'], ['Day 10', 'Last nudge']],
+                reply: [['note', '"Hi ' + first + ', thanks for reaching out about ' + need.toLowerCase() + '. Here is a link to grab 15 minutes."']]
+              },
+              stages: [
+                { nodes: ['in'], log: 'Trigger fired' },
+                { edges: [['in', 'read']], nodes: ['read'], log: 'Details pulled out' },
+                { edges: [['read', 'hot']], nodes: ['hot'], log: hot ? 'Hot lead, taking the fast path' : 'Warm lead, taking the follow-up path', decide: true },
+                { edges: [['hot', path]], nodes: [path], log: hot ? 'Owner alerted by text' : 'Follow-ups scheduled' },
+                { edges: [[path, 'reply']], nodes: ['reply'], log: 'Reply sent and logged' }
+              ],
+              summary: hot ? 'hot lead, owner alerted' : 'warm lead, follow-ups set'
+            };
+          },
+          burst: function (i) { var hot = Math.random() < 0.35, p = hot ? 'alert' : 'nurture'; return { hops: [[['in', 'read']], [['read', 'hot']], [['hot', p]], [[p, 'reply']]], line: 'Lead #' + i + ' ' + (hot ? 'hot, owner alerted' : 'follow-ups scheduled') }; }
+        },
+
+        // Shape: one gate with three rules, and one rule stops the job cold.
+        bill: {
+          shape: 'Three rules, one gate',
+          label: 'A bill that just landed in the inbox',
+          samples: [
+            ['Big bill', 'Invoice #4471 from Delaware Valley Plumbing for the water heater repair at 41 Elm St. Amount due: $1,840.00, due Nov 15.'],
+            ['Small bill', 'Invoice #2290 from Northside Cleaning for October office cleaning. Amount due: $240.00, due Nov 3.'],
+            ['Sent twice', 'Resending invoice #4471 from Delaware Valley Plumbing (duplicate copy). Amount due: $1,840.00, due Nov 15.']
+          ],
+          manual: 8, cols: 5, rows: 3,
+          nodes: [
+            { id: 'in', col: 1, step: 'Trigger', icon: 'mail', title: 'Bill hits the inbox' },
+            { id: 'read', col: 2, step: 'Read', icon: 'list', title: 'Pull the details' },
+            { id: 'gate', col: 3, step: 'Check rules', icon: 'shield', title: 'Which rule applies?' },
+            { id: 'dup', col: 4, row: 1, step: 'Rule 1', icon: 'stop', title: 'Already paid? Block it' },
+            { id: 'big', col: 4, row: 2, step: 'Rule 2', icon: 'bell', title: 'Over $1,000? Owner OKs' },
+            { id: 'auto', col: 4, row: 3, step: 'Rule 3', icon: 'check', title: 'Under $1,000? Approve' },
+            { id: 'books', col: 5, step: 'Finish', icon: 'book', title: 'In the books, reminder set', gate: true }
+          ],
+          edges: [['in', 'read'], ['read', 'gate'], ['gate', 'dup'], ['gate', 'big'], ['gate', 'auto'], ['big', 'books'], ['auto', 'books']],
+          build: function (t) {
+            var amt = money(t), vendor = company(t) || 'Unknown vendor', inv = find(/#\s?(\d+)/, t);
+            var due = find(/due\s+(?:on\s+|by\s+|date:?\s*)?((?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+\d{1,2}|\d{1,2}\/\d{1,2}(?:\/\d{2,4})?)/i, t) || 'Not listed';
+            var cat = topic(t, { 'plumb|repair|hvac|roof|fix|heater': 'Repairs', 'software|subscription|license': 'Software', 'electric|water bill|gas|utility': 'Utilities', 'clean|landscap|lawn': 'Services', 'ad |marketing|print': 'Marketing' }, 'General');
+            var dup = /resend|resent|duplicate|again|second copy|copy of/i.test(t), big = !dup && (amt >= 1000 || !amt);
+            var rule = dup ? 'dup' : big ? 'big' : 'auto';
+            var stages = [
+              { nodes: ['in'], log: 'Bill received' },
+              { edges: [['in', 'read']], nodes: ['read'], log: 'Vendor, invoice, amount, and due date pulled out by simple rules' },
+              { edges: [['read', 'gate']], nodes: ['gate'], log: 'Checked against 3 rules', decide: true },
+              { edges: [['gate', rule]], nodes: [rule], log: dup ? 'Duplicate found. Stopped before anyone pays twice.' : big ? 'Over the limit, sent to the owner' : 'Under the limit, approved automatically', approve: big }
+            ];
+            if (!dup) stages.push({ edges: [[rule, 'books']], nodes: ['books'], log: 'Entered in the books' });
+            return {
+              out: {
+                in: [['note', quote(t)]],
+                read: [['Vendor', vendor], ['Invoice', inv ? '#' + inv : 'No number'], ['Amount', amt ? usd(amt) : 'Not found'], ['Due', due]],
+                gate: [['note', dup ? 'Invoice ' + (inv ? '#' + inv + ' ' : '') + 'matches one already logged' : amt ? usd(amt) + (big ? ' is over the $1,000 limit' : ' is under the $1,000 limit') : 'No amount found'], ['tag', dup ? 'DUPLICATE' : big ? 'NEEDS OK' : 'AUTO']],
+                dup: [['note', 'Not entered. Vendor gets a polite "already received" reply.']],
+                big: [['note', 'Sent to the owner with the bill attached. One tap to approve.']],
+                auto: [['note', 'Matches the rules, so no one has to look at it.']],
+                books: [['Entered', cat + ', ' + (amt ? usd(amt) : 'amount pending')], ['Reminder', '3 days before ' + (due === 'Not listed' ? 'due date' : due)]]
+              },
+              stages: stages,
+              summary: dup ? 'duplicate blocked, nothing paid twice' : big ? 'bill approved and entered' : 'bill auto-approved and entered'
+            };
+          },
+          burst: function (i) {
+            var r = Math.random(), rule = r < 0.12 ? 'dup' : r < 0.37 ? 'big' : 'auto', hops = [[['in', 'read']], [['read', 'gate']], [['gate', rule]]];
+            if (rule !== 'dup') hops.push([[rule, 'books']]);
+            return { hops: hops, line: 'Bill #' + i + ' ' + (rule === 'dup' ? 'duplicate, blocked' : usd(Math.round(rule === 'big' ? 1000 + Math.random() * 3000 : 80 + Math.random() * 900)) + (rule === 'big' ? ', sent for approval' : ', entered')) };
+          }
+        },
+
+        // Shape: one question sets off three jobs at the same time.
+        question: {
+          shape: 'Three jobs at once',
+          label: 'A question from a customer',
+          samples: [
+            ['Upset customer', "Hey, I was charged twice for my October invoice. Can someone fix this? It's the second time."],
+            ['Simple question', 'Hi! Can I move my Tuesday appointment to Thursday afternoon?'],
+            ['Something broke', 'The heater you installed last month stopped working this morning.']
+          ],
+          manual: 10, cols: 4, rows: 3,
+          nodes: [
+            { id: 'in', col: 1, step: 'Trigger', icon: 'mail', title: 'Customer asks a question' },
+            { id: 'sort', col: 2, step: 'Read', icon: 'spark', title: 'AI sorts it', ai: true },
+            { id: 'reply', col: 3, row: 1, step: 'At once', icon: 'spark', title: 'AI drafts the reply', gate: true, ai: true },
+            { id: 'ticket', col: 3, row: 2, step: 'At once', icon: 'ticket', title: 'Ticket opened' },
+            { id: 'notify', col: 3, row: 3, step: 'At once', icon: 'users', title: 'Right person told' },
+            { id: 'track', col: 4, step: 'Finish', icon: 'clock', title: 'Tracked until solved' }
+          ],
+          edges: [['in', 'sort'], ['sort', 'reply'], ['sort', 'ticket'], ['sort', 'notify'], ['reply', 'track'], ['ticket', 'track'], ['notify', 'track']],
+          build: function (t) {
+            var kind = topic(t, { 'charg|invoice|bill|refund|pay': 'Billing', 'appoint|schedul|resched|move my|book|hours': 'Scheduling', 'broken|broke|not working|stopped|leak|repair|issue': 'Repair', 'price|quote|cost': 'Pricing' }, 'Other');
+            var upset = /twice|again|second time|still|angry|frustrat|unacceptable|ridiculous|!{2,}/i.test(t);
+            var who = { Billing: 'Bookkeeper', Scheduling: 'Front desk', Repair: 'Service lead', Pricing: 'Sales', Other: 'Office manager' }[kind];
+            var reply = { Billing: 'Sorry about that! We are looking into the charge now and will confirm the fix today.', Scheduling: 'No problem! Thursday at 2:00 or 3:30 is open. Which works better?', Repair: 'Sorry to hear that! A technician will call you within the hour to set up a visit.', Pricing: 'Thanks for asking! Here is our price list, and a link to book a quick call.', Other: 'Thanks for reaching out! The right person will get back to you shortly.' }[kind];
+            var ticketNo = '#' + (1000 + Math.floor(Math.random() * 9000));
+            return {
+              out: {
+                in: [['note', quote(t)]],
+                sort: [['Type', kind], ['Mood', upset ? 'Frustrated' : 'Calm'], ['Priority', upset || kind === 'Repair' ? 'High' : 'Normal']],
+                reply: [['note', '"' + reply + '"']],
+                ticket: [['Ticket', ticketNo], ['Type', kind]],
+                notify: [['To', who], ['note', upset ? 'Flagged high priority with the history.' : 'Sent with the full history.']],
+                track: [['note', 'Reminder if ' + ticketNo + ' is still open in 24 hours.']]
+              },
+              stages: [
+                { nodes: ['in'], log: 'Question received' },
+                { edges: [['in', 'sort']], nodes: ['sort'], log: 'Sorted: ' + kind.toLowerCase() + (upset ? ', high priority' : '') },
+                { edges: [['sort', 'reply'], ['sort', 'ticket'], ['sort', 'notify']], nodes: ['reply', 'ticket', 'notify'], log: 'Three jobs done at the same time: reply, ticket, and ' + who.toLowerCase() + ' told' },
+                { edges: [['reply', 'track'], ['ticket', 'track'], ['notify', 'track']], nodes: ['track'], log: 'Tracking until it is solved' }
+              ],
+              summary: kind.toLowerCase() + ' question handled three ways at once'
+            };
+          },
+          burst: function (i) { return { hops: [[['in', 'sort']], [['sort', 'reply'], ['sort', 'ticket'], ['sort', 'notify']], [['reply', 'track'], ['ticket', 'track'], ['notify', 'track']]], line: 'Question #' + i + ' replied, ticketed, and routed' }; }
+        },
+
+        // Shape: a straight line that runs on a schedule and loops back to start again.
+        report: {
+          shape: 'Runs on a schedule',
+          label: "This week's numbers, with last week in brackets (edit them)",
+          samples: [
+            ['Mixed week', 'New leads: 14 (11)\nJobs completed: 37 (40)\nUnpaid invoices: 3 (1)'],
+            ['Great week', 'New leads: 22 (15)\nJobs completed: 45 (38)\nUnpaid invoices: 0 (2)']
+          ],
+          manual: 45, cols: 5, rows: 1,
+          nodes: [
+            { id: 'clock', col: 1, step: 'Schedule', icon: 'clock', title: 'Monday, 7:00 AM' },
+            { id: 'pull', col: 2, step: 'Step 1', icon: 'db', title: 'Pull the numbers' },
+            { id: 'compare', col: 3, step: 'Step 2', icon: 'chart', title: 'Compare to last week' },
+            { id: 'write', col: 4, step: 'Step 3', icon: 'list', title: 'Fill in the summary' },
+            { id: 'send', col: 5, step: 'Finish', icon: 'mail', title: 'Sent to your inbox', gate: true }
+          ],
+          edges: [['clock', 'pull'], ['pull', 'compare'], ['compare', 'write'], ['write', 'send'], ['send', 'clock', 'loop']],
+          build: function (t) {
+            var rows = t.split('\n').map(function (l) {
+              var m = l.match(/^\s*([^:]+):\s*([\d,]+)(?:\s*\((?:last week:?\s*)?([\d,]+)\))?/i);
+              return m ? { label: m[1].trim(), now: +m[2].replace(/,/g, ''), was: m[3] == null ? null : +m[3].replace(/,/g, '') } : null;
+            }).filter(Boolean).slice(0, 4);
+            if (!rows.length) rows = [{ label: 'No numbers found', now: 0, was: null }];
+            var bad = rows.filter(function (r) { var lower = /unpaid|overdue|late|open|complaint|cancel/i.test(r.label); return r.was != null && (lower ? r.now > r.was : r.now < r.was); });
+            var good = rows.filter(function (r) { return r.was != null && bad.indexOf(r) < 0 && r.now !== r.was; });
+            function diff(r) { if (r.was == null) return 'new'; var d = r.now - r.was; return (d > 0 ? '+' : '') + d + (d === 0 ? ' (same)' : ''); }
+            var sentence = (good.length ? good.map(function (r) { return r.label.toLowerCase() + ' ' + (r.now > r.was ? 'up' : 'down') + ' to ' + r.now; }).join(', ') + '. ' : '') +
+              (bad.length ? 'Watch ' + bad.map(function (r) { return r.label.toLowerCase(); }).join(' and ') + '.' : 'Nothing needs attention.');
+            sentence = sentence.charAt(0).toUpperCase() + sentence.slice(1);
+            return {
+              out: {
+                clock: [['note', 'Starts on its own. No one has to remember.']],
+                pull: rows.map(function (r) { return [r.label, String(r.now)]; }),
+                compare: rows.map(function (r) { return [r.label, diff(r)]; }).concat([['tag', bad.length ? bad.length + ' TO WATCH' : 'ALL GOOD']]),
+                write: [['note', '"' + sentence + '"']],
+                send: [['To', bad.length ? 'Owner, bookkeeper cc\'d' : 'Owner'], ['Next run', 'Next Monday, 7:00 AM']]
+              },
+              stages: [
+                { nodes: ['clock'], log: 'Monday 7:00 AM, report started' },
+                { edges: [['clock', 'pull']], nodes: ['pull'], log: rows.length + ' numbers pulled' },
+                { edges: [['pull', 'compare']], nodes: ['compare'], log: bad.length ? bad.length + ' number(s) going the wrong way' : 'Every number on track' },
+                { edges: [['compare', 'write']], nodes: ['write'], log: 'Summary filled in from the numbers' },
+                { edges: [['write', 'send']], nodes: ['send'], log: 'Report delivered' },
+                { edges: [['send', 'clock']], nodes: [], log: 'Scheduled again for next Monday', quiet: true }
+              ],
+              summary: bad.length ? 'report sent, ' + bad.length + ' item(s) flagged' : 'report sent, all good'
+            };
+          },
+          burst: function (i) { return { hops: [[['clock', 'pull']], [['pull', 'compare']], [['compare', 'write']], [['write', 'send']]], line: 'Location #' + i + ' report ' + pick(['sent, all good', 'sent, 1 item flagged', 'sent, all good']) }; }
+        }
+      };
+
+      function nodeEl(id) { return flow.querySelector('[data-id="' + id + '"]'); }
+      function key(e) { return e[0] + '>' + e[1]; }
+      function wait(ms) { return new Promise(function (r) { setTimeout(r, reduce ? 0 : ms); }); }
+      function stamp() { var d = new Date(); return d.toTimeString().slice(0, 8) + '.' + String(d.getMilliseconds()).padStart(3, '0'); }
+      function addLog(text, cls) {
+        var li = document.createElement('li'), time = document.createElement('time'), span = document.createElement('span');
+        time.textContent = stamp(); span.textContent = text; if (cls) span.className = cls;
+        li.appendChild(time); li.appendChild(span); log.appendChild(li);
+        while (log.children.length > 80) log.removeChild(log.firstChild);
+        log.scrollTop = log.scrollHeight;
+      }
+      function setStatus(text, isBusy) { status.innerHTML = ''; status.appendChild(document.createTextNode('STATUS: ')); var b = document.createElement('b'); b.textContent = text; status.appendChild(b); status.classList.toggle('busy', !!isBusy); }
+
+      // Builds the task's nodes on a grid. On narrow screens the grid turns sideways (columns become rows).
+      function render() {
+        flow.innerHTML = ''; wires.innerHTML = ''; paths = {};
+        flow.style.setProperty('--cols', scn.cols); flow.style.setProperty('--rows', scn.rows);
+        flow.dataset.shape = current; flow.dataset.rows = scn.rows;
+        scn.nodes.forEach(function (n, i) {
+          var el = document.createElement('div');
+          el.className = 'node'; el.dataset.id = n.id;
+          var single = !n.row;
+          el.style.setProperty('--c', n.col);
+          el.style.setProperty('--r', single ? 1 : n.row);
+          el.style.setProperty('--span', single ? scn.rows : 1);
+          el.innerHTML = '<div class="node-head"><div class="node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ICONS[n.icon] + '</svg></div><div><div class="node-step"></div><h3></h3></div></div><div class="node-out"></div>';
+          el.querySelector('.node-step').textContent = String(i + 1).padStart(2, '0') + ' ' + n.step;
+          if (n.ai) { var chip = document.createElement('span'); chip.className = 'ai-chip'; chip.textContent = 'AI'; chip.title = 'AI is used here because it makes this step better'; el.querySelector('.node-step').appendChild(chip); }
+          el.querySelector('h3').textContent = n.title;
+          flow.appendChild(el);
+        });
+        scn.edges.forEach(function (e) {
+          var p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+          p.setAttribute('class', e[2] === 'loop' ? 'wire loop' : 'wire');
+          wires.appendChild(p); paths[key(e)] = p;
+        });
+        drawWires();
+      }
+
+      function box(el) {
+        var c = canvas.getBoundingClientRect(), r = el.getBoundingClientRect();
+        return { l: r.left - c.left, t: r.top - c.top, r: r.right - c.left, b: r.bottom - c.top, w: r.width, h: r.height };
+      }
+      // Wires follow the live node positions, so they fit the layout on any screen size.
+      function drawWires() {
+        var wide = window.innerWidth > 960;
+        scn.edges.forEach(function (e) {
+          var a = box(nodeEl(e[0])), b = box(nodeEl(e[1])), d;
+          if (e[2] === 'loop') {
+            if (wide) {
+              var low = Math.max(a.b, b.b) + 26, x1 = a.l + a.w / 2, x2 = b.l + b.w / 2;
+              d = 'M' + x1 + ',' + a.b + ' C' + x1 + ',' + low + ' ' + x1 + ',' + low + ' ' + (x1 - 30) + ',' + low + ' L' + (x2 + 30) + ',' + low + ' C' + x2 + ',' + low + ' ' + x2 + ',' + low + ' ' + x2 + ',' + b.b;
+            } else {
+              var side = Math.max(a.r, b.r) + 6, y1 = a.t + a.h / 2, y2 = b.t + b.h / 2;
+              d = 'M' + a.r + ',' + y1 + ' C' + side + ',' + y1 + ' ' + side + ',' + y1 + ' ' + side + ',' + (y1 - 24) + ' L' + side + ',' + (y2 + 24) + ' C' + side + ',' + y2 + ' ' + side + ',' + y2 + ' ' + b.r + ',' + y2;
+            }
+          } else if (wide) {
+            var p1 = [a.r, a.t + a.h / 2], p2 = [b.l, b.t + b.h / 2], dx = (p2[0] - p1[0]) / 2;
+            d = 'M' + p1 + ' C' + (p1[0] + dx) + ',' + p1[1] + ' ' + (p2[0] - dx) + ',' + p2[1] + ' ' + p2;
+          } else {
+            var q1 = [a.l + a.w / 2, a.b], q2 = [b.l + b.w / 2, b.t], dy = (q2[1] - q1[1]) / 2;
+            d = 'M' + q1 + ' C' + q1[0] + ',' + (q1[1] + dy) + ' ' + q2[0] + ',' + (q2[1] - dy) + ' ' + q2;
+          }
+          paths[key(e)].setAttribute('d', d);
+        });
+      }
+
+      function travel(k, mini, ms) {
+        var path = paths[k];
+        return new Promise(function (resolve) {
+          if (reduce || !path) return resolve();
+          var dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+          dot.setAttribute('r', mini ? 3.5 : 6); dot.setAttribute('class', mini ? 'packet mini' : 'packet');
+          var len = path.getTotalLength(), start = null, dur = (ms || 650) * (path.classList.contains('loop') ? 1.8 : 1), p0 = path.getPointAtLength(0);
+          dot.setAttribute('cx', p0.x); dot.setAttribute('cy', p0.y);
+          wires.appendChild(dot);
+          function step(t) {
+            if (start === null) start = t;
+            var k2 = Math.min((t - start) / dur, 1), ease = k2 < 0.5 ? 2 * k2 * k2 : 1 - Math.pow(-2 * k2 + 2, 2) / 2;
+            var pt = path.getPointAtLength(ease * len);
+            dot.setAttribute('cx', pt.x); dot.setAttribute('cy', pt.y);
+            if (k2 < 1) requestAnimationFrame(step); else { dot.remove(); resolve(); }
+          }
+          requestAnimationFrame(step);
+        });
+      }
+
+      function fill(id, rows) {
+        var out = nodeEl(id).querySelector('.node-out');
+        out.innerHTML = '';
+        (rows || []).forEach(function (r, i) {
+          var el = document.createElement('div');
+          if (r[0] === 'note') { el.className = 'note'; el.textContent = r[1]; }
+          else if (r[0] === 'tag') { el.className = 'tag'; el.textContent = r[1]; }
+          else { el.className = 'row'; var s = document.createElement('span'), b = document.createElement('b'); s.textContent = r[0]; b.textContent = r[1]; el.appendChild(s); el.appendChild(b); }
+          el.style.animationDelay = (reduce ? 0 : i * 0.12) + 's';
+          out.appendChild(el);
+        });
+        drawWires();
+      }
+
+      function reset() {
+        flow.querySelectorAll('.node').forEach(function (n) { n.classList.remove('active', 'done', 'skipped'); n.querySelector('.node-out').innerHTML = ''; var a = n.querySelector('.approve'); if (a) a.remove(); });
+        Object.keys(paths).forEach(function (k) { paths[k].classList.remove('lit', 'skip'); });
+        drawWires();
+      }
+
+      function loadSample(i) {
+        input.value = scn.samples[i][1];
+        document.querySelectorAll('.preset').forEach(function (b, n) { b.setAttribute('aria-pressed', n === i ? 'true' : 'false'); });
+      }
+      function load(name) {
+        current = name; scn = SCENARIOS[name];
+        document.querySelectorAll('.tab').forEach(function (t) { t.setAttribute('aria-selected', t.dataset.scn === name ? 'true' : 'false'); });
+        $('#input-label').textContent = scn.label;
+        var aiSteps = scn.nodes.filter(function (n) { return n.ai; }).length;
+        $('#shape').textContent = 'FLOW: ' + scn.shape.toUpperCase() + ' \u00b7 ' + (aiSteps ? 'AI IN ' + aiSteps + (aiSteps > 1 ? ' STEPS' : ' STEP') : 'NO AI NEEDED');
+        var presets = $('#presets'); presets.innerHTML = '';
+        scn.samples.forEach(function (s, i) {
+          var b = document.createElement('button');
+          b.type = 'button'; b.className = 'preset'; b.textContent = s[0];
+          b.addEventListener('click', function () { if (!busy) { loadSample(i); reset(); } });
+          presets.appendChild(b);
+        });
+        loadSample(0);
+        render();
+        setStatus('READY');
+      }
+
+      function askApproval(id) {
+        return new Promise(function (resolve) {
+          var btn = document.createElement('button');
+          btn.type = 'button'; btn.className = 'approve'; btn.textContent = 'Approve';
+          nodeEl(id).appendChild(btn); drawWires();
+          btn.focus({ preventScroll: true }); btn.scrollIntoView({ block: 'nearest', behavior: reduce ? 'auto' : 'smooth' });
+          setStatus('WAITING ON YOU', true);
+          addLog('Paused. Waiting for your OK...', 'gold');
+          var t0 = Date.now();
+          btn.addEventListener('click', function () { btn.remove(); drawWires(); setStatus('RUNNING', true); addLog('Approved in ' + ((Date.now() - t0) / 1000).toFixed(1) + 's', 'ok'); resolve(Date.now() - t0); });
+        });
+      }
+
+      function lock(on) { busy = on; runBtn.disabled = burstBtn.disabled = on; document.querySelectorAll('.preset').forEach(function (b) { b.disabled = on; }); }
+
+      async function run() {
+        if (busy) return;
+        var text = input.value.trim() || scn.samples[0][1], plan = scn.build(text);
+        lock(true); reset(); setStatus('RUNNING', true);
+        var t0 = performance.now(), paused = 0;
+        var used = {}, usedEdges = {};
+        plan.stages.forEach(function (s) { s.nodes.forEach(function (n) { used[n] = 1; }); (s.edges || []).forEach(function (e) { usedEdges[key(e)] = 1; }); });
+        addLog('Run started: ' + scn.nodes[0].title.toLowerCase(), 'gold');
+        for (var i = 0; i < plan.stages.length; i++) {
+          var st = plan.stages[i], edges = st.edges || [];
+          edges.forEach(function (e) { paths[key(e)].classList.add('lit'); });
+          await Promise.all(edges.map(function (e) { return travel(key(e)); }));
+          var gated = st.nodes.filter(function (n) { return approval.checked && scn.nodes.some(function (d) { return d.id === n && d.gate; }); });
+          if (gated.length) { nodeEl(gated[0]).classList.add('active'); paused += await askApproval(gated[0]); }
+          st.nodes.forEach(function (n) { nodeEl(n).classList.add('active'); fill(n, plan.out[n]); });
+          addLog(st.log, st.quiet ? 'gold' : null);
+          if (st.decide) {
+            scn.nodes.forEach(function (n) { if (!used[n.id]) nodeEl(n.id).classList.add('skipped'); });
+            Object.keys(paths).forEach(function (k) { if (!usedEdges[k]) paths[k].classList.add('skip'); });
+          }
+          await wait(520);
+          st.nodes.forEach(function (n) { nodeEl(n).classList.remove('active'); nodeEl(n).classList.add('done'); });
+          if (st.approve) paused += await askApproval(st.nodes[0]);
+        }
+        var secs = Math.max((performance.now() - t0 - paused) / 1000, 0.4);
+        addLog('Done: ' + plan.summary + ' in ' + secs.toFixed(1) + 's', 'ok');
+        totals.runs += 1; totals.mins += scn.manual; updateStats(scn.manual * 60, secs);
+        setStatus('READY'); lock(false);
+      }
+
+      async function burst() {
+        if (busy) return;
+        var count = 25, finished = 0, t0 = performance.now();
+        lock(true); reset(); setStatus('25 IN THE QUEUE', true);
+        flow.querySelectorAll('.node').forEach(function (n) { n.classList.add('done'); });
+        Object.keys(paths).forEach(function (k) { if (!paths[k].classList.contains('loop')) paths[k].classList.add('lit'); });
+        addLog('Burst: 25 at once, same rules every time', 'gold');
+        function pulse(id) { var n = nodeEl(id); n.classList.remove('pulse'); void n.offsetWidth; n.classList.add('pulse'); }
+        await new Promise(function (resolve) {
+          for (var i = 1; i <= count; i++) (function (i) {
+            setTimeout(async function () {
+              var r = scn.burst(i);
+              for (var h = 0; h < r.hops.length; h++) {
+                await Promise.all(r.hops[h].map(function (e) { return travel(key(e), true, 420); }));
+                r.hops[h].forEach(function (e) { pulse(e[1]); });
+              }
+              addLog(r.line);
+              totals.runs += 1; totals.mins += scn.manual; updateStats(null);
+              if (++finished === count) resolve();
+            }, reduce ? 0 : i * 140);
+          })(i);
+        });
+        var secs = (performance.now() - t0) / 1000;
+        addLog('All 25 done in ' + secs.toFixed(1) + 's. By hand: about ' + Math.round(count * scn.manual / 60 * 10) / 10 + ' hours.', 'ok');
+        updateStats(count * scn.manual * 60, secs);
+        setStatus('READY'); lock(false);
+      }
+
+      function fmt(sec) { if (sec < 60) return sec.toFixed(1) + 's'; var m = sec / 60; return m < 60 ? Math.round(m) + ' min' : (Math.round(m / 6) / 10) + ' hr'; }
+      function updateStats(handSec, autoSec) {
+        $('#s-runs').textContent = totals.runs;
+        $('#s-mins').textContent = totals.mins.toLocaleString('en-US');
+        if (handSec == null) return;
+        $('#t-hand').textContent = fmt(handSec); $('#t-auto').textContent = fmt(autoSec);
+        $('#bar-hand').style.width = '100%';
+        $('#bar-auto').style.width = Math.max(autoSec / handSec * 100, 1.5) + '%';
+      }
+
+      document.querySelectorAll('.tab').forEach(function (t) { t.addEventListener('click', function () { if (!busy) load(t.dataset.scn); }); });
+      runBtn.addEventListener('click', run);
+      burstBtn.addEventListener('click', burst);
+      input.addEventListener('keydown', function (e) { if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) run(); });
+      var raf; window.addEventListener('resize', function () { cancelAnimationFrame(raf); raf = requestAnimationFrame(drawWires); });
+
+      load('lead');
+      addLog('Hub online. Pick a task and press Run.', 'ok');
+    })();
+  </script>
+</body>
+</html>

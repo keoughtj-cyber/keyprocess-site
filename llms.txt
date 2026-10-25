@@ -13,6 +13,7 @@
 
 - [Home](https://www.keyprocessautomation.com/): services, savings calculator, pricing, guarantee, and FAQ
 - [Case studies](https://www.keyprocessautomation.com/results): real automations and the time they save
+- [Live automation demo](https://www.keyprocessautomation.com/automation-hub): pick a task, press Run, and watch each automated step happen
 - [Free automation audit](https://www.keyprocessautomation.com/audit): request an audit
 
 ## Services

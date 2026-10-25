@@ -91,6 +91,7 @@
       <a class="logo" href="/"><img class="logo-img" src="/logo.svg" alt="KeyProcess Automation Services logo" width="46" height="46"> KeyProcess Automation Services</a>
       <nav class="nav" id="site-nav" aria-label="Main">
         <a href="/results">Results</a>
+        <a href="/automation-hub">Live demo</a>
         <a href="/#services">Services</a>
         <a href="/#calculator">Savings</a>
         <a href="/#pricing">Pricing</a>
@@ -116,14 +117,15 @@
           </div>
           <p class="fineprint">Works with the software you already use. No new system to learn.</p>
         </div>
-        <div class="panel-wrap"><div class="float-badge"><b>0 clicks</b><span>from your team</span></div><div class="panel" aria-label="Example of a morning of automated work">
-          <div class="panel-head"><strong>Done before 9 AM</strong><span>Example morning</span></div>
-          <ul class="feed">
-            <li><span class="check">✓</span><span class="time">1:00 AM</span><span>2 price changes posted across socials</span></li>
-            <li><span class="check">✓</span><span class="time">7:30 AM</span><span>128 open jobs followed up by email</span></li>
-            <li><span class="check">✓</span><span class="time">8:00 AM</span><span>Bills logged, 2 flagged for review</span></li>
-            <li><span class="check">✓</span><span class="time">9:00 AM</span><span>To-do lists sent to every team</span></li>
-          </ul>
+        <div class="panel-wrap"><div class="float-badge"><b>0 clicks</b><span>from your team</span></div><div class="mini-hub" id="mini-hub" aria-label="Live example of an automation running">
+          <div class="mh-head"><strong><span class="mh-dot" aria-hidden="true"></span>Live automation</strong><span id="mh-name">New lead</span></div>
+          <ol class="mh-steps">
+            <li class="mh-step"><span class="mh-icon" aria-hidden="true">1</span><div><b></b><span></span></div></li>
+            <li class="mh-step"><span class="mh-icon" aria-hidden="true">2</span><div><b></b><span></span></div></li>
+            <li class="mh-step"><span class="mh-icon" aria-hidden="true">3</span><div><b></b><span></span></div></li>
+            <li class="mh-step"><span class="mh-icon" aria-hidden="true">&#10003;</span><div><b></b><span></span></div></li>
+          </ol>
+          <div class="mh-foot"><span id="mh-time">By hand: about 15 min. Here: seconds.</span><a href="/automation-hub">Try it yourself &rarr;</a></div>
         </div></div>
       </div>
     </section>
@@ -384,6 +386,7 @@
         <div><strong>KeyProcess Automation Services</strong><br>Business process automation across the U.S.</div>
         <nav aria-label="Footer">
           <a href="/results">Results</a>
+          <a href="/automation-hub">Live demo</a>
           <a href="/#services">Services</a>
           <a href="/#calculator">Savings</a>
           <a href="/#pricing">Pricing</a>
@@ -412,6 +415,48 @@
       }
       ['c-hours', 'c-rate', 'c-share'].forEach(function (id) { $(id).addEventListener('input', update); });
       update();
+    })();
+  </script>
+  <script>
+    // Hero mini-hub: plays example automations step by step, then moves to the next one.
+    (function () {
+      var hub = document.getElementById('mini-hub');
+      if (!hub) return;
+      var steps = hub.querySelectorAll('.mh-step'), name = document.getElementById('mh-name'), time = document.getElementById('mh-time');
+      var FLOWS = [
+        { name: 'New lead', mins: 15, steps: [['New inquiry arrives', '"Need help with reminders ASAP"'], ['AI reads it', 'Need: scheduling. Urgency: high.'], ['Rules decide', 'Hot lead, so alert the owner'], ['Done', 'Reply sent, owner texted, logged']] },
+        { name: 'Bill arrives', mins: 8, steps: [['Bill hits the inbox', 'Repair invoice for $1,840'], ['Pull the details', 'Vendor, amount, and due date'], ['Rules decide', 'Over $1,000, so the owner approves'], ['Done', 'Entered in the books, reminder set']] },
+        { name: 'Customer question', mins: 10, steps: [['Customer asks a question', '"Can I move my Tuesday visit?"'], ['AI sorts it', 'Type: scheduling. Mood: calm.'], ['Rules decide', 'Known answer, so reply now'], ['Done', 'Reply sent, ticket closed']] },
+        { name: 'Weekly report', mins: 45, steps: [['Monday, 7:00 AM', 'Runs on its own every week'], ['Gather the numbers', '14 leads, 37 jobs, 3 unpaid'], ['Rules decide', '3 unpaid, so flag the bookkeeper'], ['Done', 'Summary in the owner\'s inbox']] }
+      ];
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches, i = 0, k = 0, timer = null, visible = true;
+      function show(f) {
+        name.textContent = f.name;
+        time.textContent = 'By hand: about ' + f.mins + ' min. Here: seconds.';
+        steps.forEach(function (li, n) { li.className = 'mh-step'; li.querySelector('b').textContent = f.steps[n][0]; li.querySelector('b + span').textContent = f.steps[n][1]; });
+      }
+      function tick() {
+        timer = null;
+        if (!visible || document.hidden) return;
+        var f = FLOWS[i];
+        if (k === 0) show(f);
+        if (k < steps.length) {
+          if (k > 0) steps[k - 1].className = 'mh-step done';
+          steps[k].className = 'mh-step active';
+          k++;
+          timer = setTimeout(tick, 900);
+        } else {
+          steps[k - 1].className = 'mh-step done';
+          hub.classList.add('mh-complete');
+          setTimeout(function () { hub.classList.remove('mh-complete'); }, 700);
+          i = (i + 1) % FLOWS.length; k = 0;
+          timer = setTimeout(tick, 2600);
+        }
+      }
+      if (reduce) { show(FLOWS[0]); steps.forEach(function (li) { li.className = 'mh-step done'; }); return; }
+      if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { visible = e[0].isIntersecting; if (visible && !timer) tick(); }).observe(hub);
+      document.addEventListener('visibilitychange', function () { if (!document.hidden && !timer) tick(); });
+      tick();
     })();
   </script>
 </body>
