@@ -117,15 +117,15 @@
           </div>
           <p class="fineprint">Works with the software you already use. No new system to learn.</p>
         </div>
-        <div class="panel-wrap"><div class="float-badge"><b>0 clicks</b><span>from your team</span></div><div class="mini-hub" id="mini-hub" aria-label="Live example of an automation running">
-          <div class="mh-head"><strong><span class="mh-dot" aria-hidden="true"></span>Live automation</strong><span id="mh-name">New lead</span></div>
-          <ol class="mh-steps">
-            <li class="mh-step"><span class="mh-icon" aria-hidden="true">1</span><div><b></b><span></span></div></li>
-            <li class="mh-step"><span class="mh-icon" aria-hidden="true">2</span><div><b></b><span></span></div></li>
-            <li class="mh-step"><span class="mh-icon" aria-hidden="true">3</span><div><b></b><span></span></div></li>
-            <li class="mh-step"><span class="mh-icon" aria-hidden="true">&#10003;</span><div><b></b><span></span></div></li>
+        <div class="panel-wrap"><div class="float-badge"><b>0 clicks</b><span>from your team</span></div><div class="mini-hub" id="mini-hub" aria-label="Example of a morning of automated work">
+          <div class="mh-head"><strong><span class="mh-dot" aria-hidden="true"></span>Done before 9 AM</strong><span class="mh-clock" id="mh-clock" aria-hidden="true">12:00 AM</span></div>
+          <ol class="mh-feed">
+            <li class="mh-item" data-at="60"><span class="mh-icon" aria-hidden="true">&#10003;</span><span class="mh-time">1:00 AM</span><span class="mh-text"><b data-to="2">2</b> price changes posted across socials</span></li>
+            <li class="mh-item" data-at="450"><span class="mh-icon" aria-hidden="true">&#10003;</span><span class="mh-time">7:30 AM</span><span class="mh-text"><b data-to="128">128</b> open jobs followed up by email</span></li>
+            <li class="mh-item" data-at="480"><span class="mh-icon" aria-hidden="true">&#10003;</span><span class="mh-time">8:00 AM</span><span class="mh-text">Bills logged, <b data-to="2">2</b> flagged for review</span></li>
+            <li class="mh-item" data-at="540"><span class="mh-icon" aria-hidden="true">&#10003;</span><span class="mh-time">9:00 AM</span><span class="mh-text">To-do lists sent to every team</span></li>
           </ol>
-          <div class="mh-foot"><span id="mh-time">By hand: about 15 min. Here: seconds.</span><a href="/automation-hub">Try it yourself &rarr;</a></div>
+          <div class="mh-foot"><span id="mh-status">Your team hasn't clocked in yet.</span><a href="/automation-hub">Try it yourself &rarr;</a></div>
         </div></div>
       </div>
     </section>
@@ -418,42 +418,38 @@
     })();
   </script>
   <script>
-    // Hero mini-hub: plays example automations step by step, then moves to the next one.
+    // Hero "Done before 9 AM" feed: a clock runs from midnight, and each job checks off as its time arrives.
     (function () {
       var hub = document.getElementById('mini-hub');
       if (!hub) return;
-      var steps = hub.querySelectorAll('.mh-step'), name = document.getElementById('mh-name'), time = document.getElementById('mh-time');
-      var FLOWS = [
-        { name: 'New lead', mins: 15, steps: [['New inquiry arrives', '"Need help with reminders ASAP"'], ['AI reads it', 'Need: scheduling. Urgency: high.'], ['Rules decide', 'Hot lead, so alert the owner'], ['Done', 'Reply sent, owner texted, logged']] },
-        { name: 'Bill arrives', mins: 8, steps: [['Bill hits the inbox', 'Repair invoice for $1,840'], ['Pull the details', 'Vendor, amount, and due date'], ['Rules decide', 'Over $1,000, so the owner approves'], ['Done', 'Entered in the books, reminder set']] },
-        { name: 'Customer question', mins: 10, steps: [['Customer asks a question', '"Can I move my Tuesday visit?"'], ['AI sorts it', 'Type: scheduling. Mood: calm.'], ['Rules decide', 'Known answer, so reply now'], ['Done', 'Reply sent, ticket closed']] },
-        { name: 'Weekly report', mins: 45, steps: [['Monday, 7:00 AM', 'Runs on its own every week'], ['Gather the numbers', '14 leads, 37 jobs, 3 unpaid'], ['Rules decide', '3 unpaid, so flag the bookkeeper'], ['Done', 'Summary in the owner\'s inbox']] }
-      ];
-      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches, i = 0, k = 0, timer = null, visible = true;
-      function show(f) {
-        name.textContent = f.name;
-        time.textContent = 'By hand: about ' + f.mins + ' min. Here: seconds.';
-        steps.forEach(function (li, n) { li.className = 'mh-step'; li.querySelector('b').textContent = f.steps[n][0]; li.querySelector('b + span').textContent = f.steps[n][1]; });
+      var items = hub.querySelectorAll('.mh-item'), clock = document.getElementById('mh-clock'), status = document.getElementById('mh-status');
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches, END = 540, mins = 0, timer = null, visible = true, hold = 0;
+      function fmt(m) { var h = Math.floor(m / 60) % 12 || 12; return h + ':' + String(m % 60).padStart(2, '0') + (m < 720 ? ' AM' : ' PM'); }
+      function count(b) {
+        var to = +b.dataset.to, t0 = null;
+        function step(t) { if (t0 === null) t0 = t; var q = Math.min((t - t0) / 700, 1); b.textContent = Math.round(to * q); if (q < 1) requestAnimationFrame(step); }
+        requestAnimationFrame(step);
+      }
+      function reset() {
+        mins = 0; clock.textContent = fmt(0); status.textContent = "Your team hasn't clocked in yet.";
+        items.forEach(function (li) { li.className = 'mh-item'; li.querySelectorAll('b[data-to]').forEach(function (b) { b.textContent = '0'; }); });
       }
       function tick() {
         timer = null;
         if (!visible || document.hidden) return;
-        var f = FLOWS[i];
-        if (k === 0) show(f);
-        if (k < steps.length) {
-          if (k > 0) steps[k - 1].className = 'mh-step done';
-          steps[k].className = 'mh-step active';
-          k++;
-          timer = setTimeout(tick, 900);
-        } else {
-          steps[k - 1].className = 'mh-step done';
-          hub.classList.add('mh-complete');
-          setTimeout(function () { hub.classList.remove('mh-complete'); }, 700);
-          i = (i + 1) % FLOWS.length; k = 0;
-          timer = setTimeout(tick, 2600);
-        }
+        if (hold) { hold--; if (!hold) reset(); timer = setTimeout(tick, 1000); return; }
+        mins = Math.min(mins + 15, END);
+        clock.textContent = fmt(mins);
+        items.forEach(function (li) {
+          var at = +li.dataset.at;
+          if (li.className === 'mh-item' && mins >= at - 45) li.className = 'mh-item running';
+          if (li.className === 'mh-item running' && mins >= at) { li.className = 'mh-item done'; li.querySelectorAll('b[data-to]').forEach(count); }
+        });
+        if (mins >= END) { status.textContent = 'All done. Your team just got here.'; hub.classList.add('mh-complete'); setTimeout(function () { hub.classList.remove('mh-complete'); }, 700); hold = 4; }
+        timer = setTimeout(tick, mins >= END ? 1000 : 110);
       }
-      if (reduce) { show(FLOWS[0]); steps.forEach(function (li) { li.className = 'mh-step done'; }); return; }
+      if (reduce) { clock.textContent = fmt(END); items.forEach(function (li) { li.className = 'mh-item done'; }); status.textContent = 'All done. Your team just got here.'; return; }
+      reset();
       if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { visible = e[0].isIntersecting; if (visible && !timer) tick(); }).observe(hub);
       document.addEventListener('visibilitychange', function () { if (!document.hidden && !timer) tick(); });
       tick();
