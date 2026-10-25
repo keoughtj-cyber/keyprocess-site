@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Automation Hub Lab | KeyProcess Automation Services</title>
+  <meta name="description" content="A hands-on demo from KeyProcess Automation Services: pick a task, press Run, and watch each automated step light up and pass the work along to the next.">
+  <!-- Test page: kept out of search, menus, and sitemap.xml on purpose. -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0f1a33">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    .hub { --navy: #0f1a33; --panel: #16244a; --edge: #2b3d6b; --gold: #f4b740; --gold-soft: rgba(244, 183, 64, 0.16); --text: #e9eef8; --muted: #9fb0cf;
+      background: radial-gradient(900px 500px at 90% 0%, rgba(29, 111, 224, 0.4), transparent 60%), radial-gradient(700px 400px at 0% 100%, rgba(244, 183, 64, 0.12), transparent 60%), var(--navy);
+      color: var(--text); position: relative; overflow: hidden; padding: 64px 0 72px; }
+    .hub::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+      background-image: radial-gradient(rgba(255,255,255,0.09) 1px, transparent 1px); background-size: 24px 24px;
+      mask-image: linear-gradient(180deg, #000, transparent 90%); }
+    .hub .wrap { position: relative; }
+    .hub .eyebrow { color: var(--gold); display: inline-flex; align-items: center; gap: 8px; }
+    .live-dot { width: 8px; height: 8px; border-radius: 50%; background: #3ddc97; box-shadow: 0 0 0 0 rgba(61,220,151,0.6); animation: ping 2s infinite; }
+    @keyframes ping { 70% { box-shadow: 0 0 0 10px rgba(61,220,151,0); } 100% { box-shadow: 0 0 0 0 rgba(61,220,151,0); } }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+    .hub h1 { color: #fff; max-width: 18ch; }
+    .hub h1 .hl { color: var(--gold); }
+    .hub .lead { color: #c7d2e4; max-width: 60ch; }
+    .hub .fineprint { color: var(--muted); }
+
+    .console { margin-top: 36px; background: rgba(10, 18, 38, 0.72); border: 1px solid var(--edge); border-radius: 20px; box-shadow: 0 30px 70px rgba(0,0,0,0.35); overflow: hidden; }
+    .console-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 14px 18px; border-bottom: 1px solid var(--edge); background: rgba(255,255,255,0.03); }
+    .console-bar .dots { display: flex; gap: 6px; }
+    .console-bar .dots i { width: 11px; height: 11px; border-radius: 50%; background: #2b3d6b; }
+    .console-bar .dots i:first-child { background: var(--gold); }
+    .console-bar .status { font: 600 0.82rem/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--muted); letter-spacing: 0.04em; }
+    .console-bar .status b { color: #3ddc97; font-weight: 600; }
+    .console-bar .status.busy b { color: var(--gold); }
+
+    .tabs { display: flex; flex-wrap: wrap; gap: 8px; padding: 18px 18px 0; }
+    .tab { appearance: none; border: 1px solid var(--edge); background: transparent; color: var(--text); border-radius: 999px; padding: 9px 16px; font-family: inherit; font-size: 0.92rem; font-weight: 600; line-height: 1.2; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: background 0.15s, border-color 0.15s, color 0.15s; }
+    .tab:hover { border-color: var(--gold); }
+    .tab[aria-selected="true"] { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+    .tab svg { width: 16px; height: 16px; }
+
+    .controls { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: end; padding: 16px 18px 18px; border-bottom: 1px solid var(--edge); }
+    .controls label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--muted); margin-bottom: 6px; letter-spacing: 0.02em; }
+    .controls textarea { width: 100%; min-height: 76px; resize: vertical; background: rgba(255,255,255,0.04); color: var(--text); border: 1px solid var(--edge); border-radius: 12px; padding: 12px 14px; font: 0.95rem/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .controls textarea:focus { outline: 2px solid var(--gold); outline-offset: 1px; border-color: transparent; }
+    .run-col { display: flex; flex-direction: column; gap: 10px; align-items: stretch; min-width: 220px; }
+    .switch { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--text); cursor: pointer; user-select: none; }
+    .switch input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+    .switch .track { display: inline-block; width: 40px; height: 22px; border-radius: 999px; background: var(--edge); position: relative; flex-shrink: 0; transition: background 0.15s; }
+    .switch .track::after { content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: #fff; transition: transform 0.15s; }
+    .switch input:checked + .track { background: var(--gold); }
+    .switch input:checked + .track::after { transform: translateX(18px); }
+    .switch input:focus-visible + .track { outline: 2px solid var(--gold); outline-offset: 2px; }
+    .run-btns { display: flex; gap: 8px; }
+    .run { appearance: none; border: 0; cursor: pointer; border-radius: 999px; padding: 13px 22px; font-family: inherit; font-size: 1rem; font-weight: 700; line-height: 1; background: var(--gold); color: var(--navy); display: inline-flex; align-items: center; justify-content: center; gap: 8px; flex: 1; transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s; box-shadow: 0 0 0 0 rgba(244,183,64,0.5); }
+    .run:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(244,183,64,0.3); }
+    .run:disabled { opacity: 0.5; cursor: wait; transform: none; box-shadow: none; }
+    .run.ghost { background: transparent; color: var(--text); border: 1px solid var(--edge); flex: 0 0 auto; padding: 13px 16px; font-weight: 600; }
+    .run.ghost:hover { border-color: var(--gold); box-shadow: none; }
+    .run svg { width: 16px; height: 16px; }
+
+    .canvas { position: relative; padding: 32px 18px 36px; }
+    .wires { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+    .wire { fill: none; stroke: var(--edge); stroke-width: 2; stroke-dasharray: 5 6; transition: stroke 0.3s, opacity 0.3s; }
+    .wire.lit { stroke: var(--gold); stroke-dasharray: none; filter: drop-shadow(0 0 4px rgba(244,183,64,0.6)); }
+    .wire.skip { opacity: 0.25; }
+    .packet { fill: #fff; filter: drop-shadow(0 0 6px var(--gold)) drop-shadow(0 0 2px #fff); }
+    .packet.mini { fill: var(--gold); filter: drop-shadow(0 0 4px var(--gold)); }
+
+    .flow { position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); grid-template-rows: auto auto; column-gap: 40px; row-gap: 28px; align-items: center; }
+    .node { position: relative; z-index: 1; background: var(--panel); border: 1px solid var(--edge); border-radius: 16px; padding: 14px 14px 12px; min-height: 120px; transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s, opacity 0.3s; }
+    .node[data-id="trigger"], .node[data-id="read"], .node[data-id="route"], .node[data-id="done"] { grid-row: 1 / 3; }
+    .node[data-id="actA"] { grid-column: 4; grid-row: 1; }
+    .node[data-id="actB"] { grid-column: 4; grid-row: 2; }
+    .node[data-id="done"] { grid-column: 5; }
+    .node-head { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+    .node-icon { width: 34px; height: 34px; border-radius: 10px; background: rgba(255,255,255,0.06); display: grid; place-items: center; flex-shrink: 0; color: var(--muted); transition: background 0.3s, color 0.3s; }
+    .node-icon svg { width: 18px; height: 18px; }
+    .node-step { font: 600 0.7rem/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+    .node h3 { font-size: 0.98rem; color: #fff; margin: 2px 0 0; line-height: 1.25; }
+    .node-out { margin-top: 8px; font: 0.8rem/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--muted); min-height: 1.45em; }
+    .node-out .row { display: flex; gap: 6px; justify-content: space-between; border-top: 1px dashed rgba(255,255,255,0.08); padding: 3px 0; animation: rowin 0.35s ease both; }
+    .node-out .row:first-child { border-top: 0; }
+    .node-out .row span { color: var(--muted); flex-shrink: 0; }
+    .node-out .row b { color: var(--text); font-weight: 600; text-align: right; min-width: 0; }
+    .node-out .note { color: var(--text); animation: rowin 0.35s ease both; }
+    .node-out .tag { display: inline-block; margin-top: 4px; padding: 2px 8px; border-radius: 999px; background: var(--gold-soft); color: var(--gold); font-weight: 700; font-size: 0.74rem; }
+    @keyframes rowin { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+    .node.active { border-color: var(--gold); box-shadow: 0 0 0 4px var(--gold-soft), 0 14px 40px rgba(0,0,0,0.35); transform: translateY(-2px); }
+    .node.active .node-icon, .node.done .node-icon { background: var(--gold); color: var(--navy); }
+    .node.done { border-color: rgba(244,183,64,0.55); }
+    .node.skipped { opacity: 0.35; }
+    .node.pulse { animation: npulse 0.45s ease; }
+    @keyframes npulse { 40% { box-shadow: 0 0 0 6px var(--gold-soft); border-color: var(--gold); } }
+    .approve { margin-top: 10px; width: 100%; appearance: none; border: 0; border-radius: 10px; padding: 10px; font-family: inherit; font-size: 0.9rem; font-weight: 700; line-height: 1; background: var(--gold); color: var(--navy); cursor: pointer; animation: glow 1.2s ease-in-out infinite; }
+    @keyframes glow { 50% { box-shadow: 0 0 0 6px var(--gold-soft); } }
+
+    .readout { display: grid; grid-template-columns: 1.4fr 1fr; border-top: 1px solid var(--edge); }
+    .log { margin: 0; padding: 14px 18px; height: 196px; overflow-y: auto; list-style: none; font: 0.8rem/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--muted); border-right: 1px solid var(--edge); }
+    .log li { animation: rowin 0.25s ease both; }
+    .log time { color: #5f75a3; margin-right: 8px; }
+    .log .ok { color: #3ddc97; }
+    .log .gold { color: var(--gold); }
+    .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--edge); }
+    .stat { background: rgba(10, 18, 38, 0.9); padding: 16px 18px; }
+    .stat b { display: block; font-size: 1.6rem; color: #fff; line-height: 1.1; font-variant-numeric: tabular-nums; }
+    .stat span { font-size: 0.8rem; color: var(--muted); }
+    .stat.race { grid-column: 1 / 3; }
+    .race-bars { display: grid; gap: 6px; margin-top: 4px; }
+    .race-row { display: grid; grid-template-columns: 84px 1fr 64px; align-items: center; gap: 10px; font-size: 0.8rem; color: var(--muted); }
+    .race-row .bar-bg { height: 8px; background: rgba(255,255,255,0.06); border-radius: 999px; overflow: hidden; }
+    .race-row .bar-fill { height: 100%; width: 0; border-radius: 999px; background: #5f75a3; transition: width 0.9s ease; }
+    .race-row.auto .bar-fill { background: var(--gold); }
+    .race-row b { font-size: 0.85rem; color: #fff; display: inline; text-align: right; }
+
+    .hub-cta { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 36px; }
+    .hub-cta p { margin: 0; color: #c7d2e4; max-width: 60ch; }
+    .hub-cta .btn { background: var(--gold); color: var(--navy); }
+    .hub-cta .btn:hover { background: #fff; }
+
+    .lab-notes { padding: 72px 0; }
+    .lab-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .lab-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; background: #fff; }
+    .lab-card .num { font: 700 0.8rem/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: #b07d12; letter-spacing: 0.08em; }
+    .lab-card h3 { margin-top: 8px; }
+    .lab-card p { color: var(--ink-soft); margin: 0; }
+
+    @media (max-width: 960px) {
+      .flow { grid-template-columns: 1fr 1fr; column-gap: 16px; row-gap: 36px; }
+      .node[data-id] { grid-row: auto; grid-column: 1 / 3; }
+      .node[data-id="actA"] { grid-column: 1; }
+      .node[data-id="actB"] { grid-column: 2; }
+      .node { min-height: 0; }
+      .readout { grid-template-columns: 1fr; }
+      .log { border-right: 0; border-bottom: 1px solid var(--edge); height: 160px; }
+      .lab-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .hub { padding: 44px 0 56px; }
+      .controls { grid-template-columns: 1fr; }
+      .run-col { min-width: 0; }
+      .canvas { padding: 24px 12px 28px; }
+      .tabs, .controls { padding-left: 12px; padding-right: 12px; }
+      .tab { padding: 8px 12px; font-size: 0.86rem; }
+      .race-row { grid-template-columns: 72px 1fr 56px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .live-dot, .approve, .node-out .row, .node-out .note, .log li, .node.pulse { animation: none !important; }
+      .node, .race-row .bar-fill { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="logo" href="/"><img class="logo-img" src="/logo.svg" alt="KeyProcess Automation Services logo" width="46" height="46"> KeyProcess Automation Services</a>
+      <nav class="nav" id="site-nav" aria-label="Main">
+        <a href="/results">Results</a>
+        <a href="/#services">Services</a>
+        <a href="/#calculator">Savings</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/blog/">Blog</a>
+        <a class="btn btn-small" href="/audit">Free audit</a>
+      </nav>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+  <script src="/menu.js" defer></script>
+
+  <main id="top">
+    <section class="hub">
+      <div class="wrap">
+        <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span> Automation hub</p>
+        <h1>Watch busywork <span class="hl">run itself</span></h1>
+        <p class="lead">Pick a job your team does by hand, change the details if you like, and press Run. Each step lights up and hands the work to the next, just like your automations will, every day, without anyone touching them.</p>
+        <p class="fineprint">This is a live demo. Nothing you type leaves this page.</p>
+
+        <div class="console">
+          <h2 class="sr-only">Try the automation demo</h2>
+          <div class="console-bar">
+            <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="status" id="status" role="status">STATUS: <b>READY</b></div>
+          </div>
+
+          <div class="tabs" role="tablist" aria-label="Pick a task">
+            <button class="tab" role="tab" type="button" data-scn="lead" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v12H5.2L4 17.2z"/></svg>New lead</button>
+            <button class="tab" role="tab" type="button" data-scn="bill" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2z"/><path d="M9 7h6M9 11h6M9 15h4"/></svg>Bill arrives</button>
+            <button class="tab" role="tab" type="button" data-scn="question" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7M12 17h.01"/></svg>Customer question</button>
+            <button class="tab" role="tab" type="button" data-scn="report" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Weekly report</button>
+          </div>
+
+          <div class="controls">
+            <div>
+              <label for="input" id="input-label">What came in</label>
+              <textarea id="input" spellcheck="false"></textarea>
+            </div>
+            <div class="run-col">
+              <label class="switch"><input type="checkbox" id="approval"><span class="track" aria-hidden="true"></span>Ask me before anything goes out</label>
+              <div class="run-btns">
+                <button class="run" id="run" type="button"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4l13 8-13 8z"/></svg>Run it</button>
+                <button class="run ghost" id="burst" type="button" title="Send 25 at once">&times;25</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="canvas" id="canvas">
+            <svg class="wires" id="wires" aria-hidden="true"></svg>
+            <div class="flow" id="flow">
+              <div class="node" data-id="trigger"><div class="node-head"><div class="node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div><div><div class="node-step">01 Trigger</div><h3></h3></div></div><div class="node-out"></div></div>
+              <div class="node" data-id="read"><div class="node-head"><div class="node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 17l.8 2.2L22 20l-2.2.8L19 23l-.8-2.2L16 20l2.2-.8z"/></svg></div><div><div class="node-step">02 Read</div><h3></h3></div></div><div class="node-out"></div></div>
+              <div class="node" data-id="route"><div class="node-head"><div class="node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3v6a6 6 0 0 0 6 6h6M6 9v12M15 12l3 3-3 3"/></svg></div><div><div class="node-step">03 Decide</div><h3></h3></div></div><div class="node-out"></div></div>
+              <div class="node" data-id="actA"><div class="node-head"><div class="node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10 21h4"/></svg></div><div><div class="node-step">04 Path A</div><h3></h3></div></div><div class="node-out"></div></div>
+              <div class="node" data-id="actB"><div class="node-head"><div class="node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></div><div><div class="node-step">04 Path B</div><h3></h3></div></div><div class="node-out"></div></div>
+              <div class="node" data-id="done"><div class="node-head"><div class="node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></div><div><div class="node-step">05 Finish</div><h3></h3></div></div><div class="node-out"></div></div>
+            </div>
+          </div>
+
+          <div class="readout">
+            <ol class="log" id="log" aria-live="polite" aria-label="Run log"></ol>
+            <div class="stats">
+              <div class="stat"><b id="s-runs">0</b><span>Jobs handled this visit</span></div>
+              <div class="stat"><b id="s-mins">0</b><span>Minutes of busywork skipped</span></div>
+              <div class="stat race">
+                <span>Last run, by hand vs. automated</span>
+                <div class="race-bars">
+                  <div class="race-row"><span>By hand</span><div class="bar-bg"><div class="bar-fill" id="bar-hand"></div></div><b id="t-hand">&ndash;</b></div>
+                  <div class="race-row auto"><span>Automated</span><div class="bar-bg"><div class="bar-fill" id="bar-auto"></div></div><b id="t-auto">&ndash;</b></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hub-cta">
+          <p>Your business has its own version of these. Bring the task that eats the most time to a free audit, and we'll map out how it could run on its own.</p>
+          <a class="btn" href="/audit">Get a free audit</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="lab-notes">
+      <div class="wrap">
+        <h2>What you just watched</h2>
+        <p class="section-lead">Almost every automation follows the same shape. Once you see it, you start spotting it all over your business.</p>
+        <div class="lab-grid">
+          <div class="lab-card"><div class="num">01 + 02</div><h3>Something happens, and it gets read</h3><p>A message, a bill, a form, or a day of the week starts the job. The details get pulled out instantly, even from messy text.</p></div>
+          <div class="lab-card"><div class="num">03</div><h3>Your rules make the call</h3><p>Hot or not, over budget or under, answer now or hand it off. The same rules your best person follows, applied every single time.</p></div>
+          <div class="lab-card"><div class="num">04 + 05</div><h3>The work gets done, and you stay in control</h3><p>Replies, entries, reminders, and reports happen on their own. Turn on approvals and nothing goes out until you say so.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div><strong>KeyProcess Automation Services</strong><br>Business process automation across the U.S.</div>
+        <nav aria-label="Footer">
+          <a href="/results">Results</a>
+          <a href="/#services">Services</a>
+          <a href="/#calculator">Savings</a>
+          <a href="/#pricing">Pricing</a>
+          <a href="/#faq">FAQ</a>
+          <a href="/blog/">Blog</a>
+          <a href="mailto:tyler@keyprocessautomation.com">Contact</a>
+          <a href="https://www.linkedin.com/company/keyprocess-automation-services" rel="noopener" target="_blank">LinkedIn</a>
+        </nav>
+      </div>
+      <p class="copy">&copy; 2026 KeyProcess Automation Services</p>
+    </div>
+  </footer>
+
+  <script>
+    // Automation hub demo: runs a task through five steps, lighting each node and wire as it goes.
+    (function () {
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var $ = function (s, r) { return (r || document).querySelector(s); };
+      var flow = $('#flow'), wires = $('#wires'), canvas = $('#canvas'), log = $('#log'), input = $('#input');
+      var runBtn = $('#run'), burstBtn = $('#burst'), approval = $('#approval'), status = $('#status');
+      var EDGES = [['trigger', 'read'], ['read', 'route'], ['route', 'actA'], ['route', 'actB'], ['actA', 'done'], ['actB', 'done']];
+      var paths = {}, busy = false, totals = { runs: 0, mins: 0 }, current = 'lead';
+
+      // Text helpers for pulling details out of whatever the visitor types.
+      function find(re, text, i) { var m = text.match(re); return m ? m[i || 1].trim() : ''; }
+      function titleCase(s) { return s.replace(/\b\w/g, function (c) { return c.toUpperCase(); }); }
+      function firstName(text) { return titleCase(find(/(?:i'm|i am|this is|my name is|name's)\s+([a-z]+(?:\s[a-z]+)?)(?=\s+(?:from|at|with|and|here)\b|[,.!]|$)/i, text)); }
+      function company(text) { return find(/(?:from|at|with|of)\s+((?:[A-Z][\w&'-]*\s?){1,4})/, text).replace(/[.,]$/, ''); }
+      function money(text) { var m = text.match(/\$\s?([\d,]+(?:\.\d{2})?)/); return m ? parseFloat(m[1].replace(/,/g, '')) : 0; }
+      function usd(n) { return '$' + n.toLocaleString('en-US', { minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2 }); }
+      function topic(text, map, fallback) { for (var k in map) if (new RegExp(k, 'i').test(text)) return map[k]; return fallback; }
+
+      var SCENARIOS = {
+        lead: {
+          label: 'A message from a website form, email, or text',
+          sample: "Hi, this is Dana from Brightside Dental. We're drowning in appointment reminders and need help ASAP. Call me at (215) 555-0142.",
+          manual: 15,
+          titles: { trigger: 'New inquiry arrives', read: 'AI reads the message', route: 'Hot lead?', actA: 'Alert the owner now', actB: 'Start the follow-ups', done: 'Reply sent and logged' },
+          build: function (t) {
+            var name = firstName(t) || 'New contact', co = company(t) || 'Not given';
+            var phone = find(/(\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4})/, t), email = find(/([^\s@]+@[^\s@]+\.[a-z]{2,})/i, t);
+            var need = topic(t, { 'remind|appoint|schedul|book': 'Scheduling', 'invoice|bill|payment|bookkeep|books': 'Bookkeeping', 'quote|estimate|price|cost': 'Pricing', 'social|post|marketing|review': 'Marketing', 'report': 'Reporting' }, 'General question');
+            var hot = /asap|urgent|today|right away|this week|immediately|drowning/i.test(t);
+            var first = name.split(' ')[0];
+            return {
+              trigger: [['note', '"' + t.slice(0, 70) + (t.length > 70 ? '...' : '') + '"']],
+              read: [['Name', name], ['Company', co], ['Need', need], [phone ? 'Phone' : 'Email', phone || email || 'Not given']],
+              route: [['note', hot ? 'Urgent words found' : 'No rush signals'], ['tag', hot ? 'HOT' : 'WARM']],
+              branch: hot ? 'actA' : 'actB',
+              actA: [['note', 'Text to owner: "' + first + ' at ' + co + ' needs ' + need.toLowerCase() + ' help today."']],
+              actB: [['Day 2', 'Friendly check-in'], ['Day 5', 'Helpful example'], ['Day 10', 'Last nudge']],
+              done: [['note', '"Hi ' + first + ', thanks for reaching out about ' + need.toLowerCase() + '. Here is a link to grab 15 minutes."'], ['Logged', 'Pipeline + weekly report']],
+              approveAt: null,
+              summary: hot ? 'hot lead, owner alerted' : 'warm lead, follow-ups set'
+            };
+          },
+          burst: function (i) { var hot = Math.random() < 0.35; return { branch: hot ? 'actA' : 'actB', line: 'Lead #' + i + ' ' + (hot ? 'hot, owner alerted' : 'follow-ups scheduled') }; }
+        },
+        bill: {
+          label: 'A bill that just landed in the inbox',
+          sample: 'Invoice from Delaware Valley Plumbing for the water heater repair at 41 Elm St. Amount due: $1,840.00, due Nov 15.',
+          manual: 8,
+          titles: { trigger: 'Bill hits the inbox', read: 'AI pulls the details', route: 'Over $1,000?', actA: 'Send for approval', actB: 'Auto-approve it', done: 'In the books, reminder set' },
+          build: function (t) {
+            var amt = money(t), vendor = company(t) || 'Unknown vendor';
+            var due = find(/due\s+(?:on\s+|by\s+|date:?\s*)?((?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+\d{1,2}|\d{1,2}\/\d{1,2}(?:\/\d{2,4})?)/i, t) || 'Not listed';
+            var cat = topic(t, { 'plumb|repair|hvac|roof|fix|heater': 'Repairs', 'software|subscription|license': 'Software', 'electric|water bill|gas|utility': 'Utilities', 'ad|marketing|print': 'Marketing', 'clean|landscap|lawn': 'Services' }, 'General');
+            var big = amt >= 1000;
+            return {
+              trigger: [['note', '"' + t.slice(0, 70) + (t.length > 70 ? '...' : '') + '"']],
+              read: [['Vendor', vendor], ['Amount', amt ? usd(amt) : 'Not found'], ['Due', due], ['Category', cat]],
+              route: [['note', amt ? usd(amt) + (big ? ' is over the limit' : ' is under the limit') : 'No amount, flagged'], ['tag', big || !amt ? 'NEEDS OK' : 'AUTO']],
+              branch: big || !amt ? 'actA' : 'actB',
+              actA: [['note', 'Sent to the owner with the bill attached. One tap to approve.']],
+              actB: [['note', 'Matches the rules, so no one has to look at it.']],
+              done: [['Entered', cat + ', ' + (amt ? usd(amt) : 'amount pending')], ['Reminder', '3 days before ' + (due === 'Not listed' ? 'due date' : due)]],
+              approveAt: big || !amt ? 'actA' : null,
+              summary: big || !amt ? 'bill approved and entered' : 'bill auto-approved and entered'
+            };
+          },
+          burst: function (i) { var big = Math.random() < 0.25; return { branch: big ? 'actA' : 'actB', line: 'Bill #' + i + ' ' + usd(Math.round(80 + Math.random() * (big ? 3000 : 900))) + (big ? ', sent for approval' : ', entered') }; }
+        },
+        question: {
+          label: 'A question from a customer',
+          sample: "Hey, I was charged twice for my October invoice. Can someone fix this? It's the second time.",
+          manual: 10,
+          titles: { trigger: 'Customer asks a question', read: 'AI sorts the question', route: 'Can we answer now?', actA: 'Hand it to the right person', actB: 'Draft the reply', done: 'Tracked until it is solved' },
+          build: function (t) {
+            var kind = topic(t, { 'charg|invoice|bill|refund|pay': 'Billing', 'appoint|schedul|resched|time|book|hours': 'Scheduling', 'broken|not working|leak|repair|issue': 'Repair or issue', 'price|quote|cost': 'Pricing' }, 'Other');
+            var upset = /twice|again|second time|still|angry|frustrat|unacceptable|ridiculous|!{2,}/i.test(t);
+            var easy = (kind === 'Scheduling' || kind === 'Pricing') && !upset;
+            var who = { Billing: 'Bookkeeper', Scheduling: 'Front desk', 'Repair or issue': 'Service lead', Pricing: 'Sales', Other: 'Office manager' }[kind];
+            return {
+              trigger: [['note', '"' + t.slice(0, 70) + (t.length > 70 ? '...' : '') + '"']],
+              read: [['Type', kind], ['Mood', upset ? 'Frustrated' : 'Calm'], ['Priority', upset ? 'High' : 'Normal']],
+              route: [['note', easy ? 'Common question, known answer' : 'Needs a person'], ['tag', easy ? 'ANSWER' : 'ESCALATE']],
+              branch: easy ? 'actB' : 'actA',
+              actA: [['To', who], ['note', upset ? 'Flagged high priority with the full history attached.' : 'Sent with the full history attached.']],
+              actB: [['note', '"Thanks for asking! Here are the details you need, and a link if you want to change anything."']],
+              done: [['Ticket', '#' + (1000 + Math.floor(Math.random() * 9000))], ['Check', 'Reminder if not closed in 24 hours']],
+              approveAt: null,
+              summary: easy ? 'answered right away' : 'handed to ' + who.toLowerCase()
+            };
+          },
+          burst: function (i) { var easy = Math.random() < 0.6; return { branch: easy ? 'actB' : 'actA', line: 'Question #' + i + (easy ? ' answered' : ' routed to the right person') }; }
+        },
+        report: {
+          label: "This week's numbers (edit them, one per line)",
+          sample: 'New leads: 14\nJobs completed: 37\nUnpaid invoices: 3\nReviews this week: 5',
+          manual: 45,
+          titles: { trigger: 'Monday, 7:00 AM', read: 'Gather the numbers', route: 'Anything off track?', actA: 'Flag it to the right person', actB: 'All clear', done: 'Summary in your inbox' },
+          build: function (t) {
+            var rows = t.split('\n').map(function (l) { var m = l.match(/^\s*([^:]+):\s*([\d,.$]+)/); return m ? [m[1].trim(), m[2].trim()] : null; }).filter(Boolean).slice(0, 5);
+            if (!rows.length) rows = [['No numbers found', '0']];
+            var unpaid = rows.filter(function (r) { return /unpaid|overdue|late|open/i.test(r[0]) && parseFloat(r[1].replace(/[$,]/g, '')) > 0; })[0];
+            return {
+              trigger: [['note', 'Runs on its own every week. No one has to remember.']],
+              read: rows,
+              route: [['note', unpaid ? unpaid[1] + ' ' + unpaid[0].toLowerCase() : 'Everything is on track'], ['tag', unpaid ? 'FLAG' : 'CLEAR']],
+              branch: unpaid ? 'actA' : 'actB',
+              actA: [['To', 'Bookkeeper'], ['note', 'List of who owes what, sorted by days late.']],
+              actB: [['note', 'Nothing needs attention this week.']],
+              done: [['note', 'One-page summary with ' + rows.length + ' numbers and how they compare to last week.']],
+              approveAt: null,
+              summary: unpaid ? 'report sent, overdue items flagged' : 'report sent, all clear'
+            };
+          },
+          burst: function (i) { var flag = Math.random() < 0.3; return { branch: flag ? 'actA' : 'actB', line: 'Location #' + i + ' report ' + (flag ? 'sent with a flag' : 'sent, all clear') }; }
+        }
+      };
+
+      function nodeEl(id) { return flow.querySelector('[data-id="' + id + '"]'); }
+      function wait(ms) { return new Promise(function (r) { setTimeout(r, reduce ? 0 : ms); }); }
+      function stamp() { var d = new Date(); return d.toTimeString().slice(0, 8) + '.' + String(d.getMilliseconds()).padStart(3, '0'); }
+      function addLog(text, cls) {
+        var li = document.createElement('li'), time = document.createElement('time'), span = document.createElement('span');
+        time.textContent = stamp(); span.textContent = text; if (cls) span.className = cls;
+        li.appendChild(time); li.appendChild(span); log.appendChild(li);
+        while (log.children.length > 80) log.removeChild(log.firstChild);
+        log.scrollTop = log.scrollHeight;
+      }
+      function setStatus(text, isBusy) { status.innerHTML = ''; status.appendChild(document.createTextNode('STATUS: ')); var b = document.createElement('b'); b.textContent = text; status.appendChild(b); status.classList.toggle('busy', !!isBusy); }
+
+      // Wires are drawn from the live node positions, so they follow the layout on any screen size.
+      function anchor(el, side) {
+        var c = canvas.getBoundingClientRect(), r = el.getBoundingClientRect();
+        var x = r.left - c.left, y = r.top - c.top;
+        if (side === 'right') return [x + r.width, y + r.height / 2];
+        if (side === 'left') return [x, y + r.height / 2];
+        if (side === 'bottom') return [x + r.width / 2, y + r.height];
+        return [x + r.width / 2, y];
+      }
+      function drawWires() {
+        var horizontal = window.innerWidth > 960;
+        EDGES.forEach(function (e) {
+          var a = nodeEl(e[0]), b = nodeEl(e[1]), p1, p2, d;
+          if (horizontal) {
+            p1 = anchor(a, 'right'); p2 = anchor(b, 'left'); var dx = (p2[0] - p1[0]) / 2;
+            d = 'M' + p1 + ' C' + (p1[0] + dx) + ',' + p1[1] + ' ' + (p2[0] - dx) + ',' + p2[1] + ' ' + p2;
+          } else {
+            p1 = anchor(a, 'bottom'); p2 = anchor(b, 'top'); var dy = (p2[1] - p1[1]) / 2;
+            d = 'M' + p1 + ' C' + p1[0] + ',' + (p1[1] + dy) + ' ' + p2[0] + ',' + (p2[1] - dy) + ' ' + p2;
+          }
+          var key = e.join('>'), path = paths[key];
+          if (!path) { path = document.createElementNS('http://www.w3.org/2000/svg', 'path'); path.setAttribute('class', 'wire'); wires.appendChild(path); paths[key] = path; }
+          path.setAttribute('d', d);
+        });
+      }
+
+      function travel(key, mini, ms) {
+        var path = paths[key];
+        return new Promise(function (resolve) {
+          if (reduce) return resolve();
+          var dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+          dot.setAttribute('r', mini ? 3.5 : 6); dot.setAttribute('class', mini ? 'packet mini' : 'packet');
+          var len = path.getTotalLength(), start = null, dur = ms || 650, p0 = path.getPointAtLength(0);
+          dot.setAttribute('cx', p0.x); dot.setAttribute('cy', p0.y);
+          wires.appendChild(dot);
+          function step(t) {
+            if (start === null) start = t;
+            var k = Math.min((t - start) / dur, 1), ease = k < 0.5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+            var pt = path.getPointAtLength(ease * len);
+            dot.setAttribute('cx', pt.x); dot.setAttribute('cy', pt.y);
+            if (k < 1) requestAnimationFrame(step); else { dot.remove(); resolve(); }
+          }
+          requestAnimationFrame(step);
+        });
+      }
+
+      function fill(id, rows) {
+        var out = nodeEl(id).querySelector('.node-out');
+        out.innerHTML = '';
+        rows.forEach(function (r, i) {
+          var el = document.createElement('div');
+          if (r[0] === 'note') { el.className = 'note'; el.textContent = r[1]; }
+          else if (r[0] === 'tag') { el.className = 'tag'; el.textContent = r[1]; }
+          else { el.className = 'row'; var s = document.createElement('span'), b = document.createElement('b'); s.textContent = r[0]; b.textContent = r[1]; el.appendChild(s); el.appendChild(b); }
+          el.style.animationDelay = (reduce ? 0 : i * 0.12) + 's';
+          out.appendChild(el);
+        });
+        drawWires();
+      }
+
+      function reset() {
+        flow.querySelectorAll('.node').forEach(function (n) { n.classList.remove('active', 'done', 'skipped'); n.querySelector('.node-out').innerHTML = ''; var a = n.querySelector('.approve'); if (a) a.remove(); });
+        Object.keys(paths).forEach(function (k) { paths[k].setAttribute('class', 'wire'); });
+        drawWires();
+      }
+
+      function load(name) {
+        current = name;
+        var s = SCENARIOS[name];
+        document.querySelectorAll('.tab').forEach(function (t) { t.setAttribute('aria-selected', t.dataset.scn === name ? 'true' : 'false'); });
+        $('#input-label').textContent = s.label;
+        input.value = s.sample;
+        Object.keys(s.titles).forEach(function (id) { nodeEl(id).querySelector('h3').textContent = s.titles[id]; });
+        reset();
+        setStatus('READY');
+      }
+
+      function askApproval(id) {
+        return new Promise(function (resolve) {
+          var btn = document.createElement('button');
+          btn.type = 'button'; btn.className = 'approve'; btn.textContent = 'Approve';
+          nodeEl(id).appendChild(btn); drawWires(); btn.focus({ preventScroll: true }); btn.scrollIntoView({ block: 'nearest', behavior: reduce ? 'auto' : 'smooth' });
+          setStatus('WAITING ON YOU', true);
+          addLog('Paused. Waiting for your OK...', 'gold');
+          var t0 = Date.now();
+          btn.addEventListener('click', function () { btn.remove(); drawWires(); setStatus('RUNNING', true); addLog('Approved in ' + ((Date.now() - t0) / 1000).toFixed(1) + 's', 'ok'); resolve(Date.now() - t0); });
+        });
+      }
+
+      async function activate(id, rows, text) {
+        var n = nodeEl(id);
+        n.classList.add('active');
+        fill(id, rows);
+        addLog(text);
+        await wait(520);
+        n.classList.remove('active'); n.classList.add('done');
+      }
+
+      async function run() {
+        if (busy) return;
+        var s = SCENARIOS[current], text = input.value.trim() || s.sample, plan = s.build(text);
+        busy = true; runBtn.disabled = burstBtn.disabled = true;
+        reset(); setStatus('RUNNING', true);
+        var t0 = performance.now(), paused = 0, other = plan.branch === 'actA' ? 'actB' : 'actA';
+        addLog('Run started: ' + s.titles.trigger.toLowerCase(), 'gold');
+        await activate('trigger', plan.trigger, 'Trigger fired');
+        await go('trigger>read'); await activate('read', plan.read, 'Details pulled out');
+        await go('route', 'read>route'); await activate('route', plan.route, 'Rule checked, taking ' + (plan.branch === 'actA' ? 'path A' : 'path B'));
+        paths['route>' + other].setAttribute('class', 'wire skip'); paths[other + '>done'].setAttribute('class', 'wire skip'); nodeEl(other).classList.add('skipped');
+        await go('route>' + plan.branch); await activate(plan.branch, plan[plan.branch], s.titles[plan.branch]);
+        if (plan.approveAt === plan.branch) paused += await askApproval(plan.branch);
+        await go(plan.branch + '>done');
+        if (approval.checked) { nodeEl('done').classList.add('active'); paused += await askApproval('done'); }
+        await activate('done', plan.done, s.titles.done);
+        var secs = Math.max(((performance.now() - t0 - paused) / 1000), 0.4);
+        addLog('Done: ' + plan.summary + ' in ' + secs.toFixed(1) + 's', 'ok');
+        totals.runs += 1; totals.mins += s.manual; updateStats(s.manual * 60, secs);
+        setStatus('READY'); busy = false; runBtn.disabled = burstBtn.disabled = false;
+      }
+      async function go(a, b) { var key = b || a; paths[key].setAttribute('class', 'wire lit'); await travel(key); }
+
+      async function burst() {
+        if (busy) return;
+        var s = SCENARIOS[current], count = 25, finished = 0, t0 = performance.now();
+        busy = true; runBtn.disabled = burstBtn.disabled = true;
+        reset(); setStatus('25 IN THE QUEUE', true);
+        flow.querySelectorAll('.node').forEach(function (n) { n.classList.add('done'); });
+        Object.keys(paths).forEach(function (k) { paths[k].setAttribute('class', 'wire lit'); });
+        addLog('Burst: 25 at once, same rules every time', 'gold');
+        function pulse(id) { var n = nodeEl(id); n.classList.remove('pulse'); void n.offsetWidth; n.classList.add('pulse'); }
+        await new Promise(function (resolve) {
+          for (var i = 1; i <= count; i++) (function (i) {
+            setTimeout(async function () {
+              var r = s.burst(i);
+              var hops = ['trigger>read', 'read>route', 'route>' + r.branch, r.branch + '>done'];
+              for (var h = 0; h < hops.length; h++) { await travel(hops[h], true, 420); pulse(hops[h].split('>')[1]); }
+              addLog(r.line);
+              totals.runs += 1; totals.mins += s.manual; updateStats(null);
+              if (++finished === count) resolve();
+            }, reduce ? 0 : i * 140);
+          })(i);
+        });
+        var secs = (performance.now() - t0) / 1000;
+        addLog('All 25 done in ' + secs.toFixed(1) + 's. By hand: about ' + Math.round(count * s.manual / 60 * 10) / 10 + ' hours.', 'ok');
+        updateStats(count * s.manual * 60, secs);
+        setStatus('READY'); busy = false; runBtn.disabled = burstBtn.disabled = false;
+      }
+
+      function fmt(sec) { if (sec < 60) return sec.toFixed(1) + 's'; var m = sec / 60; return m < 60 ? Math.round(m) + ' min' : (Math.round(m / 6) / 10) + ' hr'; }
+      function updateStats(handSec, autoSec) {
+        $('#s-runs').textContent = totals.runs;
+        $('#s-mins').textContent = totals.mins.toLocaleString('en-US');
+        if (handSec == null) return;
+        $('#t-hand').textContent = fmt(handSec); $('#t-auto').textContent = fmt(autoSec);
+        $('#bar-hand').style.width = '100%';
+        $('#bar-auto').style.width = Math.max(autoSec / handSec * 100, 1.5) + '%';
+      }
+
+      document.querySelectorAll('.tab').forEach(function (t) { t.addEventListener('click', function () { if (!busy) load(t.dataset.scn); }); });
+      runBtn.addEventListener('click', run);
+      burstBtn.addEventListener('click', burst);
+      input.addEventListener('keydown', function (e) { if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) run(); });
+      var raf; window.addEventListener('resize', function () { cancelAnimationFrame(raf); raf = requestAnimationFrame(drawWires); });
+
+      load('lead');
+      addLog('Hub online. Pick a task and press Run.', 'ok');
+    })();
+  </script>
+</body>
+</html>
