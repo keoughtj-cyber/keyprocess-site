@@ -6,8 +6,17 @@
     <atom:link href="https://www.keyprocessautomation.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Practical guides on business process automation: what to automate first, what it costs, and how businesses win back hours every week.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 24 Oct 2026 12:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 26 Oct 2026 12:00:00 GMT</lastBuildDate>
     <!-- ITEMS: newest first. Add new items directly below this line. -->
+    <item>
+      <title>What does an automation consultant do? A plain-English guide for small business owners</title>
+      <link>https://www.keyprocessautomation.com/blog/what-does-an-automation-consultant-do</link>
+      <guid>https://www.keyprocessautomation.com/blog/what-does-an-automation-consultant-do</guid>
+      <enclosure url="https://www.keyprocessautomation.com/blog/images/what-does-an-automation-consultant-do.jpg" length="79268" type="image/jpeg"/>
+      <media:content url="https://www.keyprocessautomation.com/blog/images/what-does-an-automation-consultant-do.jpg" medium="image" type="image/jpeg" width="1200" height="630"/>
+      <pubDate>Mon, 26 Oct 2026 12:00:00 GMT</pubDate>
+      <description>What an automation consultant actually does week to week, what you should walk away with, what it costs, and the questions that separate a good one from an expensive mistake.</description>
+    </item>
     <item>
       <title>Does business automation qualify for the R&amp;D tax credit? A plain-English guide</title>
       <link>https://www.keyprocessautomation.com/blog/rd-tax-credit-automation</link>

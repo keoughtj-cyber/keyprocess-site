@@ -66,3 +66,6 @@ card('rd-credit-test','Illustration of the four questions a project must pass fo
 card('ai-hero','Illustration of AI steps inside a workflow: captions drafted, details pulled from a messy email, a reply drafted, and one item held for a person to approve',
  'AI inside your workflow','Drafts and details, ready for review','You approve',
  [('Captions for 5 platforms','Drafted',G),('Details from a messy email','Pulled',G),('Product description','Drafted',G),('Reply to a customer','Review','amber')])
+card('automation-consultant','Illustration of what an automation consultant delivers: a free audit and plan, a fixed quote, automations built in your own accounts, and ongoing care',
+ 'Working with an automation consultant','What you should get, start to finish','Fixed quote',
+ [('Audit and written plan','Free',G),('Quote before any work','Fixed','blue'),('Built in your own accounts','Yours',G),('Monitoring and fixes','Ongoing','blue')])

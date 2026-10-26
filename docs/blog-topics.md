@@ -6,6 +6,7 @@ Keyword backlog and publishing log for the weekly post. See `blog-playbook.md` f
 
 | Date | Slug | Primary keyword |
 | --- | --- | --- |
+| 2026-10-26 | what-does-an-automation-consultant-do | what does an automation consultant do |
 | 2026-10-24 | rd-tax-credit-automation (extra post from CPA Lawron Ballard's notes, outside the rotation) | R&D tax credit for automation |
 | 2026-10-22 | business-processes-to-automate | business processes to automate |
 | 2026-10-19 | business-automation-cost | how much does business automation cost |
@@ -16,7 +17,7 @@ Keyword backlog and publishing log for the weekly post. See `blog-playbook.md` f
 ### Planned order
 
 1. ~~Thu 2026-10-22: business processes to automate (pillar 2)~~ published
-2. Mon 2026-10-26: what does an automation consultant do (pillar 4)
+2. ~~Mon 2026-10-26: what does an automation consultant do (pillar 4)~~ published
 3. Thu 2026-10-29: e-commerce automation ideas for small online stores (pillar 3)
 4. Mon 2026-11-02: how to calculate automation ROI (pillar 1)
 
@@ -51,7 +52,7 @@ After that, keep rotating 2, 4, 3, 1 and pick the strongest topic in each pillar
 
 ### 4. Hiring automation help
 
-- what does an automation consultant do
+- ~~what does an automation consultant do~~ published 2026-10-26 (also covers "AI automation consultant")
 - what you get from a free automation audit
 - doing it yourself vs hiring automation help
 - what happens after an automation is built (ongoing care, who owns what)
