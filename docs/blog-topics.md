@@ -6,6 +6,7 @@ Keyword backlog and publishing log for the weekly post. See `blog-playbook.md` f
 
 | Date | Slug | Primary keyword |
 | --- | --- | --- |
+| 2026-10-29 | ecommerce-automation-ideas | ecommerce automation ideas |
 | 2026-10-26 | what-does-an-automation-consultant-do | what does an automation consultant do |
 | 2026-10-24 | rd-tax-credit-automation (extra post from CPA Lawron Ballard's notes, outside the rotation) | R&D tax credit for automation |
 | 2026-10-22 | business-processes-to-automate | business processes to automate |
@@ -18,7 +19,7 @@ Keyword backlog and publishing log for the weekly post. See `blog-playbook.md` f
 
 1. ~~Thu 2026-10-22: business processes to automate (pillar 2)~~ published
 2. ~~Mon 2026-10-26: what does an automation consultant do (pillar 4)~~ published
-3. Thu 2026-10-29: e-commerce automation ideas for small online stores (pillar 3)
+3. ~~Thu 2026-10-29: e-commerce automation ideas for small online stores (pillar 3)~~ published
 4. Mon 2026-11-02: how to calculate automation ROI (pillar 1)
 
 After that, keep rotating 2, 4, 3, 1 and pick the strongest topic in each pillar.
@@ -40,7 +41,7 @@ After that, keep rotating 2, 4, 3, 1 and pick the strongest topic in each pillar
 
 ### 3. Industry playbooks
 
-- e-commerce automation ideas for small online stores
+- ~~e-commerce automation ideas for small online stores~~ published 2026-10-29
 - property management automation (pillar guide)
 - automation for home services businesses (HVAC, plumbing, cleaning)
 - automating owner reports for property managers

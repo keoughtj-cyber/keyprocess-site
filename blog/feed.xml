@@ -6,8 +6,17 @@
     <atom:link href="https://www.keyprocessautomation.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Practical guides on business process automation: what to automate first, what it costs, and how businesses win back hours every week.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 26 Oct 2026 12:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2026 12:00:00 GMT</lastBuildDate>
     <!-- ITEMS: newest first. Add new items directly below this line. -->
+    <item>
+      <title>E-commerce automation ideas: 12 things a small online store can stop doing by hand</title>
+      <link>https://www.keyprocessautomation.com/blog/ecommerce-automation-ideas</link>
+      <guid>https://www.keyprocessautomation.com/blog/ecommerce-automation-ideas</guid>
+      <enclosure url="https://www.keyprocessautomation.com/blog/images/ecommerce-automation-ideas.jpg" length="81245" type="image/jpeg"/>
+      <media:content url="https://www.keyprocessautomation.com/blog/images/ecommerce-automation-ideas.jpg" medium="image" type="image/jpeg" width="1200" height="630"/>
+      <pubDate>Thu, 29 Oct 2026 12:00:00 GMT</pubDate>
+      <description>The repetitive work that eats a small store&apos;s week, what each piece looks like once it runs on its own, which ones to start with, and what your store platform probably already does for free.</description>
+    </item>
     <item>
       <title>What does an automation consultant do? A plain-English guide for small business owners</title>
       <link>https://www.keyprocessautomation.com/blog/what-does-an-automation-consultant-do</link>
