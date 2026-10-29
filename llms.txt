@@ -37,6 +37,7 @@
 
 ## Guides
 
+- [12 e-commerce automation ideas for small online stores](https://www.keyprocessautomation.com/blog/ecommerce-automation-ideas)
 - [15 business processes to automate in a small business](https://www.keyprocessautomation.com/blog/business-processes-to-automate)
 - [Does automation qualify for the R&D tax credit?](https://www.keyprocessautomation.com/blog/rd-tax-credit-automation)
 - [How much does business automation cost?](https://www.keyprocessautomation.com/blog/business-automation-cost)

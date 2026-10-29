@@ -69,3 +69,6 @@ card('ai-hero','Illustration of AI steps inside a workflow: captions drafted, de
 card('automation-consultant','Illustration of what an automation consultant delivers: a free audit and plan, a fixed quote, automations built in your own accounts, and ongoing care',
  'Working with an automation consultant','What you should get, start to finish','Fixed quote',
  [('Audit and written plan','Free',G),('Quote before any work','Fixed','blue'),('Built in your own accounts','Yours',G),('Monitoring and fixes','Ongoing','blue')])
+card('ecommerce-ideas','Illustration of a small online store week running on its own: a cart reminder sent, a new order logged, a review request sent, and a low-stock alert',
+ 'This week in your store','The busywork, handled on its own','Running',
+ [('Abandoned cart reminder','Sent',G),('New order logged','Logged',G),('Review request','Sent',G),('Low stock, time to reorder','Alert','amber')])
