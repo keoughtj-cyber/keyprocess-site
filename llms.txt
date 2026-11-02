@@ -37,6 +37,7 @@
 
 ## Guides
 
+- [How to calculate automation ROI](https://www.keyprocessautomation.com/blog/how-to-calculate-automation-roi)
 - [12 e-commerce automation ideas for small online stores](https://www.keyprocessautomation.com/blog/ecommerce-automation-ideas)
 - [What does an automation consultant do?](https://www.keyprocessautomation.com/blog/what-does-an-automation-consultant-do)
 - [15 business processes to automate in a small business](https://www.keyprocessautomation.com/blog/business-processes-to-automate)
