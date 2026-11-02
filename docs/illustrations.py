@@ -72,3 +72,6 @@ card('automation-consultant','Illustration of what an automation consultant deli
 card('ecommerce-ideas','Illustration of a small online store week running on its own: a cart reminder sent, a new order logged, a review request sent, and a low-stock alert',
  'This week in your store','The busywork, handled on its own','Running',
  [('Abandoned cart reminder','Sent',G),('New order logged','Logged',G),('Review request','Sent',G),('Low stock, time to reorder','Alert','amber')])
+card('automation-roi','Illustration of where automation ROI comes from, using a real result: lease paperwork cut from 1.5 to 2 hours to 5 to 10 minutes, across 300 to 400 leases a year, saving about 55 workdays',
+ 'Where automation ROI comes from','Real result: lease approval paperwork','Real result',
+ [('Paperwork per lease, before','1.5-2 hrs','amber'),('Paperwork per lease, after','5-10 min',G),('Leases handled a year','300-400','blue'),('Staff time saved a year','~55 days',G)])

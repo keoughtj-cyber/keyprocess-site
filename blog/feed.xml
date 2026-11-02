@@ -6,8 +6,17 @@
     <atom:link href="https://www.keyprocessautomation.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Practical guides on business process automation: what to automate first, what it costs, and how businesses win back hours every week.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 29 Oct 2026 12:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 02 Nov 2026 12:00:00 GMT</lastBuildDate>
     <!-- ITEMS: newest first. Add new items directly below this line. -->
+    <item>
+      <title>How to calculate automation ROI (and know if it&apos;s worth it before you spend a dollar)</title>
+      <link>https://www.keyprocessautomation.com/blog/how-to-calculate-automation-roi</link>
+      <guid>https://www.keyprocessautomation.com/blog/how-to-calculate-automation-roi</guid>
+      <enclosure url="https://www.keyprocessautomation.com/blog/images/how-to-calculate-automation-roi.jpg" length="73380" type="image/jpeg"/>
+      <media:content url="https://www.keyprocessautomation.com/blog/images/how-to-calculate-automation-roi.jpg" medium="image" type="image/jpeg" width="1200" height="630"/>
+      <pubDate>Mon, 02 Nov 2026 12:00:00 GMT</pubDate>
+      <description>The formula, a five-step method a busy owner can finish in ten minutes, worked examples, real results, and the costs most ROI math leaves out.</description>
+    </item>
     <item>
       <title>E-commerce automation ideas: 12 things a small online store can stop doing by hand</title>
       <link>https://www.keyprocessautomation.com/blog/ecommerce-automation-ideas</link>
