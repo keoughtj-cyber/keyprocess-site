@@ -20,7 +20,7 @@ Keyword backlog and publishing log for the weekly post. See `blog-playbook.md` f
 1. ~~Thu 2026-10-22: business processes to automate (pillar 2)~~ published
 2. ~~Mon 2026-10-26: what does an automation consultant do (pillar 4)~~ published
 3. ~~Thu 2026-10-29: e-commerce automation ideas for small online stores (pillar 3)~~ published
-4. Mon 2026-11-02: how to calculate automation ROI (pillar 1)
+4. Mon 2026-11-02: how to calculate automation ROI (pillar 1). The monthly refresh of business-automation-cost and the PM tasks guide was done 2026-11-02 (byline, author, takeaways, links), so write the new post.
 
 After that, keep rotating 2, 4, 3, 1 and pick the strongest topic in each pillar.
 
