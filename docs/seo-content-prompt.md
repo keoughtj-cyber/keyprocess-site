@@ -105,7 +105,7 @@ and list these placeholders at the top of the draft. A draft with any placeholde
 
 # ON-PAGE SEO CHECKLIST
 - Primary keyword in: title tag, H1, first 100 words, URL slug, meta description, and at least one H2. Use naturally — never stuff.
-- Title tag: under 60 characters before " | KeyProcess Automation Services," includes the primary keyword and a reason to click (year, number, or specific outcome).
+- Title tag: 60 characters or less in total, including the " | KeyProcess" suffix; includes the primary keyword and a reason to click (year, number, or specific outcome).
 - Meta description: 140–155 characters, states the answer or benefit, ends with an implicit CTA.
 - URL slug: short, lowercase, hyphenated, no dates or stop words. Posts live at /blog/<slug>.
 - Internal links: 3–5 to relevant existing pages (/results or a specific case, /#calculator, /audit, the industry pages, and earlier posts) plus 1 link to the cluster pillar; descriptive anchor text, never "click here." Also suggest 2 existing pages that should link TO this new post.

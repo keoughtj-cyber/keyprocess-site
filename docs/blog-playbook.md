@@ -53,7 +53,7 @@ Pillar 4 describes what a client gets, what it costs, and who owns what. It neve
 ## Writing the post
 
 - Usually 1,200 to 2,000 words for a supporting post and 2,500+ for a pillar page; whatever it takes to beat the current #1 result, never padded. Plain English (grade 8 to 9), short paragraphs, written for a busy owner.
-- Title (H1) contains the primary keyword. `<title>` under about 60 characters before the " | KeyProcess Automation Services" suffix. Meta description 140 to 155 characters with the keyword.
+- Title (H1) contains the primary keyword. `<title>` is 60 characters or less in total, ending with the short " | KeyProcess" suffix (so about 47 characters for the title itself; it can be a shorter version of the H1). Use the same text for `og:title` and `twitter:title`. Only the home page uses the full " | KeyProcess Automation Services" suffix. Meta description 140 to 155 characters with the keyword.
 - Open with an `answer-box` that answers the question in 2 to 3 sentences, 40 to 60 words (this is what search snippets and AI answers pick up), followed by a "Key takeaways" box (a `callout` with 3 to 5 bullets).
 - Add a `toc` list for posts with 5 or more sections, with `id`s on each H2.
 - Use H2s and H3s phrased like the questions people search.
