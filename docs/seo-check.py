@@ -10,7 +10,8 @@ import sys
 from html.parser import HTMLParser
 
 SITE = "https://www.keyprocessautomation.com"
-SUFFIX = " | KeyProcess Automation Services"
+SUFFIX = " | KeyProcess Automation Services"  # Home page only.
+SHORT_SUFFIX = " | KeyProcess"  # Every other page.
 NOINDEX_OK = {"/audit-thanks", "/404"}  # Pages that should stay out of search.
 REQUIRED_META = ["og:title", "og:description", "og:image", "og:image:alt", "og:url", "og:type", "og:site_name",
                  "twitter:card", "twitter:title", "twitter:description", "twitter:image", "twitter:image:alt"]
@@ -86,9 +87,14 @@ for url, p in sorted(pages.items()):
         if cur > prev + 1:
             say(f"heading skips from h{prev} to h{cur}")
             break
-    title = p.title.replace(SUFFIX, "")
-    if len(title) > 60:
-        say(f"title is {len(title)} characters before the suffix (keep under 60)")
+    if p.title.endswith(SUFFIX):
+        if url != "/":
+            say(f'title uses the long suffix; use "{SHORT_SUFFIX}" on every page but home')
+        title = p.title[: -len(SUFFIX)]
+        if len(title) > 60:
+            say(f"title is {len(title)} characters before the suffix (keep under 60)")
+    elif len(p.title) > 60:
+        say(f"title is {len(p.title)} characters (keep the whole title, with the suffix, at 60 or less)")
     desc = p.meta.get("description", "")
     if not 120 <= len(desc) <= 160:
         say(f"meta description is {len(desc)} characters (aim for 120 to 160)")
