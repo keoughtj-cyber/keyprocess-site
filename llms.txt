@@ -37,6 +37,7 @@
 
 ## Guides
 
+- [Automated payment reminders: schedule and wording](https://www.keyprocessautomation.com/blog/automated-payment-reminders)
 - [How to calculate automation ROI](https://www.keyprocessautomation.com/blog/how-to-calculate-automation-roi)
 - [12 e-commerce automation ideas for small online stores](https://www.keyprocessautomation.com/blog/ecommerce-automation-ideas)
 - [What does an automation consultant do?](https://www.keyprocessautomation.com/blog/what-does-an-automation-consultant-do)
