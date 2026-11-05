@@ -75,3 +75,6 @@ card('ecommerce-ideas','Illustration of a small online store week running on its
 card('automation-roi','Illustration of where automation ROI comes from, using a real result: lease paperwork cut from 1.5 to 2 hours to 5 to 10 minutes, across 300 to 400 leases a year, saving about 55 workdays',
  'Where automation ROI comes from','Real result: lease approval paperwork','Real result',
  [('Paperwork per lease, before','1.5-2 hrs','amber'),('Paperwork per lease, after','5-10 min',G),('Leases handled a year','300-400','blue'),('Staff time saved a year','~55 days',G)])
+card('payment-reminders','Illustration of a real follow-up result: 100 to 250 status requests sent every Monday, 100% of stalled jobs followed up, and about 8 hours saved every month',
+ 'Follow-ups that send themselves','Real result: weekly follow-ups on open jobs','Real result',
+ [('Follow-ups sent every Monday','100-250','blue'),('Stalled jobs followed up','100%',G),('Staff time saved a month','~8 hrs',G),('Replies routed to the team','Direct',G)])

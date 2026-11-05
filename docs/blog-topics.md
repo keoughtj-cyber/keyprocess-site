@@ -6,6 +6,7 @@ Keyword backlog and publishing log for the weekly post. See `blog-playbook.md` f
 
 | Date | Slug | Primary keyword |
 | --- | --- | --- |
+| 2026-11-05 | automated-payment-reminders | automated payment reminders |
 | 2026-11-02 | how-to-calculate-automation-roi | how to calculate automation ROI |
 | 2026-10-29 | ecommerce-automation-ideas | ecommerce automation ideas |
 | 2026-10-26 | what-does-an-automation-consultant-do | what does an automation consultant do |
@@ -23,6 +24,8 @@ Keyword backlog and publishing log for the weekly post. See `blog-playbook.md` f
 3. ~~Thu 2026-10-29: e-commerce automation ideas for small online stores (pillar 3)~~ published
 4. ~~Mon 2026-11-02: how to calculate automation ROI (pillar 1)~~ published. The monthly refresh of business-automation-cost and the PM tasks guide was done 2026-11-02 (byline, author, takeaways, links), so write the new post.
 
+5. ~~Thu 2026-11-05: automated payment reminders (pillar 2)~~ published. Skipped "what is AI automation" because /ai-automation already answers it (cannibalization).
+
 After that, keep rotating 2, 4, 3, 1 and pick the strongest topic in each pillar.
 
 ### 1. Costs and payback
@@ -35,7 +38,7 @@ After that, keep rotating 2, 4, 3, 1 and pick the strongest topic in each pillar
 
 - signs your business needs automation
 - how to automate recurring reports
-- automate invoice follow-up / accounts receivable reminders
+- ~~automate invoice follow-up / accounts receivable reminders~~ published 2026-11-05 as automated-payment-reminders
 - automating approvals and paperwork
 - how to automate client onboarding
 - automating vendor and work order follow-ups

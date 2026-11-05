@@ -6,8 +6,17 @@
     <atom:link href="https://www.keyprocessautomation.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Practical guides on business process automation: what to automate first, what it costs, and how businesses win back hours every week.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 02 Nov 2026 12:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 05 Nov 2026 12:00:00 GMT</lastBuildDate>
     <!-- ITEMS: newest first. Add new items directly below this line. -->
+    <item>
+      <title>Automated payment reminders: the schedule and wording that get you paid on time</title>
+      <link>https://www.keyprocessautomation.com/blog/automated-payment-reminders</link>
+      <guid>https://www.keyprocessautomation.com/blog/automated-payment-reminders</guid>
+      <enclosure url="https://www.keyprocessautomation.com/blog/images/automated-payment-reminders.jpg" length="91146" type="image/jpeg"/>
+      <media:content url="https://www.keyprocessautomation.com/blog/images/automated-payment-reminders.jpg" medium="image" type="image/jpeg" width="1200" height="630"/>
+      <pubDate>Thu, 05 Nov 2026 12:00:00 GMT</pubDate>
+      <description>A ready-to-use reminder schedule, wording for every stage, which parts to automate and which to keep personal, and what it&apos;s worth to stop chasing invoices by hand.</description>
+    </item>
     <item>
       <title>How to calculate automation ROI (and know if it&apos;s worth it before you spend a dollar)</title>
       <link>https://www.keyprocessautomation.com/blog/how-to-calculate-automation-roi</link>
