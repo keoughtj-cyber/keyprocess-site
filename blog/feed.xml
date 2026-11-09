@@ -6,8 +6,17 @@
     <atom:link href="https://www.keyprocessautomation.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Practical guides on business process automation: what to automate first, what it costs, and how businesses win back hours every week.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Nov 2026 12:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 09 Nov 2026 12:00:00 GMT</lastBuildDate>
     <!-- ITEMS: newest first. Add new items directly below this line. -->
+    <item>
+      <title>What is an automation audit? What a good one includes, and how to run your own</title>
+      <link>https://www.keyprocessautomation.com/blog/automation-audit</link>
+      <guid>https://www.keyprocessautomation.com/blog/automation-audit</guid>
+      <enclosure url="https://www.keyprocessautomation.com/blog/images/automation-audit.jpg" length="90746" type="image/jpeg"/>
+      <media:content url="https://www.keyprocessautomation.com/blog/images/automation-audit.jpg" medium="image" type="image/jpeg" width="1200" height="630"/>
+      <pubDate>Mon, 09 Nov 2026 12:00:00 GMT</pubDate>
+      <description>What you should walk away with, a sample of what the results look like, a free worksheet to audit your own week, the red flags to watch for, and what happens next.</description>
+    </item>
     <item>
       <title>Automated payment reminders: the schedule and wording that get you paid on time</title>
       <link>https://www.keyprocessautomation.com/blog/automated-payment-reminders</link>

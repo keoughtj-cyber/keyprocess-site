@@ -78,3 +78,6 @@ card('automation-roi','Illustration of where automation ROI comes from, using a 
 card('payment-reminders','Illustration of a real follow-up result: 100 to 250 status requests sent every Monday, 100% of stalled jobs followed up, and about 8 hours saved every month',
  'Follow-ups that send themselves','Real result: weekly follow-ups on open jobs','Real result',
  [('Follow-ups sent every Monday','100-250','blue'),('Stalled jobs followed up','100%',G),('Staff time saved a month','~8 hrs',G),('Replies routed to the team','Direct',G)])
+card('automation-audit','Illustration of what you leave a free automation audit with: a written list of what to automate first, hours back for each task, and a fixed quote before any work, at no cost',
+ 'What you leave the audit with','Free automation audit, 30-minute call','Free',
+ [('Written list of what to automate first','Included',G),('Hours back for each task','Estimated','blue'),('Fixed quote before any work','Included',G),('Cost of the audit','$0',G)])

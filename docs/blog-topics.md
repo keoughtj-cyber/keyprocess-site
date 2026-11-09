@@ -6,6 +6,7 @@ Keyword backlog and publishing log for the weekly post. See `blog-playbook.md` f
 
 | Date | Slug | Primary keyword |
 | --- | --- | --- |
+| 2026-11-09 | automation-audit | automation audit |
 | 2026-11-05 | automated-payment-reminders | automated payment reminders |
 | 2026-11-02 | how-to-calculate-automation-roi | how to calculate automation ROI |
 | 2026-10-29 | ecommerce-automation-ideas | ecommerce automation ideas |
@@ -25,6 +26,7 @@ Keyword backlog and publishing log for the weekly post. See `blog-playbook.md` f
 4. ~~Mon 2026-11-02: how to calculate automation ROI (pillar 1)~~ published. The monthly refresh of business-automation-cost and the PM tasks guide was done 2026-11-02 (byline, author, takeaways, links), so write the new post.
 
 5. ~~Thu 2026-11-05: automated payment reminders (pillar 2)~~ published. Skipped "what is AI automation" because /ai-automation already answers it (cannibalization).
+6. ~~Mon 2026-11-09: automation audit (pillar 4)~~ published. Semrush: 70/month, KD 26, $13.79 CPC.
 
 After that, keep rotating 2, 4, 3, 1 and pick the strongest topic in each pillar.
 
@@ -58,7 +60,7 @@ After that, keep rotating 2, 4, 3, 1 and pick the strongest topic in each pillar
 ### 4. Hiring automation help
 
 - ~~what does an automation consultant do~~ published 2026-10-26 (also covers "AI automation consultant")
-- what you get from a free automation audit
+- ~~what you get from a free automation audit~~ published 2026-11-09 as automation-audit
 - doing it yourself vs hiring automation help
 - what happens after an automation is built (ongoing care, who owns what)
 
