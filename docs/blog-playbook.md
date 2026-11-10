@@ -75,6 +75,7 @@ Posts live at `blog/<slug>.html`. The one exception is the older guide at `/prop
 5. `sitemap.xml`: add the post URL with today's date, and update the `/blog/` lastmod. Add the post to the blog list in `llms.txt` too (newest first).
 6. `docs/blog-topics.md`: move the topic to Published with the date, slug, and primary keyword.
 7. When a new post covers a topic an older post touches, add a link from the older post to the new one.
+   If the post answers one of the everyday questions on `/small-business-automation` (the answers hub), add a link to the post at the end of that answer, and add a new question to the hub (and its FAQPage JSON-LD) if the post covers one it doesn't have yet.
 8. Add at least one in-post illustration (Tyler, 2026-10-20): add a `card(...)` call to `docs/illustrations.py` that shows the post's outcome (real prices or case study results only, no made-up numbers, no tool names), run `python3 docs/illustrations.py`, and place it in the post as `<img class="illo post-illo" src="/images/<name>.svg" alt="..." width="480" height="320" loading="lazy" decoding="async">` before an early H2. New service pages get one the same way as a hero image in a `page-hero-grid`.
 
 ## SEO standards (every page, every post)

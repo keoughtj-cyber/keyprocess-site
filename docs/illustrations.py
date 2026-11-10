@@ -81,3 +81,6 @@ card('payment-reminders','Illustration of a real follow-up result: 100 to 250 st
 card('automation-audit','Illustration of what you leave a free automation audit with: a written list of what to automate first, hours back for each task, and a fixed quote before any work, at no cost',
  'What you leave the audit with','Free automation audit, 30-minute call','Free',
  [('Written list of what to automate first','Included',G),('Hours back for each task','Estimated','blue'),('Fixed quote before any work','Included',G),('Cost of the audit','$0',G)])
+card('questions-hero','Illustration of everyday tasks a small business can stop doing by hand: retyping details, sending invoices and reminders, building reports, and following up with leads',
+ 'Everyday questions, plain answers','Small business automation, start here','24 answers',
+ [('Stop retyping the same details','Data entry',G),('Invoices and reminders sent on time','Billing',G),('Reports ready before you log in','Reports',G),('Every lead followed up the same day','Follow-up','blue')])
