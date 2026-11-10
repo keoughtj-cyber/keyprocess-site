@@ -82,3 +82,27 @@ Work these into the rotation as the pick for their pillar, about one every other
 | ai email automation | 320 | 50 | 2 |
 
 Bigger head terms the /ai-automation page targets directly: ai automation services (1,900), ai automation agency (2,900), ai workflow automation (5,400), ai business automation (1,000).
+
+### Everyday questions (Semrush, U.S., November 2026)
+
+Plain-language searches from owners who don't know the word "automation" yet. Each already has a short answer on `/small-business-automation` (the answers hub); a post on one of these goes deeper, and the hub answer links to it. Prefer these when a pillar 2 slot comes up, since the site had no leads from the more technical topics.
+
+| Keyword | Monthly searches | Difficulty | Hub answer |
+| --- | --- | --- | --- |
+| what is workflow automation | 1,000 | 50 | #what-is-workflow-automation |
+| workflow automation examples | 880 | 59 | #what-is-workflow-automation |
+| what is process automation | 720 | 32 | #what-is-business-process-automation |
+| what is business process automation | 480 | 39 | #what-is-business-process-automation |
+| automated reporting / how to automate reports | 480 / 110 | 31 / 11 | #automate-reports |
+| automate customer service | 260 | 13 | #automate-customer-service |
+| how to automate your business | 260 | 34 | #what-tasks-can-be-automated |
+| process automation examples | 260 | 22 | #what-tasks-can-be-automated |
+| automate data entry / how to automate data entry | 140 / 90 | 18 / 15 | #stop-data-entry |
+| automate repetitive tasks | 140 | 25 | #automate-repetitive-tasks |
+| automated lead follow up | 140 | 18 | #automate-follow-ups |
+| automate purchase orders | 140 | 14 | (none yet) |
+| automate client onboarding | 110 | 13 | #automate-onboarding |
+| automate bookkeeping / how to automate bookkeeping | 140 / 90 | 30 / 19 | (none yet) |
+| automate document processing | 170 | 31 | (none yet) |
+
+Head terms the hub targets directly: small business automation (1,000, KD 31) and business automation services (1,300, KD 28).

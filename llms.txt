@@ -15,6 +15,7 @@
 - [Case studies](https://www.keyprocessautomation.com/results): real automations and the time they save
 - [Live automation demo](https://www.keyprocessautomation.com/automation-hub): pick a task, press Run, and watch each automated step happen
 - [Free automation audit](https://www.keyprocessautomation.com/audit): request an audit
+- [Small business automation questions, answered](https://www.keyprocessautomation.com/small-business-automation): 24 plain-English answers on what automation is, what to automate (data entry, invoices, reports, follow-ups, onboarding, customer service), cost, time saved, and getting help
 
 ## Services
 

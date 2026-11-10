@@ -570,3 +570,14 @@ a.card:hover { border-color: var(--brand); box-shadow: var(--shadow); transform:
 @media (prefers-reduced-motion: reduce) { .mh-item, .mh-item.running .mh-icon { transition: none; animation: none; } }
 
 .industry-links { text-align: center; margin: 28px 0 0; }
+
+/* Answers hub (/small-business-automation) */
+.qa-wrap { max-width: 820px; }
+.qa-jump { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 40px; }
+.qa-jump a { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; font-weight: 600; text-decoration: none; }
+.qa-group { margin-bottom: 48px; scroll-margin-top: 90px; }
+.qa-group h2 { margin-bottom: 6px; }
+.qa-lead { color: var(--ink-soft); margin: 0 0 20px; }
+.qa { border-top: 1px solid var(--line); padding: 20px 0 4px; scroll-margin-top: 90px; }
+.qa h3 { font-size: 1.15rem; margin: 0 0 8px; }
+.qa p { color: var(--ink-soft); }
