@@ -6,6 +6,7 @@ Keyword backlog and publishing log for the weekly post. See `blog-playbook.md` f
 
 | Date | Slug | Primary keyword |
 | --- | --- | --- |
+| 2026-11-12 | property-management-automation | property management automation |
 | 2026-11-09 | automation-audit | automation audit |
 | 2026-11-05 | automated-payment-reminders | automated payment reminders |
 | 2026-11-02 | how-to-calculate-automation-roi | how to calculate automation ROI |
@@ -27,6 +28,7 @@ Keyword backlog and publishing log for the weekly post. See `blog-playbook.md` f
 
 5. ~~Thu 2026-11-05: automated payment reminders (pillar 2)~~ published. Skipped "what is AI automation" because /ai-automation already answers it (cannibalization).
 6. ~~Mon 2026-11-09: automation audit (pillar 4)~~ published. Semrush: 70/month, KD 26, $13.79 CPC.
+7. ~~Thu 2026-11-12: property management automation pillar guide (pillar 3)~~ published, as the Nov 9 SEO audit recommended. Semrush: 320/month, KD 17; "property management workflow automation" 260, KD 13.
 
 After that, keep rotating 2, 4, 3, 1 and pick the strongest topic in each pillar.
 
@@ -48,7 +50,7 @@ After that, keep rotating 2, 4, 3, 1 and pick the strongest topic in each pillar
 ### 3. Industry playbooks
 
 - ~~e-commerce automation ideas for small online stores~~ published 2026-10-29
-- property management automation (pillar guide)
+- ~~property management automation (pillar guide)~~ published 2026-11-12 as property-management-automation
 - automation for home services businesses (HVAC, plumbing, cleaning)
 - automating owner reports for property managers
 - tenant screening and lease paperwork automation

@@ -84,3 +84,6 @@ card('automation-audit','Illustration of what you leave a free automation audit 
 card('questions-hero','Illustration of everyday tasks a small business can stop doing by hand: retyping details, sending invoices and reminders, building reports, and following up with leads',
  'Everyday questions, plain answers','Small business automation, start here','24 answers',
  [('Stop retyping the same details','Data entry',G),('Invoices and reminders sent on time','Billing',G),('Reports ready before you log in','Reports',G),('Every lead followed up the same day','Follow-up','blue')])
+card('property-management-automation','Illustration of real property management automation results: lease paperwork cut to 5 to 10 minutes, 100 to 250 work order follow-ups every Monday, about 8 hours of bookkeeping saved a month, and about 55 workdays saved a year',
+ 'Property management, on autopilot','Real results from property management teams','Real results',
+ [('Lease paperwork, per lease','5-10 min',G),('Work order follow-ups each Monday','100-250','blue'),('Bookkeeping saved a month','~8 hrs',G),('Staff time saved a year','~55 days',G)])

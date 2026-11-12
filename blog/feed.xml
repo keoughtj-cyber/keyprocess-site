@@ -6,8 +6,17 @@
     <atom:link href="https://www.keyprocessautomation.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Practical guides on business process automation: what to automate first, what it costs, and how businesses win back hours every week.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 09 Nov 2026 12:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 12 Nov 2026 12:00:00 GMT</lastBuildDate>
     <!-- ITEMS: newest first. Add new items directly below this line. -->
+    <item>
+      <title>Property management automation: what to automate, what it costs, and real results</title>
+      <link>https://www.keyprocessautomation.com/blog/property-management-automation</link>
+      <guid>https://www.keyprocessautomation.com/blog/property-management-automation</guid>
+      <enclosure url="https://www.keyprocessautomation.com/blog/images/property-management-automation.jpg" length="90753" type="image/jpeg"/>
+      <media:content url="https://www.keyprocessautomation.com/blog/images/property-management-automation.jpg" medium="image" type="image/jpeg" width="1200" height="630"/>
+      <pubDate>Thu, 12 Nov 2026 12:00:00 GMT</pubDate>
+      <description>A plain-English guide for property managers: where automation saves the most time, what should stay personal, what it costs, and how to start without switching software.</description>
+    </item>
     <item>
       <title>What is an automation audit? What a good one includes, and how to run your own</title>
       <link>https://www.keyprocessautomation.com/blog/automation-audit</link>
