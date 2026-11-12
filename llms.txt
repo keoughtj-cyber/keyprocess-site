@@ -38,6 +38,7 @@
 
 ## Guides
 
+- [Property management automation guide](https://www.keyprocessautomation.com/blog/property-management-automation)
 - [What is an automation audit?](https://www.keyprocessautomation.com/blog/automation-audit)
 - [Automated payment reminders: schedule and wording](https://www.keyprocessautomation.com/blog/automated-payment-reminders)
 - [How to calculate automation ROI](https://www.keyprocessautomation.com/blog/how-to-calculate-automation-roi)
