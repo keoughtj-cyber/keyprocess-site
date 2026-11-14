@@ -43,6 +43,17 @@ Pillar 4 describes what a client gets, what it costs, and who owns what. It neve
 - Safe and Healthy Homes law is only mentioned in the compliance case study, not in posts.
 - No new costs: no paid tools, images, or services.
 
+## AI Workforce posts (Thursdays, Tyler 2026-11-14)
+
+Thursday posts are AI Workforce posts, taken from the "AI Workforce posts" list in `blog-topics.md`. They follow every rule above plus these:
+
+- **Never merge an AI Workforce post yourself.** Tyler must see it before it goes live. Open the PR, wait for the preview build, then reply in the thread with the preview link and a short summary, and ask Tyler to say go. Merge only after he says so (or makes changes). Monday posts still auto-publish.
+- Link to `/ai-workforce`, `/blog/ai-employees`, and `/audit?interest=ai-workforce`.
+- Prices exactly as on `/ai-workforce`: setup Starter $2,500 (one area), Team $5,000 (a department), Office from $10,000 (several departments), including training and 30 days of support; then Self-run $250 a month or Managed $1,500 to $2,000 a month, 3-month minimum; clients pay their own AI and software plans directly (no dollar figure). Founding offer: the first 5 clients get 25% off setup for sharing their results.
+- The only proof is the anonymous "DTC beverage brand" case study as it appears on `/ai-workforce` and `/blog/ai-employees`. Use only numbers already published there, positive-only, and describe sales as happening alongside the work, never caused by it. Never name the brand or its owners, and never mention its subscription or club content, the monthly cost of the AI plan, the Meta return, or out-of-stock, new-buyer, or list-growth figures.
+- Demo screenshots are sample data: label them that way and never present demo numbers as results.
+- People, legal, medical, and financial decisions stay with people. Say so wherever a post touches them.
+
 ## Picking the keyword
 
 1. Read `docs/blog-topics.md` and skip anything already published.
@@ -98,4 +109,4 @@ Posts live at `blog/<slug>.html`. The one exception is the older guide at `/prop
 
 ## Publishing
 
-Tyler chose auto-publish (2026-10-19). Open a pull request against `main` titled `Blog: <post title>`, wait for the Cloudflare preview build on it to succeed, then merge it yourself (merging publishes, since pushes to `main` auto-deploy). If the build fails or any check above fails and can't be fixed, leave the PR open and tell Tyler why instead of merging. After merging, tell Tyler the post is live with its link.
+Tyler chose auto-publish (2026-10-19), except AI Workforce posts, which wait for his OK (see above). Open a pull request against `main` titled `Blog: <post title>`, wait for the Cloudflare preview build on it to succeed, then merge it yourself (merging publishes, since pushes to `main` auto-deploy). If the build fails or any check above fails and can't be fixed, leave the PR open and tell Tyler why instead of merging. After merging, tell Tyler the post is live with its link.
