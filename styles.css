@@ -42,6 +42,15 @@ section { padding: 88px 0; }
 .center { text-align: center; }
 .center .section-lead { margin-left: auto; margin-right: auto; }
 
+/* Announcement bar (home page) */
+.announce { background: var(--ink); color: #e9eef8; font-size: 0.92rem; }
+.announce-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px 12px; padding-top: 9px; padding-bottom: 9px; text-align: center; }
+.announce-tag { background: var(--accent); color: var(--ink); font-weight: 700; font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 999px; padding: 2px 9px; }
+.announce-text b { color: #fff; }
+.announce-link { color: var(--accent); font-weight: 700; text-decoration: none; white-space: nowrap; }
+.announce-link:hover { text-decoration: underline; }
+@media (max-width: 600px) { .announce-more { display: none; } .announce-inner { gap: 4px 10px; padding-top: 7px; padding-bottom: 7px; } }
+
 /* Header */
 .site-header {
   position: sticky; top: 0; z-index: 10;
