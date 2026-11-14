@@ -300,7 +300,7 @@
       // Visitors from the AI Workforce page are asking for a walkthrough, so say so and tag the request.
       var interests = {
         'ai-workforce': ['AI Workforce walkthrough', "You're booking an AI Workforce walkthrough. Tell us a little about your business, and we'll reply to set up a time."],
-        'marketing-dashboard': ['Marketing Plan Dashboard', "You're asking about the Marketing Plan Dashboard. Tell us a little about your business, and we'll reply to set up a time to show it to you."]
+        'dashboard': ['Business Dashboard', "You're asking about the Business Dashboard. Tell us a little about your business, and we'll reply to set up a time to show it to you."]
       };
       var interest = (location.search.match(/[?&]interest=([a-z-]+)/) || [])[1];
       if (interests[interest]) {
