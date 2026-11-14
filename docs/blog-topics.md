@@ -6,6 +6,7 @@ Keyword backlog and publishing log for the weekly post. See `blog-playbook.md` f
 
 | Date | Slug | Primary keyword |
 | --- | --- | --- |
+| 2026-11-14 | ai-employees (extra post launching the AI Workforce offer, outside the rotation; Semrush: "AI employees" 1,300/month) | AI employees |
 | 2026-11-12 | property-management-automation | property management automation |
 | 2026-11-09 | automation-audit | automation audit |
 | 2026-11-05 | automated-payment-reminders | automated payment reminders |
