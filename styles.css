@@ -643,3 +643,18 @@ a.card:hover { border-color: var(--brand); box-shadow: var(--shadow); transform:
 .aiw-shot figcaption { margin-top: 12px; font-size: 0.9rem; color: var(--ink-soft); text-align: center; }
 .section-lead + .aiw-shot { margin-top: 8px; margin-bottom: 40px; }
 @media (max-width: 800px) { .aiw-shot img { border-radius: 10px; } }
+.aiw-benefits { list-style: none; padding: 0; margin: 24px 0 8px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.aiw-benefits li { background: var(--bg-alt); border-radius: var(--radius); padding: 16px 18px; border-top: 4px solid var(--accent); color: var(--ink-soft); font-size: 0.95rem; }
+.aiw-benefits b { display: block; color: var(--ink); font-size: 1.05rem; margin-bottom: 4px; }
+.aiw-pillar { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 32px 0; border-top: 1px solid var(--line); }
+.aiw-pillar-num { width: 48px; height: 48px; border-radius: 50%; background: var(--ink); color: var(--accent); font-weight: 800; font-size: 1.3rem; display: flex; align-items: center; justify-content: center; margin: 0; }
+.aiw-pillar h3 { font-size: 1.5rem; margin-bottom: 6px; }
+.aiw-pillar .aiw-stats { margin: 20px 0; }
+@media (max-width: 800px) {
+  .aiw-benefits { grid-template-columns: 1fr; }
+  .aiw-pillar { grid-template-columns: 1fr; gap: 10px; }
+}
+.aiw-dept-table-head { margin: 40px 0 14px; }
+.aiw-benefit-table td:nth-child(2) { font-weight: 400; white-space: normal; }
+.aiw-benefit-table td:first-child { font-weight: 700; white-space: nowrap; }
+.aiw-table-note { color: var(--ink-soft); font-size: 0.9rem; margin-top: 10px; }
