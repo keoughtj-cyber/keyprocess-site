@@ -694,3 +694,33 @@ a.card:hover { border-color: var(--brand); box-shadow: var(--shadow); transform:
 @media (max-width: 480px) {
   .aiw-price { font-size: 1.6rem; }
 }
+
+/* Marketing Plan Dashboard sample (AI Workforce page) */
+.mpd-mock { background: var(--ink); color: #e9eef8; border-radius: var(--radius); padding: 18px; margin: 8px 0 6px; box-shadow: 0 10px 30px rgba(20,33,61,.18); }
+.mpd-mock-bar { display: flex; justify-content: space-between; align-items: center; font-weight: 700; margin-bottom: 14px; }
+.mpd-mock-tag { background: var(--accent); color: var(--ink); font-size: .75rem; letter-spacing: .04em; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; }
+.mpd-kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 12px; }
+.mpd-kpi, .mpd-panel { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: 10px; padding: 12px 14px; }
+.mpd-kpi p, .mpd-panel p { margin: 0; }
+.mpd-kpi-label { font-size: .8rem; color: #b9c3d6; }
+.mpd-kpi-num { font-size: 1.5rem; font-weight: 800; color: #fff; }
+.mpd-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.mpd-panel-head { font-weight: 700; margin-bottom: 8px !important; color: var(--accent); }
+.mpd-plan, .mpd-sources { list-style: none; margin: 0; padding: 0; font-size: .9rem; }
+.mpd-plan li, .mpd-sources li { display: flex; align-items: center; gap: 8px; padding: 6px 0; border-top: 1px solid rgba(255,255,255,.08); }
+.mpd-plan li:first-child, .mpd-sources li:first-child { border-top: 0; }
+.mpd-day { width: 34px; color: #b9c3d6; flex: none; }
+.mpd-chip { margin-left: auto; font-size: .72rem; padding: 2px 8px; border-radius: 999px; background: rgba(255,255,255,.14); white-space: nowrap; }
+.mpd-chip-wait { background: var(--accent); color: var(--ink); font-weight: 700; }
+.mpd-chip-off { text-decoration: line-through; opacity: .7; }
+.mpd-sources li > span:first-child { width: 42%; flex: none; }
+.mpd-bar { flex: 1; height: 8px; background: rgba(255,255,255,.1); border-radius: 4px; overflow: hidden; }
+.mpd-bar i { display: block; height: 100%; background: var(--accent); }
+.mpd-blur { filter: blur(4px); user-select: none; width: 48px; text-align: right; }
+.mpd-mock-note { font-size: .88rem; color: var(--ink-soft); margin: 0 0 28px; }
+.mpd-buy { margin-top: 8px; }
+@media (max-width: 760px) {
+  .mpd-kpis, .mpd-cols { grid-template-columns: 1fr 1fr; }
+  .mpd-cols { grid-template-columns: 1fr; }
+  .mpd-kpi-num { font-size: 1.2rem; }
+}
