@@ -658,3 +658,15 @@ a.card:hover { border-color: var(--brand); box-shadow: var(--shadow); transform:
 .aiw-benefit-table td:nth-child(2) { font-weight: 400; white-space: normal; }
 .aiw-benefit-table td:first-child { font-weight: 700; white-space: nowrap; }
 .aiw-table-note { color: var(--ink-soft); font-size: 0.9rem; margin-top: 10px; }
+.aiw-founding { max-width: 780px; margin: 0 auto 32px; background: var(--ink); color: #e9eef8; border-radius: var(--radius); padding: 16px 22px; text-align: center; border-left: 4px solid var(--accent); }
+.aiw-founding p { margin: 0; }
+.aiw-founding b { color: var(--accent); }
+.aiw-price-head { margin: 32px 0 4px; }
+.aiw-price-sub { color: var(--ink-soft); margin: 0 0 16px; }
+.aiw-price { font-size: 2rem; font-weight: 800; color: var(--ink); margin: auto 0 2px !important; padding-top: 12px; border-top: 1px solid var(--line); }
+.aiw-price small { font-size: 1rem; font-weight: 700; color: var(--ink-soft); }
+.aiw-price-founding { color: var(--gold-text) !important; font-weight: 700; font-size: 0.92rem; margin: 0 !important; }
+.aiw-hero-offer { margin: 18px 0 0; font-size: 0.95rem; color: var(--ink-soft); }
+.aiw-hero-offer b { color: var(--gold-text); }
+.aiw-band .aiw-hero-offer { color: #cbd5e1; }
+.aiw-band .aiw-hero-offer b { color: var(--accent); }
