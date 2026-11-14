@@ -12,6 +12,7 @@
 ## Main pages
 
 - [Home](https://www.keyprocessautomation.com/): services, savings calculator, pricing, guarantee, and FAQ
+- [AI Workforce](https://www.keyprocessautomation.com/ai-workforce): a done-for-you team of AI employees for any department (sales, customer service, operations, finance, HR, marketing, and leadership). Each AI employee has a desk, a job description, a task list, connections to the business's tools, and a scorecard showing cost and return, and nothing customer-facing goes out without an owner's approval. Three packages (Pilot Desk, Department Team, Full Office), each with a one-time setup fee and a monthly plan.
 - [Case studies](https://www.keyprocessautomation.com/results): real automations and the time they save
 - [Live automation demo](https://www.keyprocessautomation.com/automation-hub): pick a task, press Run, and watch each automated step happen
 - [Free automation audit](https://www.keyprocessautomation.com/audit): request an audit
@@ -34,6 +35,7 @@
 - What is AI automation? Automation that uses artificial intelligence for the steps that need language, while rules handle the steps that must be exact.
 - Who is it for? Businesses of 3 people or 300 in any industry, anywhere in the United States. Work is done remotely.
 - How much does it cost? From $1,000 for one automated process, from $3,000 for 3 to 5 connected automations, and from $500 a month for Automation Care. Every project starts with a free 30-minute audit and a fixed quote.
+- What is the AI Workforce? A team of AI employees, each with one job, a desk, a written job description, and a scorecard, built for any department. Work is approved by named people before it goes out, ad spend is owner-only, and people decisions stay human. In its first four days with a DTC beverage brand's marketing team, it produced 147 finished deliverables and completed 102 of 120 tasks while the owners made 20 decisions; revenue impact needs at least a month to judge.
 - What results has it delivered? Lease approval packets cut from 2 hours to 10 minutes, 100 to 250 follow-ups sent every Monday hands-free, and one video posted to 5 platforms with captions written for each. See the case studies.
 
 ## Guides
