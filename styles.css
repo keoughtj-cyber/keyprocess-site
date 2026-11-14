@@ -51,7 +51,7 @@ section { padding: 88px 0; }
 .announce-link { color: var(--accent); font-weight: 700; text-decoration: none; white-space: nowrap; flex: none; }
 .announce-link:hover { text-decoration: underline; }
 @media (max-width: 900px) { .announce-more { display: none; } }
-@media (max-width: 600px) { .announce-text { display: none; } }
+@media (max-width: 600px) { .announce-inner { display: block; white-space: normal; padding-top: 6px; padding-bottom: 6px; font-size: 0.8rem; line-height: 1.35; } .announce-tag { display: inline-block; margin-right: 6px; vertical-align: 1px; } .announce-text { overflow: visible; } .announce-link { margin-left: 6px; } }
 
 /* Header */
 .site-header {
