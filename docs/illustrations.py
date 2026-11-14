@@ -87,6 +87,6 @@ card('questions-hero','Illustration of everyday tasks a small business can stop 
 card('property-management-automation','Illustration of real property management automation results: lease paperwork cut to 5 to 10 minutes, 100 to 250 work order follow-ups every Monday, about 8 hours of bookkeeping saved a month, and about 55 workdays saved a year',
  'Property management, on autopilot','Real results from property management teams','Real results',
  [('Lease paperwork, per lease','5-10 min',G),('Work order follow-ups each Monday','100-250','blue'),('Bookkeeping saved a month','~8 hrs',G),('Staff time saved a year','~55 days',G)])
-card('ai-workforce-results','Illustration of a real result from the first four days of an AI marketing team: 147 finished deliverables, 102 of 120 tasks done, 20 owner decisions, and 118 of 155 shop products found out of stock',
- 'AI marketing team, first 4 days','A DTC beverage brand (only 4 days of data)','Real result',
- [('Finished deliverables','147',G),('Tasks done','102 of 120',G),('Owner decisions','20','blue'),('Products found out of stock','118 of 155','amber')])
+card('ai-workforce-results','Illustration of real results from the first five days of an AI marketing team: 163 finished deliverables, up from 13 the five days before, 122 of 141 tasks done, 21 owner decisions, and revenue with a known source up from 72% to 80%',
+ 'AI marketing team, first 5 days','A DTC beverage brand, early results','Real result',
+ [('Finished deliverables (13 before)','163',G),('Tasks done','122 of 141',G),('Owner decisions','21','blue'),('Revenue with a known source','72% to 80%',G)])
