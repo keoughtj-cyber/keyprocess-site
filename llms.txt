@@ -38,6 +38,7 @@
 
 ## Guides
 
+- [What does an AI employee do? A department-by-department guide](https://www.keyprocessautomation.com/blog/ai-employees)
 - [Property management automation guide](https://www.keyprocessautomation.com/blog/property-management-automation)
 - [What is an automation audit?](https://www.keyprocessautomation.com/blog/automation-audit)
 - [Automated payment reminders: schedule and wording](https://www.keyprocessautomation.com/blog/automated-payment-reminders)
