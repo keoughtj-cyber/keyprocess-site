@@ -298,11 +298,16 @@
       var form = document.querySelector('.audit-form');
       form.elements.started.value = Date.now();
       // Visitors from the AI Workforce page are asking for a walkthrough, so say so and tag the request.
-      if (/[?&]interest=ai-workforce\b/.test(location.search)) {
-        form.elements['Interested in'].value = 'AI Workforce walkthrough';
+      var interests = {
+        'ai-workforce': ['AI Workforce walkthrough', "You're booking an AI Workforce walkthrough. Tell us a little about your business, and we'll reply to set up a time."],
+        'marketing-dashboard': ['Marketing Plan Dashboard', "You're asking about the Marketing Plan Dashboard. Tell us a little about your business, and we'll reply to set up a time to show it to you."]
+      };
+      var interest = (location.search.match(/[?&]interest=([a-z-]+)/) || [])[1];
+      if (interests[interest]) {
+        form.elements['Interested in'].value = interests[interest][0];
         var note = document.createElement('p');
         note.className = 'callout';
-        note.textContent = "You're booking an AI Workforce walkthrough. Tell us a little about your business, and we'll reply to set up a time.";
+        note.textContent = interests[interest][1];
         form.insertBefore(note, form.firstChild);
       }
       var steps = [].slice.call(form.querySelectorAll('.form-step')), submit = form.querySelector('.form-submit');
