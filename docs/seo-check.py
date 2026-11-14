@@ -120,6 +120,7 @@ for url, p in sorted(pages.items()):
         if href.startswith(("http:", "https:", "mailto:", "tel:")):
             continue
         path, _, frag = href.partition("#")
+        path = path.partition("?")[0]  # Query strings (like ?interest=) don't change the page.
         if path and not path.startswith("/"):
             say(f"relative link {href} (use a path starting with /)")
             continue
