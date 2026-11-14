@@ -159,8 +159,8 @@
 
   <main id="top">
     <section class="page-hero">
-      <div class="wrap page-hero-grid">
-        <div>
+      <div class="wrap">
+        <div class="aiw-hero-text">
           <p class="eyebrow">New: the AI Workforce</p>
           <h1>A team of AI employees for every department</h1>
           <p class="section-lead">Every business has more work than people. We build each of your departments its own staff of AI employees. Each one has a desk, a job description, a task list, the tools it needs, and a scorecard that shows what it delivered and what it cost. Nothing goes out to customers, and no money is spent, without a yes from you.</p>
@@ -169,20 +169,12 @@
             <a class="btn btn-ghost" href="#case-study">See the first results</a>
           </div>
         </div>
-        <div class="aiw-office" role="img" aria-label="Example AI Workforce office: desk cards for Email, Sales follow-up, Inbox triage, and Reporting with Working, Needs you, and Free statuses, and a Needs you list with Approve and Decline buttons">
-          <div class="aiw-office-head"><strong>Your office</strong><span>4 desks</span></div>
-          <div class="aiw-desks">
-            <div class="aiw-desk"><span class="aiw-status is-working">Working</span><b>Email desk</b><small>Drafting the weekly email</small></div>
-            <div class="aiw-desk"><span class="aiw-status is-needs">Needs you</span><b>Sales follow-up</b><small>3 follow-ups ready</small></div>
-            <div class="aiw-desk"><span class="aiw-status is-working">Working</span><b>Inbox triage</b><small>Sorting 12 new tickets</small></div>
-            <div class="aiw-desk"><span class="aiw-status is-free">Free</span><b>Reporting</b><small>Looking for work</small></div>
-          </div>
-          <div class="aiw-inbox">
-            <p class="aiw-inbox-title">Needs you</p>
-            <div class="aiw-item"><span>Follow-up to 3 stalled deals</span><span class="aiw-btns"><i class="aiw-yes">Approve</i><i class="aiw-no">Decline</i></span></div>
-            <div class="aiw-item"><span>Holiday email, due Friday</span><span class="aiw-btns"><i class="aiw-yes">Approve</i><i class="aiw-no">Decline</i></span></div>
-          </div>
-        </div>
+      </div>
+      <div class="wrap">
+        <figure class="aiw-shot">
+          <img src="/images/ai-workforce/01-floor-1600.webp" srcset="/images/ai-workforce/01-floor-1600.webp 1600w, /images/ai-workforce/01-floor-3200.webp 3200w" sizes="(max-width: 1120px) 100vw, 1080px" width="1600" height="1000" alt="Illustrated AI Workforce office floor for a demo home services company: AI employees at desks in Sales, Service, Operations, Finance, and Marketing, each marked Working, Needs you, or Coffee break, with the owner in a meeting" fetchpriority="high">
+          <figcaption>Demo company with sample data. Each AI employee sits at a desk with a status you can see at a glance.</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -199,6 +191,14 @@
           <div class="card"><h3>A scorecard on every desk</h3><p>What it delivered, like sales, leads booked, tickets closed, invoices collected, or hours saved, next to its "salary" and its return for every $1.</p></div>
           <div class="card"><h3>A team you manage</h3><p>Hire a desk when a need appears, retire one that isn't earning its keep, and let a partner or manager approve the work you've handed them.</p></div>
         </div>
+        <figure class="aiw-shot">
+          <img src="/images/ai-workforce/02-office-1600.webp" srcset="/images/ai-workforce/02-office-1600.webp 1600w, /images/ai-workforce/02-office-3200.webp 3200w" sizes="(max-width: 1120px) 100vw, 1080px" width="1600" height="851" alt="Team office page for a demo company: desk cards for the owner and ten AI employees across sales, service, operations, finance, marketing, and leadership, each with a status, current task, and scorecard chips" loading="lazy" decoding="async">
+          <figcaption>Demo company with sample data. The whole team on one page, with what each desk is doing and what it has delivered.</figcaption>
+        </figure>
+        <figure class="aiw-shot">
+          <img src="/images/ai-workforce/03-job-1600.webp" srcset="/images/ai-workforce/03-job-1600.webp 1600w, /images/ai-workforce/03-job-3200.webp 3200w" sizes="(max-width: 1120px) 100vw, 1080px" width="1600" height="721" alt="A demo AI employee's job description tab: purpose, what it owns, how it is measured, who it works with, its rules, and what is not its job, next to its connected tools and scorecard" loading="lazy" decoding="async">
+          <figcaption>Demo company with sample data. Every desk has a written job description it reads before it works.</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -207,6 +207,10 @@
         <p class="eyebrow">How it works</p>
         <h2>You hand out work. You make the calls.</h2>
         <p class="section-lead">Your day becomes a short list of approvals instead of a long list of tasks.</p>
+        <figure class="aiw-shot">
+          <img src="/images/ai-workforce/06-flow-1600.webp" srcset="/images/ai-workforce/06-flow-1600.webp 1600w, /images/ai-workforce/06-flow-3200.webp 3200w" sizes="(max-width: 1120px) 100vw, 1080px" width="1600" height="781" alt="Six steps from request to done: hand out work, the right desk picks it up, the work gets done, a second desk checks it, you approve, and it ships and gets measured" loading="lazy" decoding="async">
+          <figcaption>Demo company with sample data.</figcaption>
+        </figure>
         <div class="aiw-steps">
           <div class="aiw-step"><span class="step-num">1</span><h3>You hand out work</h3><p>Type it at a desk, say it out loud, or post it in your team chat. A message to the whole team gets split into tasks for each desk that should act on it.</p></div>
           <div class="aiw-step"><span class="step-num">2</span><h3>The desk does the work</h3><p>It does the research, writes the draft, updates the system, or runs the numbers, inside the tools you already use.</p></div>
@@ -218,11 +222,27 @@
       </div>
     </section>
 
+        <section id="connections">
+      <div class="wrap">
+        <p class="eyebrow">Connected to your tools</p>
+        <h2>Works where your work already lives</h2>
+        <p class="section-lead">If your team logs into it, your AI employees can probably work in it. We connect each desk to what its job needs during setup, and your logins stay in your own accounts.</p>
+        <figure class="aiw-shot">
+          <img src="/images/ai-workforce/07-connections-1600.webp" srcset="/images/ai-workforce/07-connections-1600.webp 1600w, /images/ai-workforce/07-connections-3200.webp 3200w" sizes="(max-width: 1120px) 100vw, 1080px" width="1600" height="1001" alt="The AI Workforce connects to CRM and sales tools, email and calendar, accounting, your online store and website, help desk, files and spreadsheets, team chat and project boards, and marketing and ads" loading="lazy" decoding="async">
+          <figcaption>In the first build, we connected 16 systems, including two online stores, a website, an email platform, analytics, ad accounts, a social scheduler, team chat, and spreadsheets.</figcaption>
+        </figure>
+      </div>
+    </section>
+
     <section id="departments">
       <div class="wrap">
         <p class="eyebrow">Any department, any business</p>
         <h2>Sample desks by department</h2>
         <p class="section-lead">We design the desks around your departments. Start with one and add more. These are examples, not a fixed menu: desks are hired and retired as your needs change.</p>
+        <figure class="aiw-shot">
+          <img src="/images/ai-workforce/08-departments-1600.webp" srcset="/images/ai-workforce/08-departments-1600.webp 1600w, /images/ai-workforce/08-departments-3200.webp 3200w" sizes="(max-width: 1120px) 100vw, 1080px" width="1600" height="721" alt="Sample desks for six departments: marketing (proven), sales, customer service, operations, finance and admin, and people and leadership, each with its scorecard measures" loading="lazy" decoding="async">
+          <figcaption>Sample desks. We design yours in a discovery session.</figcaption>
+        </figure>
         <div class="grid grid-3">
           <div class="card aiw-dept"><span class="tag">Proven first</span><h3>Marketing</h3><p class="aiw-desk-list">Email, Social, Ads, Website and SEO, Copywriter, and Creative desks</p><p>Campaigns, posts, ad reviews, pages, blogs, and creative.</p><p class="aiw-score"><b>Scorecard:</b> sales per channel and return per $1</p></div>
           <div class="card aiw-dept"><h3>Sales</h3><p class="aiw-desk-list">Lead Qualifier, Follow-up Manager, and Proposal Writer desks</p><p>Research leads, draft follow-ups, build proposals, and flag stalled deals.</p><p class="aiw-score"><b>Scorecard:</b> meetings booked and deals won</p></div>
@@ -243,6 +263,10 @@
         <p class="eyebrow">Approvals and guardrails</p>
         <h2>"Will it do things I didn't OK?" No.</h2>
         <p class="section-lead">It's the first question every owner asks, so these rules are built in from day one.</p>
+        <figure class="aiw-shot">
+          <img src="/images/ai-workforce/04-approvals-1600.webp" srcset="/images/ai-workforce/04-approvals-1600.webp 1600w, /images/ai-workforce/04-approvals-3200.webp 3200w" sizes="(max-width: 1120px) 100vw, 1080px" width="1600" height="928" alt="The Needs you approvals list for a demo company: a customer email, a parts order, and new leads each waiting with the real file shown and Approve, Decline, and Answer buttons, plus one item a partner already approved" loading="lazy" decoding="async">
+          <figcaption>Demo company with sample data. Anything customer-facing or money-related waits here, with the real file in front of you.</figcaption>
+        </figure>
         <div class="grid grid-2">
           <ul class="ticks">
             <li><b>Nothing customer-facing goes out without approval.</b> Emails, social posts, ads, promotions, and public website copy all wait for your yes.</li>
@@ -258,6 +282,18 @@
             <li><b>Private data stays private.</b> Scorecards show order numbers and totals, never customer names, emails, or addresses. Logins stay in your own accounts.</li>
           </ul>
         </div>
+      </div>
+    </section>
+
+    <section class="alt" id="scorecards">
+      <div class="wrap">
+        <p class="eyebrow">A scorecard on every desk</p>
+        <h2>Judge AI staff the way you'd judge a hire</h2>
+        <p class="section-lead">Every desk shows what it delivered, what it costs each month, and what comes back for every $1. Scorecards refresh several times a day from your own data, so you can see which desks earn their keep.</p>
+        <figure class="aiw-shot">
+          <img src="/images/ai-workforce/05-scorecard-1600.webp" srcset="/images/ai-workforce/05-scorecard-1600.webp 1600w, /images/ai-workforce/05-scorecard-3200.webp 3200w" sizes="(max-width: 1120px) 100vw, 1080px" width="1600" height="847" alt="Scorecards for a demo company: work finished, owner decisions, team cost, and hours handed off, with each desk listed by what it delivered, its monthly salary, and its return per $1" loading="lazy" decoding="async">
+          <figcaption>Demo company with sample data. Your scorecards are built from your own numbers.</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -296,6 +332,11 @@
         <h2>A DTC beverage brand's first four days with an AI workforce</h2>
         <p class="section-lead">A small direct-to-consumer beverage company with three product lines, two websites, an email list of about 5,000, paid ads, and daily social posts. Two co-owners ran it with no marketing staff. One owner handled all the marketing, spend was judged by feel, and about a third of orders couldn't be traced to any channel.</p>
         <p>We built a marketing office of 13 AI desks plus two owner desks, covering email, social, ads, website and SEO, creative, copywriting, a lead for each product line, retention, attribution, and a general manager. We connected 16 of the business's systems, and the co-owner sends ideas and approves work from a private team chat channel.</p>
+
+        <figure class="aiw-shot">
+          <img src="/images/ai-workforce/09-proof-1600.webp" srcset="/images/ai-workforce/09-proof-1600.webp 1600w, /images/ai-workforce/09-proof-3200.webp 3200w" sizes="(max-width: 1120px) 100vw, 1080px" width="1600" height="821" alt="First four days for a DTC beverage brand: 147 finished deliverables, 102 of 120 tasks done, 20 owner decisions, 118 of 155 products found out of stock, and return per $1 of about $14 for email, $2.20 for search ads, and $0.85 for social ads" loading="lazy" decoding="async">
+          <figcaption>Real results from the first four days. Revenue impact needs at least a month to judge.</figcaption>
+        </figure>
 
         <div class="aiw-stats">
           <div class="aiw-stat"><div class="big-num">147</div><p>finished pieces of work</p></div>
@@ -373,7 +414,7 @@
     <section id="contact" class="cta">
       <div class="wrap">
         <h2>See the office working</h2>
-        <p>Book a free 30-minute walkthrough. We'll show the office running on a demo company: give a desk a task, watch it get picked up, approve it, and see it go live. Then we'll sketch which desks your departments would get first.</p>
+        <p>Book a free one-hour walkthrough. We'll show the office running on a demo company: give a desk a task, watch it get picked up, approve it, and see it go live. Then we'll sketch which desks your departments would get first.</p>
         <a class="btn btn-light" href="/audit?interest=ai-workforce">Book a walkthrough</a>
         <p class="contact-alt">Or email <a href="mailto:tyler@keyprocessautomation.com?subject=AI%20Workforce%20walkthrough">tyler@keyprocessautomation.com</a></p>
       </div>
