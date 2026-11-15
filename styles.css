@@ -718,7 +718,8 @@ a.card:hover { border-color: var(--brand); box-shadow: var(--shadow); transform:
 .mpd-bar i { display: block; height: 100%; background: var(--accent); }
 .mpd-blur { filter: blur(4px); user-select: none; width: 48px; text-align: right; }
 .mpd-mock-note { font-size: .88rem; color: var(--ink-soft); margin: 0 0 28px; }
-.mpd-buy { margin-top: 8px; }
+.mpd-buy { margin: 8px auto 0; max-width: 680px; }
+.mpd-buy .ticks { margin: 4px 0 20px; }
 @media (max-width: 760px) {
   .mpd-kpis, .mpd-cols { grid-template-columns: 1fr 1fr; }
   .mpd-cols { grid-template-columns: 1fr; }
