@@ -6,8 +6,17 @@
     <atom:link href="https://www.keyprocessautomation.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Practical guides on business process automation: what to automate first, what it costs, and how businesses win back hours every week.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 14 Nov 2026 12:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 16 Nov 2026 12:00:00 GMT</lastBuildDate>
     <!-- ITEMS: newest first. Add new items directly below this line. -->
+    <item>
+      <title>How much does it cost to hire an employee? The true cost, and when automation costs less</title>
+      <link>https://www.keyprocessautomation.com/blog/cost-of-hiring-an-employee</link>
+      <guid>https://www.keyprocessautomation.com/blog/cost-of-hiring-an-employee</guid>
+      <enclosure url="https://www.keyprocessautomation.com/blog/images/cost-of-hiring-an-employee.jpg" length="79601" type="image/jpeg"/>
+      <media:content url="https://www.keyprocessautomation.com/blog/images/cost-of-hiring-an-employee.jpg" medium="image" type="image/jpeg" width="1200" height="630"/>
+      <pubDate>Mon, 16 Nov 2026 12:00:00 GMT</pubDate>
+      <description>How much does it cost to hire an employee? See the true cost of a new hire, with taxes, benefits, and hidden costs, and when automation costs less.</description>
+    </item>
     <item>
       <title>What does an AI employee do? A department-by-department guide with real results</title>
       <link>https://www.keyprocessautomation.com/blog/ai-employees</link>

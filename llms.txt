@@ -16,7 +16,7 @@
 - [Case studies](https://www.keyprocessautomation.com/results): real automations and the time they save
 - [Live automation demo](https://www.keyprocessautomation.com/automation-hub): pick a task, press Run, and watch each automated step happen
 - [Free automation audit](https://www.keyprocessautomation.com/audit): request an audit
-- [Small business automation questions, answered](https://www.keyprocessautomation.com/small-business-automation): 24 plain-English answers on what automation is, what to automate (data entry, invoices, reports, follow-ups, onboarding, customer service), cost, time saved, and getting help
+- [Small business automation questions, answered](https://www.keyprocessautomation.com/small-business-automation): 25 plain-English answers on what automation is, what to automate (data entry, invoices, reports, follow-ups, onboarding, customer service), cost, time saved, and getting help
 
 ## Services
 
@@ -40,6 +40,7 @@
 
 ## Guides
 
+- [How much does it cost to hire an employee? The true cost vs automation](https://www.keyprocessautomation.com/blog/cost-of-hiring-an-employee)
 - [What does an AI employee do? A department-by-department guide](https://www.keyprocessautomation.com/blog/ai-employees)
 - [Property management automation guide](https://www.keyprocessautomation.com/blog/property-management-automation)
 - [What is an automation audit?](https://www.keyprocessautomation.com/blog/automation-audit)

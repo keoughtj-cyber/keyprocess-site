@@ -6,6 +6,7 @@ Keyword backlog and publishing log for the weekly post. See `blog-playbook.md` f
 
 | Date | Slug | Primary keyword |
 | --- | --- | --- |
+| 2026-11-16 | cost-of-hiring-an-employee (Semrush: "cost of hiring an employee" 140/month, KD 54; "how much does it cost to hire an employee" 110, KD 37) | cost of hiring an employee |
 | 2026-11-14 | ai-employees (extra post launching the AI Workforce offer, outside the rotation; Semrush: "AI employees" 1,300/month) | AI employees |
 | 2026-11-12 | property-management-automation | property management automation |
 | 2026-11-09 | automation-audit | automation audit |
@@ -31,12 +32,14 @@ Keyword backlog and publishing log for the weekly post. See `blog-playbook.md` f
 6. ~~Mon 2026-11-09: automation audit (pillar 4)~~ published. Semrush: 70/month, KD 26, $13.79 CPC.
 7. ~~Thu 2026-11-12: property management automation pillar guide (pillar 3)~~ published, as the Nov 9 SEO audit recommended. Semrush: 320/month, KD 17; "property management workflow automation" 260, KD 13.
 
+8. ~~Mon 2026-11-16: cost of hiring an employee vs automation (pillar 1)~~ published.
+
 After that, keep rotating 2, 4, 3, 1 and pick the strongest topic in each pillar.
 
 ### 1. Costs and payback
 
 - ~~how to calculate automation ROI~~ published 2026-11-02
-- automation vs hiring another admin (cost comparison)
+- ~~automation vs hiring another admin (cost comparison)~~ published 2026-11-16 as cost-of-hiring-an-employee ("automation vs hiring" has no search volume, so it targets the hiring-cost searches)
 - is a monthly automation plan worth it
 
 ### 2. What to automate
