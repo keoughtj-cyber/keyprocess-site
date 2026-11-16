@@ -20,6 +20,10 @@ export default {
       if (request.method !== "POST") return new Response("Method not allowed", { status: 405, headers: { allow: "POST", ...SECURITY_HEADERS } });
       return handleAudit(request, env);
     }
+    if (url.pathname === "/api/subscribe") {
+      if (request.method !== "POST") return new Response("Method not allowed", { status: 405, headers: { allow: "POST", ...SECURITY_HEADERS } });
+      return handleSubscribe(request, env);
+    }
     return env.ASSETS.fetch(request);
   },
 };
@@ -79,6 +83,43 @@ async function handleAudit(request, env) {
     return errorPage(500);
   }
   return redirect(request, "/audit-thanks");
+}
+
+// Email signups go to Tyler's inbox; Reed counts them for the list.
+async function handleSubscribe(request, env) {
+  const size = Number(request.headers.get("content-length") || 0);
+  if (size > 5000) return errorPage(413);
+  let form;
+  try {
+    form = await request.formData();
+  } catch {
+    return errorPage(400);
+  }
+  if (form.get("website_url")) return redirect(request, "/subscribed");
+  const email = clean(form.get("email"));
+  const page = clean(form.get("page")).replace(/[^\w\/-]/g, "").slice(0, 100) || "unknown";
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return errorPage(400);
+  const body = `New email signup from keyprocessautomation.com\n\nEmail:\n${email}\n\nSigned up on:\n${page}\n\nThey asked for one automation idea every two weeks.\n`;
+  const raw = [
+    `From: KeyProcess Website <${FROM}>`,
+    `To: ${TO}`,
+    `Reply-To: ${email}`,
+    `Subject: ${encodeHeader("Email signup: " + page)}`,
+    `Date: ${new Date().toUTCString()}`,
+    `Message-ID: <${crypto.randomUUID()}@keyprocessautomation.com>`,
+    "MIME-Version: 1.0",
+    "Content-Type: text/plain; charset=utf-8",
+    "Content-Transfer-Encoding: base64",
+    "",
+    toBase64(body).replace(/.{76}/g, "$&\r\n"),
+  ].join("\r\n");
+  try {
+    await env.AUDIT_EMAIL.send(new EmailMessage(FROM, TO, raw));
+  } catch (err) {
+    console.error("Signup email failed", err);
+    return errorPage(500);
+  }
+  return redirect(request, "/subscribed");
 }
 
 function redirect(request, path) {

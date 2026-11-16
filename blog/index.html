@@ -258,6 +258,22 @@
       </div>
     </section>
 
+    <section class="signup" aria-labelledby="signup-h">
+      <div class="wrap signup-inner">
+        <div>
+          <h2 id="signup-h">One automation idea every two weeks</h2>
+          <p>Short, practical, and written for busy owners and managers. Unsubscribe anytime, and we never share your email.</p>
+        </div>
+        <form class="signup-form" action="/api/subscribe" method="post">
+          <label class="sr-only" for="signup-email">Email address</label>
+          <input id="signup-email" type="email" name="email" required autocomplete="email" placeholder="you@company.com">
+          <input type="hidden" name="page" value="/blog/">
+          <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="website_url" tabindex="-1" autocomplete="off"></label></div>
+          <button class="btn" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
     <section id="contact" class="cta">
       <div class="wrap">
         <h2>Rather talk it through?</h2>
