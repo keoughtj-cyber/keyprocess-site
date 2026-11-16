@@ -72,7 +72,7 @@ Thursday posts are AI Workforce posts, taken from the "AI Workforce posts" list 
 - 4 to 6 FAQ questions at the bottom, mirrored exactly in `FAQPage` JSON-LD.
 - Byline in the `post-meta` line: "By Tyler, Founder of KeyProcess Automation Services" (until Tyler gives his full name). In the BlogPosting JSON-LD, `author` is a `Person` named "Tyler" with `jobTitle` "Founder" and `worksFor` the organization, and `dateModified` is set.
 - Before the FAQ, a short author bio in a `callout`: Tyler founded KeyProcess Automation Services and has built dozens of automations for property management and e-commerce teams, with a link to `/results`.
-- End with the CTA section pointing to `/audit`.
+- End with the email signup section (`<section class="signup">`, copied from the template; set its hidden `page` field to the post path) and then the CTA section pointing to `/audit`.
 - Slug: short, lowercase, hyphenated, keyword-based, no dates (example: `business-automation-cost`).
 
 ## Files to touch
@@ -93,7 +93,7 @@ Posts live at `blog/<slug>.html`. The one exception is the older guide at `/prop
 
 - Exactly one `<h1>`, and headings never skip a level (an H2 comes before any H3).
 - A self-referencing canonical: `https://www.keyprocessautomation.com/<path>` with no `.html` and no trailing slash (except `/blog/`).
-- Never add `noindex` to a public page. Only `/audit-thanks` and `/404` carry it.
+- Never add `noindex` to a public page. Only `/audit-thanks`, `/subscribed`, and `/404` carry it.
 - Every `<img>` has descriptive `alt` text plus `width` and `height`. Images below the first screen get `loading="lazy" decoding="async"`; photos or screenshots ship as WebP (keep a JPG only where social posts or the feed need one).
 - All internal links and asset paths start with `/` (`/styles.css`, `/results`), never relative and never ending in `.html`.
 - No third-party scripts, fonts, or embeds. The site's security headers (`_headers`) block them; if one is ever truly needed, update the Content-Security-Policy there in the same pull request.
